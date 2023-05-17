@@ -13,6 +13,7 @@ export const UserMarker = () => {
             map.flyTo(e.latlng, map.getZoom())
         },
     })
+    
 
     useEffect(() => {
         map.locate();

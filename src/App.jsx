@@ -1,16 +1,34 @@
-import { AppRouters } from "./Routers/AppRouters"
+import { PublicRoutes, AppRouters } from "./Routers/";
+
 
 function App() {
- 
+
 
   return (
-    
+
     <>
 
-      <AppRouters />
-     
+      <header>
+
+      </header>
+
+      <main>
+
+        <PublicRoutes />
+
+        <AppRouters />
+      </main>
+
+      <footer>
+
+      </footer>
+
+
+
+
     </>
-  )
-}
+
+  );
+};
 
 export default App

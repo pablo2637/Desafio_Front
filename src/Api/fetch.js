@@ -18,7 +18,7 @@ export const masterFetch = async (url, method, body = {}) => {
      */
     let options = {};
 
-    console.log('esta es la url que llega al fetch', url)
+    console.log('url', url, 'method', method, 'body', body,)
 
     const data = { ...body }
 
@@ -46,9 +46,9 @@ export const masterFetch = async (url, method, body = {}) => {
         console.log('esto es RESP en Fetch', resp)
 
         return resp;
-        
+
     } catch (error) {
-        
+
         console.log('FAILED while fetching', error)
     }
 }

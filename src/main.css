@@ -27,4 +27,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
 /*! +++++++++++++++ */
+
+.leaflet-container
+{
+    width: 350px;
+    height: 350px;
+}
+
+/*! +++++++++++++++ */
+

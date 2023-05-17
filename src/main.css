@@ -1,33 +1,36 @@
 /** STYLES 4 ALL */
-*
-{
+
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-.centerDiv
-{
-
+.centerDiv {
+    
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.leaflet-container
-{
-    width: 350px;
-    height: 350px;
 }
 
 
 /* ===================================
                             KEYFRAMES
 ======================================*/
+
+
 /*! ===================================
                     TAILWIND IMPORTS
 ======================================*/
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 /*! +++++++++++++++ */
+
+.leaflet-container
+{
+    width: 350px;
+    height: 350px;
+}

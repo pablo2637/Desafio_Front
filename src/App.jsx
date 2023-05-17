@@ -1,10 +1,13 @@
-import { PublicRoutes } from "./Routers/";
+import { PublicRoutes, AppRouters } from "./Routers/";
+
 
 function App() {
 
 
   return (
+
     <>
+
       <header>
 
       </header>
@@ -12,11 +15,17 @@ function App() {
       <main>
 
         <PublicRoutes />
+
+        <AppRouters />
       </main>
 
       <footer>
 
       </footer>
+
+
+
+
     </>
 
   );

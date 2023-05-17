@@ -1,4 +1,4 @@
-const urlBase = 'http://localhost:4000'
+const urlBase = 'http://localhost:4000/'
 
 /** DOCS
  * 

@@ -14,6 +14,8 @@ export const userSlice = createSlice({
     reducers: {
 
         onLogin: (state, action) => {
+
+            console.log('esto es action', action)
             
             state.user = action.payload,
             state.errorMessage = {},
@@ -30,12 +32,12 @@ export const userSlice = createSlice({
         onRegister: (state,action) => {
 
             state.user = action.payload;
-            state.errorMessage = {}
+            state.errorMessage = {},
+            state.status = 'authenticated'
         },
 
         onError: (state,action) => {
 
-            console.log('esto es action', action)
             state.user = {};
             state.errorMessage = action.payload
         }

@@ -1,6 +1,7 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { Home } from '../Public/Pages';
 import { RegisterPage } from '../Auth/Pages';
+import { LoginPage } from '../Auth/Pages/LoginPage';
 
 
 export const PublicRoutes = () => {
@@ -17,6 +18,11 @@ export const PublicRoutes = () => {
                 <Route
                     path='register'
                     element={<RegisterPage />}
+                />
+
+                <Route
+                    path='login'
+                    element={<LoginPage />}
                 />
 
                 <Route path='/*' element={<Navigate to={'/'} />} />

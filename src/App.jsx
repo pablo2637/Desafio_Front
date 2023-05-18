@@ -18,15 +18,11 @@ function App() {
 
         <PublicRoutes />
 
-
       </main>
 
       <footer>
 
       </footer>
-
-
-
 
     </>
 

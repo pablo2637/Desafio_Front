@@ -1,22 +1,26 @@
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { Icon, Tooltip } from 'leaflet'
 import { useEffect, useState } from 'react';
-import { UserMarker } from './';
+import { Info, UserMarker } from './';
+import { useSelector } from 'react-redux';
+import { useMap } from '../Hooks/useMap';
 
 export const Map = () => {
 
-    const position = [52.51, 13.38]
-    const disneyWorldLatLng = [28.3852, -81.5639];
+    const {
+        getMarkers
+    } = useMap();
 
-    // const customIcon = new Icon({
-    //     iconUrl: "/icons8-select-24.png",
-    //     iconSize: [33, 33]
-    // })
+    const position = [40.421681695200895, -3.6926713030745186]
+
+    const { places, isLoading } = useSelector((state) => state.places);
+    const [distance, setDistance] = useState(undefined);
+
+
 
 
     useEffect(() => {
-    
+        getMarkers();
 
     }, []);
 
@@ -24,34 +28,60 @@ export const Map = () => {
 
     return (
 
-        <div className="map" id="map"  >
-            <MapContainer center={position} zoom={6} scrollWheelZoom={true}>
-                <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
+        <section className='secMap'>
 
-                <Marker position={position}>
-                    <Popup>
-                        ???
-                    </Popup>
-                </Marker>
+            <div className='divMapSearch'>
+                <form >
+                    <input
+                        type="text"
+                        placeholder='Busca un lugar para reciclar...'
+                    />
 
-                <Marker position={disneyWorldLatLng} >
-                    <Popup>
-                        ???
-                    </Popup>
-                </Marker>
+                </form>
+            </div>
 
-                <Marker position={[51.505, -0.09]}>
-                    <Popup>
-                        A pretty CSS3 popup. <br /> Easily customizable.
-                    </Popup>
-                </Marker>
 
-                <UserMarker />
+            <div className="map" id="map" >
 
-            </MapContainer>
-        </div>
+                <MapContainer center={position} zoom={6} scrollWheelZoom={true}>
+                    <TileLayer
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+
+                    {
+                        (places) &&
+                        places.map(place =>
+                            <Marker key={place.place_id} position={place.coords}>
+                                <Popup className='popup' >
+                                    <Info {...place} />
+                                </Popup>
+                            </Marker>
+
+                        )
+                    }
+
+                    <Marker position={position}>
+                        <Popup>
+
+                            <span>The Bridge</span>
+                        </Popup>
+                    </Marker>
+
+                    <UserMarker />
+
+                    {
+                        (isLoading) &&
+                        <div className="mapSpinner animate-spin inline-block w-10 h-10 border-[3px] border-current border-t-transparent text-pink-600 rounded-full" role="status" aria-label="loading">
+                            <span className="sr-only">Loading...</span>
+                        </div>
+                    }
+
+                </MapContainer>
+
+
+            </div>
+
+        </section>
     );
 };

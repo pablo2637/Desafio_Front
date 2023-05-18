@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import {useNavigate} from 'react-router-dom'
 import { masterFetch } from "../../Api/fetch";
-import { onError, onRegister } from "../../Store/Slices/userSlice";
+import { onError, onLogin, onRegister } from "../../Store/Slices/userSlice";
 
 export const useUserStore = () => {
 
@@ -10,6 +10,40 @@ export const useUserStore = () => {
     const dispatch = useDispatch();
 
     const navigate = useNavigate();
+
+    const loginStart = async (form) => {
+
+        try {
+            
+            const petition = await masterFetch('api/users/login', 'POST', form)
+
+            if(petition.ok == false) {
+
+                console.log('esto es petition.msg', petition.msg)
+
+                dispatch(onError(petition.msg))
+
+                setTimeout(() => {
+
+                    dispatch(onError(''))
+                }, 6000)
+
+            }   else {
+
+                const user = petition.data[0]
+        
+                dispatch(onLogin(user))
+
+                navigate("/");
+            }
+
+            
+    
+        } catch (error) {
+            
+            console.log('FAILED loginStart:', error)
+        }
+    }
 
     const registerStart = async (form) => {
 
@@ -30,7 +64,7 @@ export const useUserStore = () => {
 
                 dispatch(onRegister(petition.data))
 
-                navigate('/register')
+                navigate('/')
             }
 
         } catch (error) {
@@ -43,6 +77,7 @@ export const useUserStore = () => {
 
     user,
     errorMessage,
+    loginStart,
     registerStart
   }
 }

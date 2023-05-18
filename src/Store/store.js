@@ -1,14 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { userSlice } from './Slices/userSlice';
-import { generatorSlice } from './Slices/generatorSlice';
+import { placesSlice } from './Slices/placesSlice';
+
 
 export const store = configureStore({
 
-    reducer: {
+  reducer: {
+    
+    user: userSlice.reducer,
+    places: placesSlice.reducer
 
-      user: userSlice.reducer,
+  }
 
-        
-    }
-
-  });
+});

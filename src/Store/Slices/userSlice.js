@@ -23,8 +23,6 @@ export const userSlice = createSlice({
 
     },
 
-
-
     reducers: {
 
         onLogin: (state, action) => {
@@ -73,6 +71,6 @@ export const userSlice = createSlice({
 })
 
 
-export const { onLogin, onLogout, onLoadCoords ,onRegister, onError, onsetFormData,onsetQRValue } = userSlice.actions;
+export const { onLogin, onLogout, onLoadCoords ,onRegister, onError, onsetFormData, onsetQRValue } = userSlice.actions;
 
 

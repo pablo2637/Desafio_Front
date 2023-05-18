@@ -5,6 +5,7 @@ export const placesSlice = createSlice({
     name: 'places',
 
     initialState: {
+
         places: [],        
         isLoading: false,
         errorMessage: undefined
@@ -29,8 +30,16 @@ export const placesSlice = createSlice({
             state.places = [];
             state.errorMessage = payload;
             state.isLoading = false;
+        },
+
+        onPlaceRegister: (state, {payload}) => {
+
+            console.log('esto es payload en reducer:', payload)
+            state.places = payload,
+            state.errorMessage = [],
+            state.isLoading = true
         }
     }
 })
 
-export const { onLoad, onError, onIsLoading } = placesSlice.actions;
+export const { onLoad, onError, onIsLoading, onPlaceRegister } = placesSlice.actions;

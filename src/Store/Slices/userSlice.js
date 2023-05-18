@@ -30,7 +30,7 @@ export const userSlice = createSlice({
         onLogin: (state, action) => {
 
             state.user = action.payload,
-                state.errorMessage = {},
+                state.errorMessage = [],
                 state.status = 'authenticated'
         },
 
@@ -42,14 +42,14 @@ export const userSlice = createSlice({
         onLogout: (state, action) => {
 
             state.user = {};
-            state.errorMessage = action.payload;
+            state.errorMessage = [];
             state.status = 'non-authenticated'
         },
 
         onRegister: (state, action) => {
 
             state.user = action.payload;
-            state.errorMessage = {},
+            state.errorMessage = [],
             state.status = 'authenticated'
         },
 

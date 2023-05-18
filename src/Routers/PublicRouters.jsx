@@ -1,6 +1,7 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { Home } from '../Public/Pages';
 import { RegisterPage } from '../Auth/Pages';
+import { QrPage } from '../Private/Pages/QrPage';
 
 
 export const PublicRoutes = () => {
@@ -18,6 +19,12 @@ export const PublicRoutes = () => {
                     path='register'
                     element={<RegisterPage />}
                 />
+
+                    <Route
+                    path='generate'
+                    element={<QrPage />}
+                />
+
 
                 <Route path='/*' element={<Navigate to={'/'} />} />
 

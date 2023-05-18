@@ -1,9 +1,14 @@
 import { useForm } from "../../Hooks/useForm"
 import { useUserStore } from "../Hooks/useUserStore";
 
+
+
 export const RegisterForm = () => {
 
+  
+
     const {handleChange, form} = useForm();
+
 
     const {errorMessage, registerStart} = useUserStore();
     
@@ -86,6 +91,7 @@ export const RegisterForm = () => {
                   className="w-full bg-indigo-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"
                   type="submit">Registro</button>
               </form>
+              
             </div>
 
         </section>

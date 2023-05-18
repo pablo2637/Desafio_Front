@@ -45,6 +45,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:18.2.0"],\
             ["react-leaflet", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:4.2.1"],\
+            ["react-qr-code", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:2.0.11"],\
             ["react-redux", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:8.0.5"],\
             ["react-router-dom", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:6.11.1"],\
             ["tailwindcss", "npm:3.3.2"],\
@@ -2186,6 +2187,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:18.2.0"],\
             ["react-leaflet", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:4.2.1"],\
+            ["react-qr-code", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:2.0.11"],\
             ["react-redux", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:8.0.5"],\
             ["react-router-dom", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:6.11.1"],\
             ["tailwindcss", "npm:3.3.2"],\
@@ -3811,6 +3813,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["qr.js", [\
+        ["npm:0.0.0", {\
+          "packageLocation": "./.yarn/cache/qr.js-npm-0.0.0-eea89f459b-5ac6c39396.zip/node_modules/qr.js/",\
+          "packageDependencies": [\
+            ["qr.js", "npm:0.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["qrcode.react", [\
         ["npm:3.1.0", {\
           "packageLocation": "./.yarn/cache/qrcode.react-npm-3.1.0-068f53fc24-94a2942ecf.zip/node_modules/qrcode.react/",\
@@ -3918,6 +3929,34 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/react",\
             "leaflet",\
             "react-dom",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["react-qr-code", [\
+        ["npm:2.0.11", {\
+          "packageLocation": "./.yarn/cache/react-qr-code-npm-2.0.11-5341656bf0-680f7be350.zip/node_modules/react-qr-code/",\
+          "packageDependencies": [\
+            ["react-qr-code", "npm:2.0.11"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:2.0.11", {\
+          "packageLocation": "./.yarn/__virtual__/react-qr-code-virtual-6e4628fdad/0/cache/react-qr-code-npm-2.0.11-5341656bf0-680f7be350.zip/node_modules/react-qr-code/",\
+          "packageDependencies": [\
+            ["react-qr-code", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:2.0.11"],\
+            ["@types/react", "npm:18.2.6"],\
+            ["@types/react-native-svg", null],\
+            ["prop-types", "npm:15.8.1"],\
+            ["qr.js", "npm:0.0.0"],\
+            ["react", "npm:18.2.0"],\
+            ["react-native-svg", null]\
+          ],\
+          "packagePeers": [\
+            "@types/react-native-svg",\
+            "@types/react",\
+            "react-native-svg",\
             "react"\
           ],\
           "linkType": "HARD"\

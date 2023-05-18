@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import {useNavigate} from 'react-router-dom'
 import { masterFetch } from "../../Api/fetch";
 import { onError, onLogin, onRegister } from "../../Store/Slices/userSlice";
+import { setLocal } from "../../Helpers/localStorage";
 
 export const useUserStore = () => {
 
@@ -19,8 +20,6 @@ export const useUserStore = () => {
 
             if(petition.ok == false) {
 
-                console.log('esto es petition.msg', petition.msg)
-
                 dispatch(onError(petition.msg))
 
                 setTimeout(() => {
@@ -33,6 +32,10 @@ export const useUserStore = () => {
                 const user = petition.data[0]
         
                 dispatch(onLogin(user))
+
+                const token = petition.token
+
+                setLocal(token)
 
                 navigate("/");
             }
@@ -63,6 +66,10 @@ export const useUserStore = () => {
             }   else {
 
                 dispatch(onRegister(petition.data))
+
+                const token = petition.token
+
+                setLocal(token)
 
                 navigate('/')
             }

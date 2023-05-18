@@ -8,32 +8,38 @@ export const userSlice = createSlice({
 
         user: {},
         status: 'non-authenticated',
+        coords: {},
         errorMessage: undefined
     },
 
     reducers: {
 
         onLogin: (state, action) => {
-            
+
             state.user = action.payload,
-            state.errorMessage = {},
-            state.status = 'authenticated'
+                state.errorMessage = {},
+                state.status = 'authenticated'
         },
 
-        onLogout: (state,action) => {
+        onLoadCoords: (state, { payload }) => {
+
+            state.coords = payload;
+        },
+
+        onLogout: (state, action) => {
 
             state.user = {};
             state.errorMessage = action.payload;
             state.status = 'non-authenticated'
         },
 
-        onRegister: (state,action) => {
+        onRegister: (state, action) => {
 
             state.user = action.payload;
             state.errorMessage = {}
         },
 
-        onError: (state,action) => {
+        onError: (state, action) => {
 
             console.log('esto es action', action)
             state.user = {};
@@ -42,4 +48,4 @@ export const userSlice = createSlice({
     }
 })
 
-export const { onLogin, onLogout, onRegister, onError } = userSlice.actions;
+export const { onLogin, onLoadCoords, onLogout, onRegister, onError } = userSlice.actions;

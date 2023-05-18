@@ -8,8 +8,18 @@ export const userSlice = createSlice({
 
         user: {},
         status: 'non-authenticated',
+
+        errorMessage: undefined,
+
+        formData: {
+            name: '',
+            email: '',
+          },
+          qrValue: '',
+
         coords: {},
         errorMessage: undefined
+
     },
 
     reducers: {
@@ -44,8 +54,22 @@ export const userSlice = createSlice({
 
             state.user = {};
             state.errorMessage = action.payload
-        }
+        },
+
+        onsetFormData: (state, action) => {
+
+            state.formData = action.payload;
+          },
+      
+      
+        onsetQRValue: (state, action) => {
+      
+            state.qrValue = action.payload;
+          },
     }
 })
 
-export const { onLogin, onLoadCoords, onLogout, onRegister, onError } = userSlice.actions;
+
+export const { onLogin, onLogout, onLoadCoords ,onRegister, onError, onsetFormData,onsetQRValue } = userSlice.actions;
+
+

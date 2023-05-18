@@ -34,7 +34,7 @@ export const LoginForm = () => {
                   id="email" 
                   name="email" 
                   placeholder="juan@ejemplo.com"/>
-                  
+
                 </div>
 
                 <div className="mb-4">

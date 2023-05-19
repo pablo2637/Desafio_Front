@@ -1,7 +1,5 @@
 
-const deg2rad = grados => {
-    return grados * (Math.PI / 180);
-};
+const deg2rad = grados => grados * (Math.PI / 180);
 
 
 export const calcDistance = (lat1, lon1, lat2, lon2) => {
@@ -16,6 +14,8 @@ export const calcDistance = (lat1, lon1, lat2, lon2) => {
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     const distance = earthRadius * c;
 
-    return distance.toFixed(2);
+    const rslt = distance <= 3 ? `${(distance * 1000).toFixed(2)} mts.` : `${distance.toFixed(2)} kms.`
+
+    return rslt;
 
 };

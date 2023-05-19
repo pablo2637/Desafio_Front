@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Marker, Popup, useMapEvents } from 'react-leaflet';
-import { Icon, Tooltip } from 'leaflet';
-import { useDispatch, useSelector } from 'react-redux';
+import { Icon } from 'leaflet';
+import { useDispatch } from 'react-redux';
 import { onLoadCoords } from '../../Store/Slices/userSlice'
 
 
@@ -33,7 +33,7 @@ export const UserMarker = () => {
     return position === null ? null : (
 
         <Marker position={position} icon={customIcon}>
-            <Popup>Estas aquí</Popup>
+            <Popup><span>Estas aquí</span></Popup>
         </Marker>
     );
 };

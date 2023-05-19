@@ -35,7 +35,7 @@ export const placesSlice = createSlice({
         onPlaceRegister: (state, {payload}) => {
 
             console.log('esto es payload en reducer:', payload)
-            state.places = payload,
+            state.places.push(payload),
             state.errorMessage = [],
             state.isLoading = true
         }

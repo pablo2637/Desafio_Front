@@ -1,4 +1,5 @@
 import { Map } from "../Components";
+import { Carrousel } from "../Components/Carrousel";
 
 
 export const Home = () => {
@@ -7,6 +8,8 @@ export const Home = () => {
         <>
         <Map />
        
+
+    <Carrousel/>
         </>
     );
 };

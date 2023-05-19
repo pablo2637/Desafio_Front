@@ -1,0 +1,22 @@
+.Container-carr {
+  margin-left: 4rem;
+  margin-right: 4rem;
+  margin-top: 100px;
+}
+
+.texto {
+  margin-bottom: 10px;
+  font-weight: 600;
+  margin-left: 2rem;
+}
+
+.carousel-container {
+  width: calc(100% - 4rem);
+  display: flex;
+  justify-content: center;
+}
+
+.carousel .slide img {
+  max-height: 400px;
+  object-fit: contain;
+}

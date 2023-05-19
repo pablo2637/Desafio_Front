@@ -1,11 +1,7 @@
 import { useForm } from "../../Hooks/useForm"
 import { useUserStore } from "../Hooks/useUserStore";
 
-
-
 export const RegisterForm = () => {
-
-  
 
     const {handleChange, form} = useForm();
 
@@ -41,7 +37,7 @@ export const RegisterForm = () => {
                   name="name" 
                   placeholder="Nombre"/>
                   {
-                    errorMessage && <span className="text-red-600">{errorMessage.name.msg}</span>
+                    errorMessage?.name && <span className="text-red-600">{errorMessage.name.msg}</span>
                   }
                 </div>
 
@@ -55,7 +51,7 @@ export const RegisterForm = () => {
                   name="last_name" 
                   placeholder="Apellidos"/>
                   {
-                    errorMessage && <span className="text-red-600">{errorMessage.last_name.msg}</span>
+                    errorMessage?.last_name && <span className="text-red-600">{errorMessage.last_name.msg}</span>
                   }
                 </div>
 
@@ -69,7 +65,7 @@ export const RegisterForm = () => {
                   name="email" 
                   placeholder="juan@ejemplo.com"/>
                   {
-                    errorMessage && <span className="text-red-600">{errorMessage.email.msg}</span>
+                    errorMessage?.email && <span className="text-red-600">{errorMessage.email.msg}</span>
                   }
                 </div>
 
@@ -83,7 +79,7 @@ export const RegisterForm = () => {
                   name="password" 
                   placeholder="********"/>
                   {
-                    errorMessage && <span className="text-red-600">{errorMessage.password.msg}</span>
+                    errorMessage?.password && <span className="text-red-600">{errorMessage.password.msg}</span>
                   }
                 </div>
 

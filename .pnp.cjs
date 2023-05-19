@@ -46,6 +46,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-dom", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:18.2.0"],\
             ["react-leaflet", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:4.2.1"],\
             ["react-qr-code", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:2.0.11"],\
+            ["react-qr-reader", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:3.0.0-beta-1"],\
             ["react-redux", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:8.0.5"],\
             ["react-router-dom", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:6.11.1"],\
             ["tailwindcss", "npm:3.3.2"],\
@@ -988,6 +989,49 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packagePeers": [\
             "@types/vite",\
             "vite"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@zxing/browser", [\
+        ["npm:0.0.7", {\
+          "packageLocation": "./.yarn/cache/@zxing-browser-npm-0.0.7-4f5994357c-5f56628382.zip/node_modules/@zxing/browser/",\
+          "packageDependencies": [\
+            ["@zxing/browser", "npm:0.0.7"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:b27b981b6bee8f98d54cfce208a55736273ff77d4172f57c356653b62786fe8a94c3b3e4e9a30b361e3f0669e10fdb153f304a22d4352b3d58de0efdebbb46c5#npm:0.0.7", {\
+          "packageLocation": "./.yarn/__virtual__/@zxing-browser-virtual-68bbe6f0dd/0/cache/@zxing-browser-npm-0.0.7-4f5994357c-5f56628382.zip/node_modules/@zxing/browser/",\
+          "packageDependencies": [\
+            ["@zxing/browser", "virtual:b27b981b6bee8f98d54cfce208a55736273ff77d4172f57c356653b62786fe8a94c3b3e4e9a30b361e3f0669e10fdb153f304a22d4352b3d58de0efdebbb46c5#npm:0.0.7"],\
+            ["@types/zxing__library", null],\
+            ["@zxing/library", "npm:0.18.6"],\
+            ["@zxing/text-encoding", "npm:0.9.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/zxing__library",\
+            "@zxing/library"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@zxing/library", [\
+        ["npm:0.18.6", {\
+          "packageLocation": "./.yarn/cache/@zxing-library-npm-0.18.6-28ffb15218-564a25f624.zip/node_modules/@zxing/library/",\
+          "packageDependencies": [\
+            ["@zxing/library", "npm:0.18.6"],\
+            ["@zxing/text-encoding", "npm:0.9.0"],\
+            ["ts-custom-error", "npm:3.3.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@zxing/text-encoding", [\
+        ["npm:0.9.0", {\
+          "packageLocation": "./.yarn/cache/@zxing-text-encoding-npm-0.9.0-8426ff59e9-c23b12aee7.zip/node_modules/@zxing/text-encoding/",\
+          "packageDependencies": [\
+            ["@zxing/text-encoding", "npm:0.9.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -2188,6 +2232,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-dom", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:18.2.0"],\
             ["react-leaflet", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:4.2.1"],\
             ["react-qr-code", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:2.0.11"],\
+            ["react-qr-reader", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:3.0.0-beta-1"],\
             ["react-redux", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:8.0.5"],\
             ["react-router-dom", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:6.11.1"],\
             ["tailwindcss", "npm:3.3.2"],\
@@ -3962,6 +4007,35 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["react-qr-reader", [\
+        ["npm:3.0.0-beta-1", {\
+          "packageLocation": "./.yarn/cache/react-qr-reader-npm-3.0.0-beta-1-159e0ee97b-f85fc49025.zip/node_modules/react-qr-reader/",\
+          "packageDependencies": [\
+            ["react-qr-reader", "npm:3.0.0-beta-1"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:3.0.0-beta-1", {\
+          "packageLocation": "./.yarn/__virtual__/react-qr-reader-virtual-b27b981b6b/0/cache/react-qr-reader-npm-3.0.0-beta-1-159e0ee97b-f85fc49025.zip/node_modules/react-qr-reader/",\
+          "packageDependencies": [\
+            ["react-qr-reader", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:3.0.0-beta-1"],\
+            ["@types/react", "npm:18.2.6"],\
+            ["@types/react-dom", "npm:18.2.4"],\
+            ["@zxing/browser", "virtual:b27b981b6bee8f98d54cfce208a55736273ff77d4172f57c356653b62786fe8a94c3b3e4e9a30b361e3f0669e10fdb153f304a22d4352b3d58de0efdebbb46c5#npm:0.0.7"],\
+            ["@zxing/library", "npm:0.18.6"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:0487b1b8263ee74b6a800d7d32396247265bb66793913170b66fbaba014393ed5e7147a33f4bbb04ae9c659e18794d2a28c1045211d073c2ec3f37a52f31b1e7#npm:18.2.0"],\
+            ["rollup", "npm:2.79.1"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["react-redux", [\
         ["npm:8.0.5", {\
           "packageLocation": "./.yarn/cache/react-redux-npm-8.0.5-9ff31aed95-a108f4f7ea.zip/node_modules/react-redux/",\
@@ -4216,6 +4290,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["rollup", [\
+        ["npm:2.79.1", {\
+          "packageLocation": "./.yarn/cache/rollup-npm-2.79.1-94e707a9a3-6a2bf167b3.zip/node_modules/rollup/",\
+          "packageDependencies": [\
+            ["rollup", "npm:2.79.1"],\
+            ["fsevents", "patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:3.21.7", {\
           "packageLocation": "./.yarn/cache/rollup-npm-3.21.7-cd827f6ddd-44372a1e6f.zip/node_modules/rollup/",\
           "packageDependencies": [\
@@ -4620,6 +4702,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["to-regex-range", "npm:5.0.1"],\
             ["is-number", "npm:7.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["ts-custom-error", [\
+        ["npm:3.3.1", {\
+          "packageLocation": "./.yarn/cache/ts-custom-error-npm-3.3.1-e5c805db5b-50a1e825fc.zip/node_modules/ts-custom-error/",\
+          "packageDependencies": [\
+            ["ts-custom-error", "npm:3.3.1"]\
           ],\
           "linkType": "HARD"\
         }]\

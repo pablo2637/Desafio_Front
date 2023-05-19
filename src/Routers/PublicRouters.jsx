@@ -5,6 +5,7 @@ import { QrPage } from '../Private/Pages/QrPage';
 import { LoginPage } from '../Auth/Pages/LoginPage';
 import { RegisterPlacePage } from '../Client/Pages/RegisterPlacePage';
 
+
 export const PublicRoutes = () => {
 
     return (

@@ -18,6 +18,8 @@ export const GenerateQR = () => {
   const handleGenerateQR = () => {
     const qrData = JSON.stringify(formData);
     updateQRValue(qrData);
+    console.log("hacer commit")
+    console.log("Prueba tres")
   };
 
   return (

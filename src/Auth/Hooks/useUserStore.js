@@ -41,7 +41,6 @@ export const useUserStore = () => {
             }
 
             
-    
         } catch (error) {
             
             console.log('FAILED loginStart:', error)

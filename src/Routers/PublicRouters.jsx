@@ -5,7 +5,6 @@ import { QrPage } from '../Private/Pages/QrPage';
 import { LoginPage } from '../Auth/Pages/LoginPage';
 
 
-
 export const PublicRoutes = () => {
 
     return (
@@ -26,14 +25,11 @@ export const PublicRoutes = () => {
                     path='generate'
                     element={<QrPage />}
                 />
-
-
-
                 <Route
                     path='login'
                     element={<LoginPage />}
                 />
-
+            
 
                 <Route path='/*' element={<Navigate to={'/'} />} />
 

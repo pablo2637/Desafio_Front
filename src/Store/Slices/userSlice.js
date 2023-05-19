@@ -23,14 +23,12 @@ export const userSlice = createSlice({
 
     },
 
-
-
     reducers: {
 
         onLogin: (state, action) => {
 
             state.user = action.payload,
-                state.errorMessage = {},
+                state.errorMessage = [],
                 state.status = 'authenticated'
         },
 
@@ -42,14 +40,14 @@ export const userSlice = createSlice({
         onLogout: (state, action) => {
 
             state.user = {};
-            state.errorMessage = action.payload;
+            state.errorMessage = [];
             state.status = 'non-authenticated'
         },
 
         onRegister: (state, action) => {
 
             state.user = action.payload;
-            state.errorMessage = {},
+            state.errorMessage = [],
             state.status = 'authenticated'
         },
 
@@ -73,6 +71,6 @@ export const userSlice = createSlice({
 })
 
 
-export const { onLogin, onLogout, onLoadCoords ,onRegister, onError, onsetFormData,onsetQRValue } = userSlice.actions;
+export const { onLogin, onLogout, onLoadCoords ,onRegister, onError, onsetFormData, onsetQRValue } = userSlice.actions;
 
 

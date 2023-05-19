@@ -3,6 +3,7 @@ import { Home } from '../Public/Pages';
 import { RegisterPage } from '../Auth/Pages';
 import { QrPage } from '../Private/Pages/QrPage';
 import { LoginPage } from '../Auth/Pages/LoginPage';
+import { RegisterPlacePage } from '../Client/Pages/RegisterPlacePage';
 
 
 export const PublicRoutes = () => {
@@ -25,11 +26,16 @@ export const PublicRoutes = () => {
                     path='generate'
                     element={<QrPage />}
                 />
+
                 <Route
                     path='login'
                     element={<LoginPage />}
                 />
-            
+
+                <Route
+                    path='place-register'
+                    element={<RegisterPlacePage />}
+                />
 
                 <Route path='/*' element={<Navigate to={'/'} />} />
 

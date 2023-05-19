@@ -1,12 +1,8 @@
-import { useState } from "react"
 import { masterFetch } from "../../Api/fetch";
 import { useDispatch } from "react-redux";
 import { onError, onIsLoading, onLoad } from '../../Store/Slices/placesSlice';
 
-
 export const useMap = () => {
-
-    // const [markers, setMarkers] = useState([]);
 
     const dispatch = useDispatch();
 
@@ -30,9 +26,8 @@ export const useMap = () => {
 
             dispatch(onLoad(response.data));
         }
-
     }
-
+    
     return {
         getMarkers,
         // markers

@@ -19,7 +19,6 @@ export const userSlice = createSlice({
           qrValue: '',
 
         coords: {},
-        errorMessage: undefined
 
     },
 

@@ -36,7 +36,7 @@ export const RegisterPlaceForm = () => {
                   name="place_name" 
                   placeholder="Nombre"/>
                   {
-                    errorMessage && <span className="text-red-600">{errorMessage.place_name.msg}</span>
+                    errorMessage?.place_name && <span className="text-red-600">{errorMessage.place_name.msg}</span>
                   }
                 </div>
 
@@ -50,7 +50,7 @@ export const RegisterPlaceForm = () => {
                   name="address" 
                   placeholder="Dirección"/>
                   {
-                    errorMessage && <span className="text-red-600">{errorMessage.address.msg}</span>
+                    errorMessage?.address && <span className="text-red-600">{errorMessage.address.msg}</span>
                   }
                 </div>
 
@@ -64,7 +64,7 @@ export const RegisterPlaceForm = () => {
                   name="phone" 
                   placeholder="xxx-xx-xx-xx"/>
                   {
-                    errorMessage && <span className="text-red-600">{errorMessage.phone.msg}</span>
+                    errorMessage?.phone && <span className="text-red-600">{errorMessage.phone.msg}</span>
                   }
                 </div>
 
@@ -78,7 +78,21 @@ export const RegisterPlaceForm = () => {
                   name="email" 
                   placeholder="juan@ejemplo.com"/>
                   {
-                    errorMessage && <span className="text-red-600">{errorMessage.email.msg}</span>
+                    errorMessage?.email && <span className="text-red-600">{errorMessage.email.msg}</span>
+                  }
+                </div>
+
+                <div className="mb-4">
+                  <label className="block text-gray-700 text-sm font-bold mb-2">Password</label>
+                  <input 
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                  type="password" 
+                  id="password" 
+                  name="password" 
+                  placeholder="********"/>
+                  {
+                    errorMessage?.password && <span className="text-red-600">{errorMessage.password.msg}</span>
                   }
                 </div>
 
@@ -92,7 +106,7 @@ export const RegisterPlaceForm = () => {
                   name="contact_name" 
                   placeholder="Nombre de contacto"/>
                   {
-                    errorMessage && <span className="text-red-600">{errorMessage.contact_name.msg}</span>
+                    errorMessage?.contact_name && <span className="text-red-600">{errorMessage.contact_name.msg}</span>
                   }
                 </div>
 
@@ -106,7 +120,7 @@ export const RegisterPlaceForm = () => {
                   name="coords" 
                   placeholder="coordenadas del establecimiento"/>
                   {
-                    errorMessage && <span className="text-red-600">{errorMessage.coords.msg}</span>
+                    errorMessage?.coords && <span className="text-red-600">{errorMessage.coords.msg}</span>
                   }
                 </div>
 

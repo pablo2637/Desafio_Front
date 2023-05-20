@@ -9,16 +9,14 @@ export const userSlice = createSlice({
 
         user: {},
         status: 'non-authenticated',
-
         errorMessage: undefined,
-
         formData: {
             name: '',
             email: '',
-          },
-          qrValue: '',
-
+        },
+        qrValue: '',
         coords: {},
+        isLocating: false
 
     },
 
@@ -26,50 +24,65 @@ export const userSlice = createSlice({
 
         onLogin: (state, action) => {
 
-            state.user = action.payload,
-                state.errorMessage = [],
-                state.status = 'authenticated'
+            state.user = action.payload;
+            state.errorMessage = [];
+            state.status = 'authenticated';
+        },
+
+        onLocating: (state, { payload }) => {
+
+            state.isLocating = true;
         },
 
         onLoadCoords: (state, { payload }) => {
 
             state.coords = payload;
+            state.isLocating = false;
         },
 
         onLogout: (state, action) => {
 
             state.user = {};
             state.errorMessage = [];
-            state.status = 'non-authenticated'
+            state.status = 'non-authenticated';
         },
 
         onRegister: (state, action) => {
 
             state.user = action.payload;
-            state.errorMessage = [],
+            state.errorMessage = [];
             state.status = 'authenticated'
         },
 
         onError: (state, action) => {
 
             state.user = {};
-            state.errorMessage = action.payload
+            state.errorMessage = action.payload;
         },
 
         onsetFormData: (state, action) => {
 
             state.formData = action.payload;
-          },
-      
-      
+        },
+
+
         onsetQRValue: (state, action) => {
-      
+
             state.qrValue = action.payload;
-          },
+        },
     }
 })
 
 
-export const { onLogin, onLogout, onLoadCoords ,onRegister, onError, onsetFormData, onsetQRValue } = userSlice.actions;
+export const {
+    onLogin,
+    onLocating,
+    onLogout,
+    onLoadCoords,
+    onRegister,
+    onError,
+    onsetFormData,
+    onsetQRValue
+} = userSlice.actions;
 
 

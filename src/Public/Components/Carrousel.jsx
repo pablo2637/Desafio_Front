@@ -3,9 +3,9 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import '../css/Carousel.css';
 
-import Image1 from '../../../public/assets/Frame1.png';
-import Image2 from '../../../public/assets/Frame2.png';
-import Image3 from '../../../public/assets/Frame3.png';
+import Image1 from '../../../public/assets/frame1.png';
+import Image2 from '../../../public/assets/frame2.png';
+import Image3 from '../../../public/assets/frame3.png';
 
 
 export const Carrousel = () => {

@@ -178,6 +178,10 @@
     grid-template-columns: 0.9fr 0.1fr;
 }
 
+.camara{
+    max-width: 300px;
+}
+
 .divBtnsMap
 {
     color: Black;
@@ -228,3 +232,4 @@
 }
 
 /*! +++++++++++++++ */
+

@@ -9,8 +9,7 @@ export const NavBar = () => {
     <nav className="bg-gray-800">
       <ul className="flex justify-start items-center px-4 py-2">
         <li className="mr-6">
-          <NavLink
-            exact
+          <NavLink            
             to="/"
             className="text-white font-semibold hover:text-gray-300"
           >

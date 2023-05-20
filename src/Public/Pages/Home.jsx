@@ -6,10 +6,18 @@ export const Home = () => {
 
     return (
         <>
-        <Map />
-       
+            <header>
+                <p>
+                    ¡Reciclar aceite nunca fue tan fácil! Ahora tienes puntos de reciclaje más cercanos.
+                </p>
+            </header>
 
-    <Carrousel/>
+            <main>
+                <Map />
+
+
+                <Carrousel />
+            </main>
         </>
     );
 };

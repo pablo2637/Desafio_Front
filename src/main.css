@@ -30,7 +30,7 @@
     z-index: 1000;
     display: grid;
     gap: 10px;
-    justify-content: center;    
+    justify-content: center;
 }
 
 
@@ -149,10 +149,19 @@
 {
     display: grid;
     grid-template-columns: 0.25fr 0.75fr;
-    gap: 5px;
+    gap: 3px;
     justify-items: left;
     align-content: start;
 }
+
+.divImg img
+{
+    width: 50px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
 
 .artInfoPlace button:hover
 {
@@ -214,8 +223,13 @@
     padding: 16px;
 }
 
-.popupMe
-{}
+
+.isNearest
+{
+    color: rgb(247, 128, 1);
+    font-size: 0.7rem;
+    font-weight: bold;
+}
 
 /*! +++++++++++++++ */
 

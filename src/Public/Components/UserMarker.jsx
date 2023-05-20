@@ -38,7 +38,7 @@ export const UserMarker = ({ findMe }) => {
     return position === null ? null : (
 
         <Marker position={position} icon={customIcon}>
-            <Popup className='popupMe' ><span>Estas aquí</span></Popup>
+            <Popup><span>Estas aquí</span></Popup>
         </Marker>
     );
 };

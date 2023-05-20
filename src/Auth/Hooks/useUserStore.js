@@ -1,24 +1,30 @@
 import { useDispatch, useSelector } from "react-redux"
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { masterFetch } from "../../Api/fetch";
 import { onError, onLogin, onRegister } from "../../Store/Slices/userSlice";
 import { setLocal } from "../../Helpers/localStorage";
 
 export const useUserStore = () => {
 
-    const {user, errorMessage} = useSelector(state => state.user)
+    const { errorMessage } = useSelector(state => state.user)
 
     const dispatch = useDispatch();
 
     const navigate = useNavigate();
 
-    const loginStart = async (form) => {
+    const loginStart = async (form, place) => {
 
         try {
-            
-            const petition = await masterFetch('api/users/login', 'POST', form)
 
-            if(petition.ok == false) {
+            let petition;
+
+            if (place)
+                petition = await masterFetch('api/places/login', 'POST', form)
+
+            else
+                petition = await masterFetch('api/users/login', 'POST', form)
+
+            if (petition.ok == false) {
 
                 dispatch(onError(petition.msg))
 
@@ -27,10 +33,10 @@ export const useUserStore = () => {
                     dispatch(onError(''))
                 }, 6000)
 
-            }   else {
+            } else {
 
                 const user = petition.data[0]
-        
+
                 dispatch(onLogin(user))
 
                 const token = petition.token
@@ -40,9 +46,9 @@ export const useUserStore = () => {
                 navigate("/");
             }
 
-            
+
         } catch (error) {
-            
+
             console.log('FAILED loginStart:', error)
         }
     }
@@ -50,10 +56,10 @@ export const useUserStore = () => {
     const registerStart = async (form) => {
 
         try {
-            
+
             const petition = await masterFetch('api/users', 'POST', form)
 
-            if(petition.ok == false) {
+            if (petition.ok == false) {
 
                 dispatch(onError(petition.errors))
 
@@ -62,7 +68,7 @@ export const useUserStore = () => {
                     dispatch(onError(''))
                 }, 6000)
 
-            }   else {
+            } else {
 
                 dispatch(onRegister(petition.data))
 
@@ -74,16 +80,15 @@ export const useUserStore = () => {
             }
 
         } catch (error) {
-            
+
             console.log('FAILED registerStart', error)
         }
     }
 
-  return {
+    return {
 
-    user,
-    errorMessage,
-    loginStart,
-    registerStart
-  }
+        errorMessage,
+        loginStart,
+        registerStart
+    }
 }

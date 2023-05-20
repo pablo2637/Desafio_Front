@@ -16,9 +16,9 @@ export const usePlaceStore = () => {
             
             const petition = await masterFetch('api/places/create', 'POST', form)
 
-            const errors = petition.errors
-
             if(petition.ok == false) {
+
+                const errors = petition.errors
 
                 dispatch(onError(errors))
 
@@ -28,6 +28,11 @@ export const usePlaceStore = () => {
                 }, 6000)
 
             }   else {
+
+                const arrayCoords = petition.data.coords.split(',');
+                arrayCoords[0] = parseFloat(arrayCoords[0]);
+                arrayCoords[1] = parseFloat(arrayCoords[1]);
+                petition.data.coords = [arrayCoords[0], arrayCoords[1]];
 
                 const newPlace = petition.data
 

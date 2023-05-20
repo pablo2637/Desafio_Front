@@ -11,7 +11,10 @@ function App() {
     <>
 
       <header>
-        <NavBar/>
+        <NavBar />
+        <p>
+          ¡Reciclar aceite nunca fue tan fácil! Ahora tienes puntos de reciclaje más cercanos.
+        </p>
       </header>
 
       <main>

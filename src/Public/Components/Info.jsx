@@ -3,7 +3,7 @@ import { calcDistance } from '../helpers/calcDistance';
 import { useState } from 'react';
 
 
-export const Info = ({ place_name, address, coords: pCoords }) => {
+export const Info = ({ place_name, address, coords: pCoords, isNearest = false }) => {
 
     const [display, setDisplay] = useState(false);
     const [hours, setHours] = useState(false);
@@ -30,7 +30,10 @@ export const Info = ({ place_name, address, coords: pCoords }) => {
                 <div>
                     <h3 className='text-ms'>{place_name}</h3>
                     <p className='m-0 text-[0.6rem]'>{calcDistance(coords.lat, coords.long, pCoords[0], pCoords[1])}</p >
-                    <p className='m-0 text-[0.6rem] pb-1'>Abierto - Cierra a las 14 hrs</p >
+                    {
+                        (isNearest) &&
+                        <p className='m-0 text-[0.6rem] pb-1'>Es el más cercano!</p >
+                    }
                 </div>
             </div>
 

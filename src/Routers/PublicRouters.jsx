@@ -4,6 +4,7 @@ import { RegisterPage } from '../Auth/Pages';
 import { QrPage } from '../Private/Pages/QrPage';
 import { LoginPage } from '../Auth/Pages/LoginPage';
 import { RegisterPlacePage } from '../Client/Pages/RegisterPlacePage';
+import { RecycleQRpage } from '../Private/Pages/RecycleQRpage';
 
 
 export const PublicRoutes = () => {
@@ -36,6 +37,11 @@ export const PublicRoutes = () => {
                     path='place-register'
                     element={<RegisterPlacePage />}
                 />
+
+                <Route
+                    path='scanQR'
+                    element={<RecycleQRpage />}
+                />  
 
                 <Route path='/*' element={<Navigate to={'/'} />} />
 

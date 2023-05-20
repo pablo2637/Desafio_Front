@@ -20,8 +20,8 @@ export const QRCodeReader = () => {
         delay={300}
         onError={handleError}
         onScan={handleScan}
-        //facingMode="environment"
-        style={{ width: '100%' }}
+        facingMode="environment"
+        style={{ width: '50%' }}
       />
       <p>QR Code: {qrCode}</p>
     </div>

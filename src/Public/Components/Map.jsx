@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import { useMap } from '../Hooks/useMap';
 import { calcNearest } from '../helpers/calcDistance';
 
+
 export const Map = () => {
 
     const {
@@ -84,7 +85,7 @@ export const Map = () => {
 
             <div className="map" id="map" >
 
-                <MapContainer ref={mapRef} center={position} zoom={16} scrollWheelZoom={true} zoomControl={false}>
+                <MapContainer ref={mapRef} center={position} zoom={16} scrollWheelZoom={true} zoomControl={false} attributionControl={false}>
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -109,21 +110,25 @@ export const Map = () => {
 
                     <UserMarker findMe={findMe} />
 
-                    {
-                        (isLoading) &&
-                        <div className='isLocating'>
-                            <span className='loader'></span>
-                            <span className='me'>Obteniendo sitios de reciclaje...</span>
-                        </div>
-                    }
 
-                    {
-                        (isLocating) &&
-                        <div className='isLocating'>
-                            <span className='loaderMe'></span>
-                            <span className='me'>Obteniendo tu ubicación...</span>
-                        </div>
-                    }
+
+                    <div className='isLocating'>
+                        {
+                            (isLoading) &&
+                            <>
+                                <span className='loader'></span>
+                                <span className='me'>Obteniendo sitios de reciclaje...</span>
+                            </>
+                        }
+                        {
+                            (isLocating) &&
+                            <>
+                                <span className='loaderMe'></span>
+                                <span className='me'>Obteniendo tu ubicación...</span>
+                            </>
+                        }
+                    </div>
+
 
                     <div className='z-[1001]  divMapSearch relative'>
                         <form >

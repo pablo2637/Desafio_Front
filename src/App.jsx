@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { PublicRoutes } from "./Routers/";
+import { AdminRouters, PlaceRouters, PrivateRouters, PublicRouters } from "./Routers/";
 import { NavBar } from "./Public/Components/NavBar";
 
 function App() {
@@ -11,15 +11,28 @@ function App() {
     <>
 
       <header>
-        <NavBar />
-        <p>
-          ¡Reciclar aceite nunca fue tan fácil! Ahora tienes puntos de reciclaje más cercanos.
-        </p>
+        <NavBar />       
       </header>
 
       <main>
+        <p>user: {user?.role}</p>
+        <p>status: {status}</p>
+        {
+          (status==='authenticated') ?
 
-        <PublicRoutes />
+            (user.role == 'user') ?
+              <PrivateRouters />
+
+              :
+              (user.role == 'place') ?
+                <PlaceRouters />
+
+                :
+                <AdminRouters />
+
+            :
+            <PublicRouters />
+        }
 
       </main>
 

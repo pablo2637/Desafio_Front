@@ -25,10 +25,7 @@ export const PublicRouters = () => {
                     element={<LoginPage />}
                 />
 
-                <Route
-                    path='win1000'
-                    element={<Win1000Page />}
-                />
+                
 
                 <Route path='/*' element={<Navigate to={'/'} />} />
 

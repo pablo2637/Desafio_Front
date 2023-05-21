@@ -45,6 +45,7 @@ export const userSlice = createSlice({
 
             state.user = {};
             state.errorMessage = [];
+            state.coords = {};
             state.status = 'non-authenticated';
         },
 

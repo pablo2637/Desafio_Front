@@ -1,36 +1,51 @@
 import { useDispatch, useSelector } from "react-redux"
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { masterFetch } from "../../Api/fetch";
 import { onError, onLogin, onRegister } from "../../Store/Slices/userSlice";
 import { setLocal } from "../../Helpers/localStorage";
 
 export const useUserStore = () => {
 
-    const {user, errorMessage} = useSelector(state => state.user)
+    const { errorMessage } = useSelector(state => state.user)
 
     const dispatch = useDispatch();
 
     const navigate = useNavigate();
 
-    const loginStart = async (form) => {
+
+    const dispatchError = (error) => {
+
+        dispatch(onError(error))
+
+        setTimeout(() => {
+
+            dispatch(onError(''))
+        }, 6000)
+    };
+
+
+
+    const loginStart = async (form, place) => {
 
         try {
-            
-            const petition = await masterFetch('api/users/login', 'POST', form)
 
-            if(petition.ok == false) {
+            let petition;
 
-                dispatch(onError(petition.msg))
+            if (place)
+                petition = await masterFetch('api/places/login', 'POST', form)
 
-                setTimeout(() => {
+            else
+                petition = await masterFetch('api/users/login', 'POST', form)
 
-                    dispatch(onError(''))
-                }, 6000)
 
-            }   else {
+
+            if (petition.ok == false)
+                dispatchError(petition.msg);
+
+            else {
 
                 const user = petition.data[0]
-        
+
                 dispatch(onLogin(user))
 
                 const token = petition.token
@@ -40,9 +55,9 @@ export const useUserStore = () => {
                 navigate("/");
             }
 
-            
+
         } catch (error) {
-            
+
             console.log('FAILED loginStart:', error)
         }
     }
@@ -50,19 +65,60 @@ export const useUserStore = () => {
     const registerStart = async (form) => {
 
         try {
-            
+
+            const errs = {};
+
+            const regexName = new RegExp(/^[A-Za-z\-\s]+$/);
+            const regexEmail = new RegExp(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/);
+            const regexPass = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/);
+
+
+            if (form) {
+                if (form?.name) {
+                    if (!regexName.test(form?.name) && form?.name != '')
+                        errs.name = { msg: 'El nombre sólo puede contener letras' };
+                }
+
+                if (form?.last_name) {
+                    if (!regexName.test(form?.last_name) && form?.last_name != '')
+                        errs.last_name = { msg: 'El apellido sólo puede contener letras' };
+                }
+
+                if (form?.email) {
+                    if (!regexEmail.test(form?.email) && form?.email != '')
+                        errs.email = { msg: 'El formato del email no es válido' };
+                }
+
+                if (form?.password) {
+
+                    if (!regexPass.test(form?.password) && form?.password != '')
+                        errs.password = { msg: 'La contraseña debe tener al menos 8 caracteres, minúsculas, mayúsculas y un caracter especial' };
+
+                    if (form?.name && form?.password.toLowerCase().includes(form?.name.toLowerCase()))
+                        errs.password = {
+                            msg: `${errs.password?.msg ? errs.password.msg + ", y" : 'El password'} no puede concidir con tu nombre`
+                        };
+
+                    if (form?.last_name && form?.password.toLowerCase().includes(form?.last_name.toLowerCase()))
+                        errs.password = {
+                            msg: `${errs.password?.msg ? errs.password.msg + ", y tampoco" : 'El password no'} puede concidir con tu apellido`
+                        }
+                }
+
+                if (Object.entries(errs).length > 0) {
+                    console.log('form', form);
+                    dispatchError(errs);
+                    return;
+                }
+            }
+
+
             const petition = await masterFetch('api/users', 'POST', form)
 
-            if(petition.ok == false) {
+            if (petition.ok == false)
+                dispatchError(petition.errors);
 
-                dispatch(onError(petition.errors))
-
-                setTimeout(() => {
-
-                    dispatch(onError(''))
-                }, 6000)
-
-            }   else {
+            else {
 
                 dispatch(onRegister(petition.data))
 
@@ -74,16 +130,15 @@ export const useUserStore = () => {
             }
 
         } catch (error) {
-            
+
             console.log('FAILED registerStart', error)
         }
     }
 
-  return {
+    return {
 
-    user,
-    errorMessage,
-    loginStart,
-    registerStart
-  }
+        errorMessage,
+        loginStart,
+        registerStart
+    }
 }

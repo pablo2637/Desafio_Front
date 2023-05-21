@@ -9,15 +9,110 @@
 
 .centerDiv
 {
-
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 
+/*! ===================================
+                    LOADERS
+======================================*/
+
+.isLocating
+{
+    position: absolute;
+    width: 80%;
+    margin: 0 auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    display: grid;
+    gap: 10px;
+    justify-content: center;
+}
+
+
+.isLocating .me
+{
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+}
+
+.loader,
+.loaderMe
+{
+    justify-self: center;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: block;
+    color: rgba(0, 0, 0, 0.6);
+    animation: animloader 800ms linear infinite;
+}
+
+.loaderMe
+{
+    color: rgb(247, 128, 1);
+}
+
+
+
+
 /* ===================================
+
                             KEYFRAMES
+======================================*/
+
+@keyframes animloader
+{
+    0%
+    {
+        box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 -2px;
+    }
+
+    25%
+    {
+        box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 2px;
+    }
+
+    50%
+    {
+        box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 2px, -38px 0 0 -2px;
+    }
+
+    75%
+    {
+        box-shadow: 14px 0 0 2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 -2px;
+    }
+
+    100%
+    {
+        box-shadow: 14px 0 0 -2px, 38px 0 0 2px, -14px 0 0 -2px, -38px 0 0 -2px;
+    }
+}
+
+
+@keyframes cookies
+{
+    0%
+    {
+        transform: translate3d(0, -105%, 0)
+    }
+
+    100%
+    {
+        transform: translate3d(0, 0, 0)
+    }
+
+}
+
+/*! ===================================
+                            MEDIA QUERIES
 ======================================*/
 
 
@@ -32,6 +127,64 @@
 
 /*! +++++++++++++++ */
 
+.divCookies
+{
+    top: 5px;
+    /* transition: transform 0.20s cubic-bezier(0.05, 1.04, 0.72, 0.98) 0s; */
+    width: 100%;
+    animation: cookies 1s cubic-bezier(0.05, 1.04, 0.72, 0.98) 0s;
+}
+
+
+.divCookies div
+{
+    margin: 0 auto;
+    width: 342px;
+    height: 342px;
+    background-color: rgba(250, 250, 250, 0.9);
+    padding: 32px;
+    gap: 24px;
+    box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 36.3447px;
+}
+
+.divCookies button
+{
+    color: rgb(250, 250, 250);
+    background: #F67F00;
+    border-radius: 3.63447px;
+    width: 283.49px;
+    height: 50px;
+    font-size: 16px;
+    padding: 9px;
+}
+
+.divCookies h3
+{
+    text-align: left;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
+}
+
+.divCookies a
+{
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+    color: #F67F00;
+}
+
+.divCookies p
+{
+    width: 278px;
+    height: 167px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+
 .leaflet-container
 {
 
@@ -40,24 +193,16 @@
     height: 450px;
 }
 
-.mapSpinner
-{
-    z-index: 1000;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 
 .leaflet-popup-content-wrapper
 {
     padding: 5px;
     background-color: rgba(255, 255, 255, 0.9);
-    border-top-right-radius: 20px;
+    /* border-top-right-radius: 20px;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 0px;
+    border-bottom-left-radius: 0px; */
+    border-radius: 20px;
     width: 250px;
 }
 
@@ -81,35 +226,87 @@
 {
     display: grid;
     grid-template-columns: 0.25fr 0.75fr;
-    gap: 5px;
+    gap: 3px;
     justify-items: left;
     align-content: start;
 }
+
+.divImg img
+{
+    width: 50px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
 
 .artInfoPlace button:hover
 {
     background-color: rgb(249, 244, 237);
 }
 
-.contPopup {
+.contPopup
+{
     grid-template-columns: 0.1fr 0.9fr;
 }
 
-.contClock{
+.contClock
+{
     grid-template-columns: 0.9fr 0.1fr;
 }
 
-/*! +++++++++++++++ */
-
-
-
-/**Pruebas de ajustes a la camara**/
-
-.camara{
+.camara
+{
     max-width: 300px;
+}
 
+.divBtnsMap
+{
+    color: Black;
+}
+
+.divMapSearch form
+{
+    margin: 0 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.divMapSearch input
+{
+    padding: 8px 16px;
+    text-indent: 16px;
+    width: 100%;
+    margin: 8px;
+    border: 1px solid #999999;
+    border-radius: 4px;
+}
+
+.divBtnsMap
+{
+    z-index: 1005;
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    border-radius: 2px;
+    background-color: rgb(244, 244, 244);
+    box-shadow: 0 0 2px black;
+}
+
+.glass
+{
+    z-index: 1005;
+    position: absolute;
+    padding: 16px;
 }
 
 
-/**Pruebas de ajustes a la camara**/
+.isNearest
+{
+    color: rgb(247, 128, 1);
+    font-size: 0.7rem;
+    font-weight: bold;
+}
 
+/*! +++++++++++++++ */

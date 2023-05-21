@@ -6,7 +6,8 @@ export const placesSlice = createSlice({
 
     initialState: {
 
-        places: [],        
+        places: [],
+        restaurants: [],
         isLoading: false,
         errorMessage: undefined
     },
@@ -17,10 +18,17 @@ export const placesSlice = createSlice({
 
             state.isLoading = true;
         },
-       
+
         onLoad: (state, { payload }) => {
 
             state.places = payload;
+            state.errorMessage = {};
+            state.isLoading = false;
+        },
+
+        onLoadRestaurants: (state, { payload }) => {
+
+            state.restaurants = payload;
             state.errorMessage = {};
             state.isLoading = false;
         },
@@ -32,14 +40,13 @@ export const placesSlice = createSlice({
             state.isLoading = false;
         },
 
-        onPlaceRegister: (state, {payload}) => {
+        onPlaceRegister: (state, { payload }) => {
 
-            console.log('esto es payload en reducer:', payload)
-            state.places = payload,
-            state.errorMessage = [],
-            state.isLoading = true
+            state.places.push(payload);
+            state.errorMessage = [];
+            state.isLoading = true;
         }
     }
 })
 
-export const { onLoad, onError, onIsLoading, onPlaceRegister } = placesSlice.actions;
+export const { onLoad, onLoadRestaurants, onError, onIsLoading, onPlaceRegister } = placesSlice.actions;

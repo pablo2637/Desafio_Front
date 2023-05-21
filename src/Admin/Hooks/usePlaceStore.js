@@ -1,14 +1,16 @@
 import { useDispatch, useSelector } from "react-redux"
 import { masterFetch } from "../../Api/fetch";
 import { onError, onPlaceRegister } from "../../Store/Slices/placesSlice";
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
+
+
 export const usePlaceStore = () => {
 
     const {places, errorMessage} = useSelector(state => state.places)
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    const navigate = useNavigate()
 
     const regisPlaceStart = async (form) => {
 
@@ -16,9 +18,9 @@ export const usePlaceStore = () => {
             
             const petition = await masterFetch('api/places/create', 'POST', form)
 
-            const errors = petition.errors
-
             if(petition.ok == false) {
+
+                const errors = petition.errors
 
                 dispatch(onError(errors))
 
@@ -28,6 +30,11 @@ export const usePlaceStore = () => {
                 }, 6000)
 
             }   else {
+
+                const arrayCoords = petition.data.coords.split(',');
+                arrayCoords[0] = parseFloat(arrayCoords[0]);
+                arrayCoords[1] = parseFloat(arrayCoords[1]);
+                petition.data.coords = [arrayCoords[0], arrayCoords[1]];
 
                 const newPlace = petition.data
 

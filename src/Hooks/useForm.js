@@ -3,10 +3,11 @@ import { useState } from "react"
 export const useForm = (estadoInicial) => {
 
     const [form, setForm] = useState(estadoInicial);
-    
+
     const handleChange = ({ target }) => {
 
         const { name, value } = target;
+
 
         if (form == '') return;
 
@@ -18,7 +19,7 @@ export const useForm = (estadoInicial) => {
     };
 
     return {
-        
+
         handleChange,
         form
     };

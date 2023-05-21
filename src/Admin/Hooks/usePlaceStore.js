@@ -1,14 +1,16 @@
 import { useDispatch, useSelector } from "react-redux"
 import { masterFetch } from "../../Api/fetch";
 import { onError, onPlaceRegister } from "../../Store/Slices/placesSlice";
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
+
+
 export const usePlaceStore = () => {
 
     const {places, errorMessage} = useSelector(state => state.places)
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    const navigate = useNavigate()
 
     const regisPlaceStart = async (form) => {
 

@@ -13,6 +13,7 @@ export const userSlice = createSlice({
         errorMessage: undefined,
 
         formData: {
+
             name: '',
             email: '',
           },

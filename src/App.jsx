@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { AdminRouters, PlaceRouters, PrivateRouters, PublicRouters } from "./Routers/";
 import { NavBar } from "./Public/Components/NavBar";
+import { NavBarUser } from "./Private/Components/NavBarUser";
 
 function App() {
 
@@ -11,7 +12,24 @@ function App() {
     <>
 
       <header>
-        <NavBar />       
+ {
+          (status==='authenticated') ?
+
+            (user.role == 'user') ?
+               <NavBarUser /> 
+
+              :
+              (user.role == 'place') ?
+                <NavBarUser /> 
+
+                :
+                <NavBarUser /> 
+
+            :
+             <NavBar /> 
+        }
+             
+
       </header>
 
       <main>

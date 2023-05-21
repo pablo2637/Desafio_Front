@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useDispatch } from "react-redux"
-import { setLocal } from "../../Helpers/localStorage";
+import { deleteLocal } from "../../Helpers/localStorage";
 import { onLogout } from "../../Store/Slices/userSlice";
 import { useNavigate } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ export const Logout = () => {
 
     const logout = () => {
 
-        setLocal('');
+        deleteLocal();
         dispatch(onLogout());
 
         navigate('/');

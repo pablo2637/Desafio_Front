@@ -1,14 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Map } from "../Components";
 import { Carrousel } from "../Components/Carrousel";
 import { NavLink } from 'react-router-dom';
+import { useValidateToken } from "../../Hooks/useValidateToken";
 
 
 export const Home = () => {
 
     const [cookies, setCookies] = useState(false);
+    const { checkToken } = useValidateToken();
 
     const handleCookiesClick = () => setCookies(!cookies);
+
+
+    useEffect(() => {
+        checkToken();
+
+    }, []);
 
     return (
         <>

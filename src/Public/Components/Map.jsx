@@ -75,7 +75,7 @@ export const Map = () => {
 
         const current = mapRef.current || {};
 
-        if (coords)
+        if (coords?.lat)
             current.flyTo([coords.lat, coords.long], current.getZoom());
 
         else

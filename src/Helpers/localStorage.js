@@ -1,12 +1,19 @@
 export const setLocal = (data) => {
 
-    localStorage.setItem('challenge',(data));
+    localStorage.setItem('challenge', JSON.stringify(data));
 
 }; //!FUNC-SETLOCAL
 
 
 export const getLocal = () => {
 
-    return localStorage.getItem('challenge') || "";
+    return JSON.parse(localStorage.getItem('challenge')) || {};
 
 }; //!FUNC-GETLOCAL
+
+
+export const deleteLocal = () => {
+
+    localStorage.removeItem('challenge');
+
+}; //!FUNC-SETLOCAL

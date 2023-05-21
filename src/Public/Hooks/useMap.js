@@ -1,13 +1,17 @@
 import { masterFetch } from "../../Api/fetch";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { onError, onIsLoading, onLoad, onLoadRestaurants } from '../../Store/Slices/placesSlice';
 
 
 export const useMap = () => {
 
     const dispatch = useDispatch();
+    const { places, isLoading } = useSelector(state => state.places)
 
     const getMarkers = async () => {
+
+        if (places.length > 0) return
+        if (isLoading) return
 
         dispatch(onIsLoading());
 
@@ -19,10 +23,6 @@ export const useMap = () => {
         else {
 
             response.data.map(pl => {
-                // const arrayCoords = pl.coords.split(',');
-                // arrayCoords[0] = parseFloat(arrayCoords[0]);
-                // arrayCoords[1] = parseFloat(arrayCoords[1]);
-                // pl.coords = [arrayCoords[0], arrayCoords[1]];
                 pl.coords = [pl.latitude, pl.longitude];
             });
 

@@ -96,6 +96,19 @@
 }
 
 
+@keyframes cookies
+{
+    0%
+    {
+        transform: translate3d(0, -105%, 0)
+    }
+
+    100%
+    {
+        transform: translate3d(0, 0, 0)
+    }
+
+}
 
 /*! ===================================
                     TAILWIND IMPORTS
@@ -110,14 +123,10 @@
 
 .divCookies
 {
+    top: 5px;
+    /* transition: transform 0.20s cubic-bezier(0.05, 1.04, 0.72, 0.98) 0s; */
     width: 100%;
-    top: 0px;
-    transition: transform 0.20s cubic-bezier(0.05, 1.04, 0.72, 0.98) 0s;
-}
-
-.divCookies::before
-{
-    transform: translate3d(0px, -105%, 0px);
+    animation: cookies 1s cubic-bezier(0.05, 1.04, 0.72, 0.98) 0s;
 }
 
 

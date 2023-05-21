@@ -108,6 +108,68 @@
 
 /*! +++++++++++++++ */
 
+.divCookies
+{
+    width: 100%;
+    top: 0px;
+    transition: transform 0.20s cubic-bezier(0.05, 1.04, 0.72, 0.98) 0s;
+}
+
+.divCookies::before
+{
+    transform: translate3d(0px, -105%, 0px);
+}
+
+
+.divCookies div
+{
+    margin: 0 auto;
+    width: 342px;
+    height: 342px;
+    background-color: rgba(250, 250, 250, 0.9);
+    padding: 32px;
+    gap: 24px;
+    box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 36.3447px;
+}
+
+.divCookies button
+{
+    color: rgb(250, 250, 250);
+    background: #F67F00;
+    border-radius: 3.63447px;
+    width: 283.49px;
+    height: 50px;
+    font-size: 16px;
+    padding: 9px;
+}
+
+.divCookies h3
+{
+    text-align: left;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
+}
+
+.divCookies a
+{
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+    color: #F67F00;
+}
+
+.divCookies p
+{
+    width: 278px;
+    height: 167px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+
 .leaflet-container
 {
 
@@ -178,7 +240,8 @@
     grid-template-columns: 0.9fr 0.1fr;
 }
 
-.camara{
+.camara
+{
     max-width: 300px;
 }
 
@@ -232,4 +295,3 @@
 }
 
 /*! +++++++++++++++ */
-

@@ -3,10 +3,12 @@ import QRCode from 'react-qr-code';
 import { useSelector } from 'react-redux';
 
 
+
 export const CreateQR = () => {
 
-  const { user } = useSelector(state => state.user);
+    const { user } = useSelector(state => state.user);
   const [qrValue, setQrValue] = useState(null);
+
   
 
   useEffect(() => {

@@ -11,6 +11,7 @@ export const userSlice = createSlice({
         status: 'non-authenticated',
         errorMessage: undefined,
         formData: {
+
             name: '',
             email: '',
         },

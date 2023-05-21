@@ -8,7 +8,7 @@ const navigation = [
   { name: 'Login', href: '/login', current: false },
   { name: 'Registro', href: '/register', current: false },
   { name: 'Escanea tu QR', href: '/login', current: false },
-  { name: 'Sobre nosotros', href: '#', current: false },
+  { name: 'Sobre nosotros', href: '/win1000', current: false },
 ]
 
 function classNames(...classes) {

@@ -8,11 +8,12 @@ import { NavLink } from 'react-router-dom'
 
 const navigation = [
 
-  { name: 'Home', href: '/home', current: true },
+  { name: 'Home', href: '/home', current: false },
   { name: 'Perfil', href: '#', current: false },
-  { name: 'Mis Puntos', href: '/mispuntos', current: false },
-  { name: 'Sobre Nosotros', href: '#', current: false },
-  { name: 'Cerrar sesión', href: 'logout', current: false },
+  { name: 'Mis Puntos', href: '#', current: false },
+  { name: 'Sobre Nosotros', href: '/win1000', current: false },
+  { name: 'Cerrar sesión', href: '/logout', current: false },
+
 ]
 
 function classNames(...classes) {

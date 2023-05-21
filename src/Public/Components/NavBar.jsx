@@ -40,13 +40,11 @@ export const NavBar = () => {
                 <div className="flex ml-auto ">
                   <span className="mx-2 mr-2">Escanea aquí</span>
                   <NavLink to={'login'}>
-                    {/* <a href="login"> */}
                     <img
                       src="\public\assets\qr.png"
                       alt="scan-logo"
                       className="fill-current text-white h-6 m-auto w-6 hover:text-white hover:bg-gray-600"
                     />
-                    {/* </a> */}
                   </NavLink>
 
                 </div>
@@ -57,6 +55,7 @@ export const NavBar = () => {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
+
                       <NavLink
                         key={item.name}
                         to={item.href}
@@ -64,10 +63,11 @@ export const NavBar = () => {
                           item.current ? 'bg-slate-100 text-slate-950 hover:bg-gray-600' : 'text-slate-950 hover:bg-gray-600 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
-                        // aria-current={item.current ? 'page' : undefined}
+                        aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
                       </NavLink>
+
                     ))}
                   </div>
                 </div>
@@ -79,7 +79,9 @@ export const NavBar = () => {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
+
               {navigation.map((item) => (
+
                 <NavLink
                   key={item.name}
                   // as="a"
@@ -88,11 +90,12 @@ export const NavBar = () => {
                     item.current ? 'bg-gray-600 text-slate-950' : 'text-slate-950 hover:bg-gray-600 hover:text-white',
                     'block rounded-md px-3 py-2 text-base font-medium'
                   )}
-                  // aria-current={item.current ? 'page' : undefined}
+                  aria-current={item.current ? 'page' : undefined}
                 >
                   {item.name}
                 </NavLink>
               ))}
+
             </div>
           </Disclosure.Panel>
         </>

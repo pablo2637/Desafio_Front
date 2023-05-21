@@ -4,9 +4,13 @@ import { useUserStore } from "../Hooks/useUserStore";
 
 export const LoginForm = () => {
 
-  const { handleChange, form } = useForm();
+  const {
+    handleChange,
+    form,
+    handlePlace,
+    place
+  } = useForm();
 
-  const [place, setPlace] = useState(false)
 
   const { errorMessage, loginStart } = useUserStore();
 
@@ -17,7 +21,6 @@ export const LoginForm = () => {
   };
 
 
-  const handlePlace = () => setPlace(!place);
 
   return (
 
@@ -43,19 +46,36 @@ export const LoginForm = () => {
               <label
                 className="inline-block pl-[0.15rem] hover:cursor-pointer"
                 htmlFor="flexSwitchCheckDefault"
-              >{(place) ? 'Establecimientos' : 'Usuarios particulares'}</label>
+              >{(place == 'place') ? 'Establecimientos' : 'Usuarios particulares'}</label>
             </div>
 
             <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2">{(place) ? "Teléfono" : "Email"}</label>
-              <input
-                onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
-                type="email"
-                id={(place) ? "phone" : "email"}
-                name={(place) ? "phone" : "email"}
-                placeholder={(place) ? "xxx xxx xxx" : "juan@ejemplo.com"} />
+              {
+                (place === 'place') ?
+                  <>
+                    <label className="block text-gray-700 text-sm font-bold mb-2">{"Teléfono"}</label>
+                    <input
+                      onChange={handleChange}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                      type="text"
+                      id={"phone"}
+                      name={"phone"}
+                      placeholder={"xxx xxx xxx"} />
+                  </>
 
+                  :
+
+                  <>
+                    <label className="block text-gray-700 text-sm font-bold mb-2">{"Email"}</label>
+                    <input
+                      onChange={handleChange}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                      type="email"
+                      id={"email"}
+                      name={"email"}
+                      placeholder={"juan@ejemplo.com"} />
+                  </>
+              }
             </div>
 
             <div className="mb-4">
@@ -84,9 +104,9 @@ export const LoginForm = () => {
 
           </form>
 
-        </div>
+        </div >
 
-      </section>
+      </section >
     </>
   )
 }

@@ -13,6 +13,7 @@ const navigation = [
   { name: 'Mis Puntos', href: '#', current: false },
   { name: 'Sobre Nosotros', href: '/win1000', current: false },
   { name: 'Cerrar sesión', href: '/logout', current: false },
+
 ]
 
 function classNames(...classes) {

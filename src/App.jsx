@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { PublicRoutes } from "./Routers/";
 import { NavBar } from "./Public/Components/NavBar";
+import { NavBarUser } from "./Private/Components/NavBarUser";
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
     <>
 
       <header>
-        <NavBar/>
+        <NavBarUser/>
       </header>
 
       <main>

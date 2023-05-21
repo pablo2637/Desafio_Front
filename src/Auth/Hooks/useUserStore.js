@@ -6,7 +6,7 @@ import { setLocal } from "../../Helpers/localStorage";
 
 export const useUserStore = () => {
 
-    const { errorMessage } = useSelector(state => state.user)
+    const { errorMessage, user } = useSelector(state => state.user)
 
     const dispatch = useDispatch();
 
@@ -31,7 +31,7 @@ export const useUserStore = () => {
 
             let petition;
 
-            if (place)
+            if (place == 'place')
                 petition = await masterFetch('api/places/login', 'POST', form)
 
             else
@@ -49,8 +49,8 @@ export const useUserStore = () => {
                 dispatch(onLogin(user))
 
                 const token = petition.token
-
-                setLocal(token)
+                
+                setLocal({ token, role: user.role })
 
                 navigate("/");
             }
@@ -124,7 +124,8 @@ export const useUserStore = () => {
 
                 const token = petition.token
 
-                setLocal(token)
+
+                setLocal({ token, role: petition.user.role })
 
                 navigate('/')
             }

@@ -1,5 +1,6 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { Home, RegisterPlacePage } from '../Admin/Pages/';
+import { Logout } from '../Private/Pages';
 
 
 export const AdminRouters = () => {
@@ -27,6 +28,11 @@ export const AdminRouters = () => {
                 <Route
                     path='place-register'
                     element={<RegisterPlacePage />}
+                />
+
+                <Route
+                    path='logout'
+                    element={<Logout />}
                 />
 
                 <Route path='/*' element={<Navigate to={'/'} />} />

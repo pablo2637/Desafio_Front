@@ -7,7 +7,7 @@ export const Home = () => {
     return (
         <>
             <header>
-                <p>
+                <p className='texto'>
                     ¡Reciclar aceite nunca fue tan fácil! Ahora tienes puntos de reciclaje más cercanos.
                 </p>
             </header>

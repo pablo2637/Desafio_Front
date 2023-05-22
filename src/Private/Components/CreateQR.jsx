@@ -3,13 +3,10 @@ import QRCode from 'react-qr-code';
 import { useSelector } from 'react-redux';
 
 
-
 export const CreateQR = () => {
 
   const { user } = useSelector(state => state.user);
   const [qrValue, setQrValue] = useState(null);
-
-
 
   useEffect(() => {
 
@@ -22,10 +19,11 @@ export const CreateQR = () => {
 
   }, [user])
 
-
   return (
 
-    <div className='divPopup absolute'>
+    <article className="gcardContainer mt-10">
+
+    <div className='gCard centerDiv text-center'>
 
       {
         (qrValue) &&
@@ -33,11 +31,13 @@ export const CreateQR = () => {
           <h3>Este es tu QR</h3> 
           <p>¡Gana puntos y protege el agua!
             Muestra tu código QR cuando lleves tu aceite usado al establecimiento.</p>
-          <QRCode value={JSON.stringify(qrValue)} />
+          <QRCode value={JSON.stringify(qrValue)} className="qrContainer" />
+          <p className='ganaPuntos qrContainer whiteColor'>GANA PUNTOS</p>
         </div>
       }
 
     </div>
+    </article>
 
   );
 };

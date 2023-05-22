@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Ofertas } from '../Components/Ofertas';
 import { NavLink } from 'react-router-dom'
 import { getReycles, sumLiters, sumRecycles } from '../../Public/helpers/getReycles';
-import { onLoadPoints, onLoadPrevPoints, onLoadRecycles } from '../../Store/Slices/userSlice'
+import { onLoadPoints, onLoadPrevPoints, onLoadRecycles, onQuestion } from '../../Store/Slices/userSlice'
 import { Allpuntos } from '../Components/Allpuntos';
+import { PointsObtained } from '../Components/PointsObtained';
 
 
 export const MisPuntos = () => {
 
-  const { user, points } = useSelector(state => state.user);
+  const { user, points, prevPoints, question, recycles } = useSelector(state => state.user);
   const [sums, setSums] = useState({});
   const dispatch = useDispatch();
 
@@ -29,6 +30,10 @@ export const MisPuntos = () => {
       dispatch(onLoadRecycles(response.recycles));
       newSum.liters = sumLiters(response.recycles);
       newSum.points = sumRecycles(response.recycles);
+
+      if (prevPoints != newSum.points && prevPoints != 0)
+        dispatch(onQuestion(true));
+
       dispatch(onLoadPrevPoints(newSum.points));
 
       setSums(newSum);
@@ -85,9 +90,14 @@ export const MisPuntos = () => {
         </div>
       }
 
-
-
       <Ofertas />
+
+
+      {
+        (question) &&
+
+        <PointsObtained recycle={recycles[recycles.length - 1]} />
+      }
 
     </>
   )

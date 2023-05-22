@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { useValidateToken } from "../../Hooks/useValidateToken";
 import { getLocalCookies, setLocalCookies } from "../../Helpers/localStorage";
 import { useDispatch, useSelector } from "react-redux";
-import { onLoadPoints, onLoadPrevPoints, onLoadRecycles } from "../../Store/Slices/userSlice";
+import { onLoadPoints, onLoadPrevPoints, onLoadRecycles, onQuestion } from "../../Store/Slices/userSlice";
 import { getReycles, sumLiters, sumRecycles } from "../helpers/getReycles";
 import { PointsObtained } from "../../Private/Components/PointsObtained";
 
@@ -15,9 +15,9 @@ export const Home = () => {
     const [cookies, setCookies] = useState(getLocalCookies());
     const { checkToken } = useValidateToken();
 
-    const { user, prevPoints, recycles } = useSelector(state => state.user);
+    const { user, prevPoints, recycles, question } = useSelector(state => state.user);
     // const [sums, setSums] = useState({});
-    const [question, setQuestion] = useState(false);
+    // const [question, setQuestion] = useState(false);
     const dispatch = useDispatch();
 
     const handleCookiesClick = () => {
@@ -36,14 +36,12 @@ export const Home = () => {
                 points: 0
             };
 
-
-            const prev = prevPoints;
             dispatch(onLoadRecycles(response.recycles));
             newSum.liters = sumLiters(response.recycles);
             newSum.points = sumRecycles(response.recycles);
 
-            if (prevPoints != newSum.points)
-                setQuestion(!question);
+            if (prevPoints != newSum.points && prevPoints != 0)
+                dispatch(onQuestion(true));
 
 
             dispatch(onLoadPrevPoints(newSum.points));
@@ -57,14 +55,14 @@ export const Home = () => {
                 dispatch(onLoadPoints(false));
         }
 
+        checkToken();
+
     };
 
-
     useEffect(() => {
-        checkToken();
         if (Object.entries(user).length > 0) getUserRecycles();
 
-    }, []);
+    }, [user])
 
     return (
         <>
@@ -101,7 +99,6 @@ export const Home = () => {
                     (question) &&
 
                     <PointsObtained recycle={recycles[recycles.length - 1]} />
-
                 }
 
             </main>

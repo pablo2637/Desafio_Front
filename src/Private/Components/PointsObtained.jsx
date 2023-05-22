@@ -1,18 +1,19 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { onQuestion } from '../../Store/Slices/userSlice'
 
 export const PointsObtained = ({ recycle }) => {
 
     const [screenOne, setScreenOne] = useState(true)
 
-    const navigate = useNavigate()
+    const dispatch = useDispatch();
 
     const handleToggle = () => setScreenOne(!screenOne)
 
     const handleAnswer = () => {
 
-        setScreenOne(screenOne);
-        navigate('/mispuntos')
+        dispatch(onQuestion(false));
+        setScreenOne(!screenOne)
     }
 
 
@@ -85,6 +86,7 @@ export const PointsObtained = ({ recycle }) => {
 
                 </article>
         }
+
 
         </>
     )

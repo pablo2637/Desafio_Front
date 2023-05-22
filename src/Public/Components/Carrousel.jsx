@@ -6,9 +6,9 @@ import '../css/Carousel.css';
 export const Carrousel = () => {
 
   return (
-    <div className='Container-carr'>
+    <div className=''>
 
-      <p className='texto'>Aprende a usar nuestra Web</p>
+      <p className='texto mt-3 m-auto text-center'>Aprende a usar nuestra Web</p>
 
       <Carousel
         autoPlay
@@ -17,7 +17,7 @@ export const Carrousel = () => {
         showThumbs={false}
         showIndicators
         centerMode={false}
-        className="carousel-container">
+        className="">
 
         <div>
           <img src='../assets/frame1.png' alt="Image 1" />

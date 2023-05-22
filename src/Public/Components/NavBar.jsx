@@ -4,11 +4,11 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { NavLink } from 'react-router-dom';
 
 const navigation = [
-  { name: 'Home', href: '/', current: true },
+  { name: 'Home', href: '/', current: false },
   { name: 'Login', href: '/login', current: false },
   { name: 'Registro', href: '/register', current: false },
   { name: 'Escanea tu QR', href: '/login', current: false },
-  { name: 'Sobre nosotros', href: '/#', current: false },
+  { name: 'Sobre nosotros', href: '/points-obtained', current: false },
 ]
 
 function classNames(...classes) {
@@ -84,7 +84,6 @@ export const NavBar = () => {
 
                 <NavLink
                   key={item.name}
-                  // as="a"
                   to={item.href}
                   className={classNames(
                     item.current ? 'bg-gray-600 text-slate-950' : 'text-slate-950 hover:bg-gray-600 hover:text-white',

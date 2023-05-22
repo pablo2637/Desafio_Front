@@ -6,14 +6,14 @@ import { useSelector } from 'react-redux';
 
 export const QrPage = () => {
 
-    const {user} = useSelector(state => state.user);
+   
 
   return (
 
     <>
     <CreateQR/>
 
-    <Allpuntos user_id = {user.user_id}/>
+  
 
     </>
     //<div><GenerateQR/></div>

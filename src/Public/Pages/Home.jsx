@@ -62,7 +62,7 @@ export const Home = () => {
 
     useEffect(() => {
         checkToken();
-        getUserRecycles();
+        if (Object.entries(user).length > 0) getUserRecycles();
 
     }, []);
 
@@ -98,7 +98,7 @@ export const Home = () => {
 
 
                 {
-                    (!question) &&
+                    (question) &&
 
                     <PointsObtained recycle={recycles[recycles.length - 1]} />
 

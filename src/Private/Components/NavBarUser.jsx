@@ -59,7 +59,6 @@ export const NavBarUser = () => {
                       className="fill-current text-white h-6 m-auto w-6 hover:text-white hover:bg-gray-600"
                     />
                   </button>
-
                 </div>
 
               </div>
@@ -84,6 +83,16 @@ export const NavBarUser = () => {
                 </div>
               </div>
 
+              <div className="flex ml-auto">
+                <span className="mx-2 mr-2">Escanea aquí</span>
+                <button onClick={handleQR}>
+                  <img
+                    src="\assets\qr.png"
+                    alt="scan-logo"
+                    className="fill-current text-white h-6 m-auto w-6 hover:text-white hover:bg-gray-600"
+                  />
+                </button>
+              </div>
 
             </div>
           </div>
@@ -110,6 +119,7 @@ export const NavBarUser = () => {
                 </NavLink>
               ))}
             </div>
+
           </Disclosure.Panel>
         </>
       )}

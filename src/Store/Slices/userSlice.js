@@ -12,6 +12,7 @@ export const userSlice = createSlice({
         errorMessage: undefined,
         recycles: [],
         prevPoints: 0,
+        question: false,
         points: false,
         qrValue: '',
         coords: {},
@@ -31,6 +32,11 @@ export const userSlice = createSlice({
         onLocating: (state, { payload }) => {
 
             state.isLocating = true;
+        },
+
+        onQuestion: (state, { payload }) => {
+
+            state.question = payload;
         },
 
         onLoadPrevPoints: (state, { payload }) => {
@@ -59,6 +65,9 @@ export const userSlice = createSlice({
 
             state.user = {};
             state.errorMessage = [];
+            state.recycles = [];
+            state.prevPoints = 0;
+            state.question = false;
             state.status = 'non-authenticated';
         },
 
@@ -81,6 +90,7 @@ export const userSlice = createSlice({
 
 export const {
     onLogin,
+    onQuestion,
     onLocating,
     onLogout,
     onLoadPrevPoints,

@@ -42,16 +42,16 @@ export const MisPuntos = () => {
   return (
     <>
 
-    <div className='absolute top-0 left-0 z-[-1]'>
-      <img src="../assets/rectangle.png" />
-    </div>
+      <div className='absolute top-0 left-0 z-[-1]'>
+        <img src="../assets/rectangle.png" />
+      </div>
 
       <div className=" my-8  pb-4">
         <h3 className='mb-8 text-center text-2xl font-bold'>Tu balance</h3>
         <Allpuntos user_id={user.user_id} />
       </div>
 
-      <div >
+      <div>
         <h3 className='mb-4 text-center text-2xl font-bold'>Ofertas Destacadas</h3>
       </div>
 

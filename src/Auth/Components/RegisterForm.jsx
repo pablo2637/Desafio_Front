@@ -86,8 +86,8 @@ export const RegisterForm = () => {
             </div>
 
             <button
-              className="w-full bg-indigo-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"
-              type="submit">Registro</button>
+              className="w-full bg-[#f67f00] text-white text-base font-medium py-2 px-4 rounded-md hover:bg-[#C95C03] transition duration-300"
+              type="submit">Registrarse</button>
           </form>
 
         </div>

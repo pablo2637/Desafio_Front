@@ -31,11 +31,13 @@ export const UserMarker = ({ findMe }) => {
 
 
     useEffect(() => {
-
+        
         if (!coords.lat) {
             dispatch(onLocating());
             map.locate();
-        }
+
+        } else
+            setPosition([coords.lat, coords.long]);
 
     }, [findMe]);
 

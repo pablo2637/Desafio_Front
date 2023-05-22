@@ -21,7 +21,7 @@ export const Home = () => {
     return (
         <>
             <header>
-                <p className='texto'>
+                <p className='text-[22px] font-bold px-6 leading-[26px] mb-4'>
                     ¡Reciclar aceite nunca fue tan fácil! Ahora tienes puntos de reciclaje más cercanos.
                 </p>
             </header>

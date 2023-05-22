@@ -1,5 +1,4 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
-import { QrPage } from '../Private/Pages/QrPage';
 import { Logout, RecycleQRpage } from '../Private/Pages';
 import { HomePage } from '../Places/Pages';
 
@@ -13,11 +12,6 @@ export const PlaceRouters = () => {
                 <Route
                     path='/'
                     element={<HomePage />}
-                />
-
-                <Route
-                    path='generate'
-                    element={<QrPage />}
                 />
 
                 <Route

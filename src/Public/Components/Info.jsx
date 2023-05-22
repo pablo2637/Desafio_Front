@@ -57,7 +57,7 @@ export const Info = ({ name, rating, address, image_url, url, phone, price, coor
                         </div>
                         {
                             (url) ?
-                                <NavLink className='text-[0.6rem] py-1' to={url} target='_blank' >web: {name}</NavLink>
+                                <NavLink className='text-[0.6rem] py-1 underline' to={url} target='_blank' >web: {name}</NavLink>
                                 :
                                 <p className='text-[0.6rem] py-1'>--</p>
                         }
@@ -75,14 +75,14 @@ export const Info = ({ name, rating, address, image_url, url, phone, price, coor
                         <div className='w-3 h-3 self-center'>
                             <img src="../assets/star.png" />
                         </div>
-                        <p className='text-[0.6rem] py-1'>{parseFloat(rating)}</p>
+                        <p className='text-[0.6rem] py-1'>Rating: {parseFloat(rating)}</p>
                     </div>
 
                     <div className='grid contPopup'>
                         <div className='w-3 h-3 self-center'>
                             <img src="../assets/coins.png" />
                         </div>
-                        <p className='text-[0.6rem] py-1'>{(price) ? price : '--'}</p>
+                        <p className='text-[0.6rem] py-1'>{(price) ? `Precio: ${price}` : '--'}</p>
                     </div>
 
                 </div>

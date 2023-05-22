@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import {QrReader} from 'react-qr-reader';
+import { QrReader } from 'react-qr-reader';
 
-export const QRCodeReader = () => {
-  const [qrCode, setQRCode] = useState('');
+export const QRCodeReader = ({ setQRCode, qrCode }) => {
 
   const handleScan = (data) => {
+    console.log('data', data)
     if (data) {
       setQRCode(data);
     }
@@ -15,12 +15,24 @@ export const QRCodeReader = () => {
   };
 
   return (
-    <div>
+    <div className='camara'>
+      <p>result: {qrCode}</p>
       <QrReader
-        delay={300}
-        onError={handleError}
-        onScan={handleScan}
-        facingMode="environment"
+        onResult={(result, error) => {
+          if (!!result) {
+            console.info('data', result?.text);
+            setQRCode(result?.text);
+
+          }
+
+          if (!!error) {
+            console.info('error');
+          }
+        }}
+        // delay={300}
+        // onError={handleError}
+        // onScan={handleScan}
+        // facingMode="environment"
         style={{ width: '50%' }}
       />
       <p>QR Code: {qrCode}</p>

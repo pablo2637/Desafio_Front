@@ -177,31 +177,6 @@ body
     padding: 9px;
 }
 
-.divPopup h3
-{
-    text-align: left;
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 26px;
-}
-
-.divPopup a
-{
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 19px;
-    color: #F67F00;
-}
-
-.divPopup p
-{
-    width: 278px;
-    height: 167px;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-}
-
 
 .leaflet-container
 {
@@ -365,13 +340,13 @@ body
     position:absolute;
   }
   
-  .gcard, h3 {
+  .gcard h3 {
     font-size: 30px;
     font-weight: bold;
     margin-bottom: 8px;
   }
   
-  .gcard, p {
+  .gcard p {
     font-size: 14px;
     color: rgb(82, 78, 78);
     margin-bottom: 16px;

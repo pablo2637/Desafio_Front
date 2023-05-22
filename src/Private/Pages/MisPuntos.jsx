@@ -1,37 +1,46 @@
 
-import React, { useEffect } from 'react'
-import { Allpuntos } from '../../Public/Components/Allpuntos';
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Ofertas } from '../Components/Ofertas';
 import { NavLink } from 'react-router-dom'
-import { getReycles } from '../../Public/helpers/getReycles';
-import { onLoadPoints, onLoadRecycles } from '../../Store/Slices/userSlice'
+import { getReycles, sumLiters, sumRecycles } from '../../Public/helpers/getReycles';
+import { onLoadPoints, onLoadPrevPoints, onLoadRecycles } from '../../Store/Slices/userSlice'
+import { Allpuntos } from '../Components/Allpuntos';
 
 
 export const MisPuntos = () => {
 
   const { user, points } = useSelector(state => state.user);
+  const [sums, setSums] = useState({});
   const dispatch = useDispatch();
 
 
   const getUserRecycles = async () => {
 
     const response = await getReycles(user.user_id);
-    console.log('response', response);
 
     if (response.ok) {
 
+      const newSum = {
+        liters: 0,
+        points: 0
+      };
+
       dispatch(onLoadRecycles(response.recycles));
+      newSum.liters = sumLiters(response.recycles);
+      newSum.points = sumRecycles(response.recycles);
+      dispatch(onLoadPrevPoints(newSum.points));
+
+      setSums(newSum);
 
       if (response.recycles[0].points)
         dispatch(onLoadPoints(true));
 
       else
         dispatch(onLoadPoints(false));
-
     }
 
-  }
+  };
 
 
   useEffect(() => {
@@ -48,11 +57,21 @@ export const MisPuntos = () => {
 
       <div className=" my-8  pb-4">
         <h3 className='mb-8 text-center text-2xl font-bold'>Tu balance</h3>
-        <Allpuntos user_id={user.user_id} />
+        <Allpuntos sums={sums} />
       </div>
 
       <div>
         <h3 className='mb-4 text-center text-2xl font-bold'>Ofertas Destacadas</h3>
+      </div>
+
+      <div className='z-[150]  divMapSearch relative'>
+        <form >
+          <input
+            type="text"
+            placeholder='Busca por ubicación'>
+          </input>
+          <img className='glass' src="../assets/glass.png" />
+        </form>
       </div>
 
 

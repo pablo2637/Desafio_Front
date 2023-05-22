@@ -19,7 +19,7 @@ export const NavBar = () => {
 
   return (
 
-    <Disclosure as="nav" className="bg-transparent">
+    <Disclosure as="nav" className="bg-[#fafafa]">
       {({ open }) => (
 
         <>

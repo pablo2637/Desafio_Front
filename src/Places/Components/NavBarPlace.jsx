@@ -1,31 +1,38 @@
-
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { NavLink } from 'react-router-dom';
+import { CreateQR } from '../../Public/Components'
+import { useNavigate, NavLink } from 'react-router-dom'
+
 
 const navigation = [
-  { name: 'Home', href: '/', current: false },
-  { name: 'Login', href: '/login', current: false },
-  { name: 'Registro', href: '/register', current: false },
-  { name: 'Escanea tu QR', href: '/login', current: false },
-  { name: 'Sobre nosotros', href: '/points-obtained', current: false },
+
+  { name: 'Home', href: '/home', current: false },
+  { name: 'Reciclar', href: '/scanQR', current: false },
+  { name: 'Cerrar sesión', href: '/logout', current: false },
 ]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export const NavBar = () => {
+export const NavBarPlace = () => {
+
+  const navigate = useNavigate();
+
+
+  const handleQR = () => navigate('/scanQR');
+
+
 
   return (
 
-    <Disclosure as="nav" className="bg-transparent">
+    <Disclosure as="nav" className="bg-slate-200">
       {({ open }) => (
 
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-            <div className="relative flex h-16 items-center justify-between">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden  w-full">
+            <div className="relative flex h-16 items-center justify-between ">
+              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden w-full">
 
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-slate-950 hover:bg-gray-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -37,15 +44,15 @@ export const NavBar = () => {
                   )}
                 </Disclosure.Button>
 
-                <div className="flex ml-auto ">
+                <div className="flex ml-auto">
                   <span className="mx-2 mr-2">Escanea aquí</span>
-                  <NavLink to={'login'}>
+                  <button onClick={handleQR}>
                     <img
                       src="\assets\qr.png"
                       alt="scan-logo"
                       className="fill-current text-white h-6 m-auto w-6 hover:text-white hover:bg-gray-600"
                     />
-                  </NavLink>
+                  </button>
 
                 </div>
 
@@ -55,7 +62,6 @@ export const NavBar = () => {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-
                       <NavLink
                         key={item.name}
                         to={item.href}
@@ -63,11 +69,10 @@ export const NavBar = () => {
                           item.current ? 'bg-slate-100 text-slate-950 hover:bg-gray-600' : 'text-slate-950 hover:bg-gray-600 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
-                        aria-current={item.current ? 'page' : undefined}
+                      // aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
                       </NavLink>
-
                     ))}
                   </div>
                 </div>
@@ -77,11 +82,10 @@ export const NavBar = () => {
             </div>
           </div>
 
+
           <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2 fixed z-[1200] bg-[#fafafa] w-full">
-
+            <div className="space-y-1 px-2 pb-3 pt-2 fixed z-[1200] bg-sky-100 w-full">
               {navigation.map((item) => (
-
                 <NavLink
                   key={item.name}
                   to={item.href}
@@ -89,12 +93,11 @@ export const NavBar = () => {
                     item.current ? 'bg-gray-600 text-slate-950' : 'text-slate-950 hover:bg-gray-600 hover:text-white',
                     'block rounded-md px-3 py-2 text-base font-medium'
                   )}
-                  aria-current={item.current ? 'page' : undefined}
+                // aria-current={item.current ? 'page' : undefined}
                 >
                   {item.name}
                 </NavLink>
               ))}
-
             </div>
           </Disclosure.Panel>
         </>

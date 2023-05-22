@@ -1,42 +1,27 @@
-import { useDispatch } from "react-redux"
 import { masterFetch } from "../Api/fetch"
-import { onLogout } from "../Store/Slices/userSlice"
-import { getLocal, setLocal } from "./localStorage"
-import { useNavigate } from 'react-router-dom'
+import { getLocal } from "./localStorage"
 
 
-export const validateToken = async (place) => {
+export const validateToken = async () => {
 
-    const dispatch = useDispatch()
+    const { token, role } = getLocal();
 
-    const navigate = useNavigate();
-
-    const body = {
-
-        token: getLocal()
-    }
+    const body = { token }
 
     try {
 
-        let petition;
-        if (place)
-            petition = await masterFetch('api/places/renew', 'POST', body);
+        let petition = {};
 
-        else
-            petition = await masterFetch('api/users/renew', 'POST', body);
+        if (role) {
 
+            if (role == 'place')
+                petition = await masterFetch('api/places/renew', 'POST', body);
 
-        if (petition.ok)
-            setLocal(petition.token)
-
-        else {
-
-            setLocal('');
-
-            dispatch(onLogout());
-
-            navigate('/');
+            else
+                petition = await masterFetch('api/users/renew', 'POST', body);
         }
+
+        return petition;
 
     } catch (error) {
 

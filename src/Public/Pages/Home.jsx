@@ -1,19 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Map } from "../Components";
 import { Carrousel } from "../Components/Carrousel";
 import { NavLink } from 'react-router-dom';
+import { useValidateToken } from "../../Hooks/useValidateToken";
 
 
 export const Home = () => {
 
     const [cookies, setCookies] = useState(false);
+    const { checkToken } = useValidateToken();
 
     const handleCookiesClick = () => setCookies(!cookies);
+
+
+    useEffect(() => {
+        checkToken();
+
+    }, []);
 
     return (
         <>
             <header>
-                <p className='texto'>
+                <p className='text-[22px] font-bold px-6 leading-[26px] mb-4'>
                     ¡Reciclar aceite nunca fue tan fácil! Ahora tienes puntos de reciclaje más cercanos.
                 </p>
             </header>
@@ -25,7 +33,7 @@ export const Home = () => {
 
                 {
                     (!cookies) &&
-                    <div className="divCookies z-[1010] fixed left-0" >
+                    <div className="divPopup z-[1010] fixed left-0" >
                         <div className="flex justify-start items-center flex-col">
                             <h3 className="w-full text-left">Políticas sobre cookies</h3>
                             <p className="text-[0.6rem]">

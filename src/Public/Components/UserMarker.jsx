@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Marker, Popup, useMapEvents } from 'react-leaflet';
 import { Icon } from 'leaflet';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { onLoadCoords, onLocating } from '../../Store/Slices/userSlice'
 
 
@@ -9,6 +9,7 @@ export const UserMarker = ({ findMe }) => {
 
     const [position, setPosition] = useState(null);
     const dispatch = useDispatch();
+    const { coords } = useSelector(state => state.user);
 
 
     const customIcon = new Icon({
@@ -30,8 +31,13 @@ export const UserMarker = ({ findMe }) => {
 
 
     useEffect(() => {
-        dispatch(onLocating());
-        map.locate();
+        
+        if (!coords.lat) {
+            dispatch(onLocating());
+            map.locate();
+
+        } else
+            setPosition([coords.lat, coords.long]);
 
     }, [findMe]);
 

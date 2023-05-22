@@ -6,14 +6,14 @@ import { Allpuntos } from '../Components/Allpuntos';
 
 export const QrPage = () => {
 
-    const {user} = useSelector(state => state.user);
+   
 
   return (
 
     <>
     <CreateQR/>
 
-    <Allpuntos user_id = {user.user_id}/>
+  
 
     </>
     //<div><GenerateQR/></div>

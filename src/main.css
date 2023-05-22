@@ -360,7 +360,7 @@ body
   
   .qr {
     width: 90%;
-    max-width: 200px; /* Ajusta el tamaño según tus necesidades */
+    max-width: 200px;
     display: block;
     margin: 0 auto;
   }
@@ -371,10 +371,11 @@ body
     font-weight: bold;
   }
 
-  .centerContainer {
+  .centerContainer, NavLink {
 
     display: flex;
     align-items: center;
     justify-content: center;
+
   }
 

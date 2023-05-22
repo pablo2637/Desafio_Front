@@ -19,7 +19,7 @@ export const NavBar = () => {
 
   return (
 
-    <Disclosure as="nav" className="bg-slate-200">
+    <Disclosure as="nav" className="bg-transparent">
       {({ open }) => (
 
         <>
@@ -41,7 +41,7 @@ export const NavBar = () => {
                   <span className="mx-2 mr-2">Escanea aquí</span>
                   <NavLink to={'login'}>
                     <img
-                      src="\public\assets\qr.png"
+                      src="\assets\qr.png"
                       alt="scan-logo"
                       className="fill-current text-white h-6 m-auto w-6 hover:text-white hover:bg-gray-600"
                     />
@@ -78,7 +78,7 @@ export const NavBar = () => {
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2">
+            <div className="space-y-1 px-2 pb-3 pt-2 fixed z-[1200] bg-[#fafafa] w-full">
 
               {navigation.map((item) => (
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "../../Hooks/useForm"
 import { useUserStore } from "../Hooks/useUserStore";
+import { NavLink } from 'react-router-dom';
 
 export const LoginForm = () => {
 
@@ -44,7 +45,7 @@ export const LoginForm = () => {
                 onClick={handlePlace}
               />
               <label
-                className="inline-block pl-[0.15rem] hover:cursor-pointer"
+                className="inline-block pl-[0.15rem] text-[#f67f00]  hover:cursor-pointer"
                 htmlFor="flexSwitchCheckDefault"
               >{(place == 'place') ? 'Establecimientos' : 'Usuarios particulares'}</label>
             </div>
@@ -93,13 +94,13 @@ export const LoginForm = () => {
             </div>
 
             <button
-              className="w-full bg-indigo-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"
-              type="submit">Log in</button>
+              className="w-full bg-[#f67f00] text-white text-base font-medium py-2 px-4 rounded-md hover:bg-[#C95C03] transition duration-300"
+              type="submit">Inicia sesión</button>
 
             <div className="text-sm mt-2">
-              <a href="/register" className="text-cyan-500 hover:text-cyan-800">
+              <NavLink to={"/register"} className="text-[#f67f00] hover:text-cyan-800">
                 ¿No tienes cuenta? Regístrate aquí
-              </a>
+              </NavLink>
             </div>
 
           </form>

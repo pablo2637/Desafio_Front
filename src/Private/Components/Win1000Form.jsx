@@ -1,42 +1,66 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "../../Hooks/useForm";
 import { useMap } from "../../Public/Hooks/useMap";
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import { masterFetch } from "../../Api/fetch";
+import { onLoadPoints } from "../../Store/Slices/userSlice";
 
 
 export const Win1000Form = () => {
 
-    const { restaurants } = useSelector(state => state.places);
+    const { places } = useSelector(state => state.places);
+    const { user } = useSelector(state => state.user);
+    const dispatch = useDispatch();
 
     const { getRestaurants } = useMap();
-
-    const { handleChange, form } = useForm();
+    const navigate = useNavigate();
 
     const [filterRest, setFilterRest] = useState([]);
 
     const handleFilter = ({ target }) => {
 
         if (target.value == '')
-            setFilterRest(restaurants);
+            setFilterRest(places);
 
         else {
 
-            const newFilter = restaurants.filter(rest => rest.place_name.toLowerCase().includes(target.value.toLowerCase()))
+            const newFilter = places.filter(rest => rest.name.toLowerCase().includes(target.value.toLowerCase()))
 
             setFilterRest(newFilter);
         }
     }
 
-    useEffect(() => {
-        getRestaurants();
 
-    }, []);
-
-    const onSubmit = (ev) => {
+    const onSubmit = async (ev) => {
 
         ev.preventDefault();
-        console.log('enviando..')
+
+        const recycleData = {
+            user_id: user.user_id,
+            place_id: ev.target.restaurant.value,
+            qty: 0,
+            reward: 1000,
+        };
+
+        const response = await masterFetch('api/recycle', 'POST', recycleData);
+
+        if (response.ok) {
+
+            dispatch(onLoadPoints(true));
+
+            navigate(-1);
+        }
+
+
     };
+
+
+
+    useEffect(() => {
+        // getRestaurants();
+
+    }, []);
 
     return (
 
@@ -74,7 +98,7 @@ export const Win1000Form = () => {
                                     (filterRest) ?
 
                                         filterRest.map(rest =>
-                                            <option key={`rest${rest.place_id}`} value={rest.place_id}>{`${rest.place_name}: ${rest.address}`}</option>
+                                            <option key={`rest${rest.place_id}`} value={rest.place_id}>{`${rest.name}: ${rest.address}`}</option>
                                         )
 
                                         :

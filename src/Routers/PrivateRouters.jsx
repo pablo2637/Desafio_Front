@@ -2,6 +2,7 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import { Home } from '../Public/Pages';
 import { Logout, QrPage, Win1000Page } from '../Private/Pages';
 import { MisPuntos } from '../Private/Pages/MisPuntos';
+import { CarrouselAgua } from '../Private/Components/CarrouselAgua';
 
 
 export const PrivateRouters = () => {
@@ -33,6 +34,12 @@ export const PrivateRouters = () => {
                 <Route
                     path='logout'
                     element={<Logout />}
+                />
+
+
+                <Route
+                    path='/impacto'
+                    element={<CarrouselAgua />}
                 />
 
                 <Route path='/*' element={<Navigate to={'/'} />} />

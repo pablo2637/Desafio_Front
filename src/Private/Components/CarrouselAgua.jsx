@@ -1,5 +1,6 @@
 import { Carousel } from 'react-responsive-carousel';
-import '../../Main.css'
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import '../css/Carousel.css';
 
 
 export const CarrouselAgua = () => {

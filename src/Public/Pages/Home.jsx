@@ -7,6 +7,7 @@ import { getLocalCookies, setLocalCookies } from "../../Helpers/localStorage";
 import { useDispatch, useSelector } from "react-redux";
 import { onLoadPoints, onLoadPrevPoints, onLoadRecycles } from "../../Store/Slices/userSlice";
 import { getReycles, sumLiters, sumRecycles } from "../helpers/getReycles";
+import { PointsObtained } from "../../Private/Components/PointsObtained";
 
 
 export const Home = () => {
@@ -14,7 +15,7 @@ export const Home = () => {
     const [cookies, setCookies] = useState(getLocalCookies());
     const { checkToken } = useValidateToken();
 
-    const { user, prevPoints } = useSelector(state => state.user);
+    const { user, prevPoints, recycles } = useSelector(state => state.user);
     // const [sums, setSums] = useState({});
     const [question, setQuestion] = useState(false);
     const dispatch = useDispatch();
@@ -93,6 +94,14 @@ export const Home = () => {
                             <NavLink className='text-[#F67F00] text-base font-light block text-center w-full'>PREFERENCIAS DE COOKIES</NavLink>
                         </div>
                     </div>
+                }
+
+
+                {
+                    (!question) &&
+
+                    <PointsObtained recycle={recycles[recycles.length - 1]} />
+
                 }
 
             </main>

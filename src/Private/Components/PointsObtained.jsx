@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
-export const PointsObtained = () => {
+export const PointsObtained = ({ recycle }) => {
 
     const [screenOne, setScreenOne] = useState(true)
 
@@ -16,76 +16,76 @@ export const PointsObtained = () => {
     }
 
 
-  return (
+    return (
 
-    <>  {
-            screenOne ? 
-            <article className="gcardContainer">
+        <>  {
+            screenOne ?
+                <article className="gcardContainer">
 
-            <div className="gCard">
+                    <div className="gCard">
 
-                <h3>Has ganado {} puntos!</h3> 
-                
-                <p>Con {}L de aceite has ganado {} puntos y has logrado salvar {} litros de agua. 
-                                        Muy bien, ¡ sigue así!</p>
+                        <h3>Has ganado {recycle.points} puntos!</h3>
 
-                <img 
-                src="\assets\500points.png" 
-                alt="500points"
-                className='mt-4' />
+                        <p>Con {recycle.qty}L de aceite has ganado {recycle.points} puntos y has logrado salvar {recycle.qty * 100} litros de agua.
+                            Muy bien, ¡ sigue así!</p>
 
-                <div className="centerContainer">
-                    <button 
-                    onClick={handleToggle}
-                    className=" rounded h-8 w-11/12 bg-amber-600 text-base text-white hover:bg-amber-500 my-4">
-                        Continuar
-                    </button>
-                </div>
-            </div>
+                        <img
+                            src="\assets\500points.png"
+                            alt="500points"
+                            className='mt-4' />
 
-        </article>
-        :
-        <article className="gcardContainer">
+                        <div className="centerContainer">
+                            <button
+                                onClick={handleToggle}
+                                className=" rounded h-8 w-11/12 bg-amber-600 text-base text-white hover:bg-amber-500 my-4">
+                                Continuar
+                            </button>
+                        </div>
+                    </div>
 
-            <div className="gCard">
+                </article>
+                :
+                <article className="gcardContainer">
 
-                <h3>Ahora que has reciclado</h3> 
-                
-                <p>¿Gastarías tus {} puntos en {}?</p>
+                    <div className="gCard">
 
-                <img 
-                // src={}
-                alt="Restaurant Picture"
-                className='mt-4 rounded p-4' />
+                        <h3>Ahora que has reciclado</h3>
 
-                <button>
-                    <img
-                    onClick={handleAnswer}
-                    className='mx-7 mt-3'
-                    src="\assets\noRed.png" 
-                    alt="noIcon" />
-                </button>
+                        <p>¿Gastarías tus {recycle.points} puntos en {recycle.place_id}?</p>
 
-                <button>
-                    <img 
-                    onClick={handleAnswer}
-                    className='mx-7 mt-3'
-                    src="\assets\yesBlue.png" 
-                    alt="yesIcon" />
-                </button>
+                        <img
+                            // src={}
+                            alt="Restaurant Picture"
+                            className='mt-4 rounded p-4' />
 
-                <button
-                onClick={handleAnswer}
-                className="group rounded h-8 w-11/12 bg-amber-600 text-base text-white hover:bg-amber-500 my-4">
-                    
-                    Saltar
-                    
-                </button>
-            </div>
+                        <button>
+                            <img
+                                onClick={handleAnswer}
+                                className='mx-7 mt-3'
+                                src="\assets\noRed.png"
+                                alt="noIcon" />
+                        </button>
 
-        </article>
-    }
-        
-    </>
-  )
+                        <button>
+                            <img
+                                onClick={handleAnswer}
+                                className='mx-7 mt-3'
+                                src="\assets\yesBlue.png"
+                                alt="yesIcon" />
+                        </button>
+
+                        <button
+                            onClick={handleAnswer}
+                            className="group rounded h-8 w-11/12 bg-amber-600 text-base text-white hover:bg-amber-500 my-4">
+
+                            Saltar
+
+                        </button>
+                    </div>
+
+                </article>
+        }
+
+        </>
+    )
 }

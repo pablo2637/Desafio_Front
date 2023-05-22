@@ -12,7 +12,7 @@ function App() {
 
     <>
 
-      <header className="bg-[#fafafa]">
+      <header>
         {
           (status === 'authenticated') ?
 
@@ -33,7 +33,8 @@ function App() {
 
       </header>
 
-      <main className="bg-[#fafafa]">
+      {/* className="bg-[#fafafa]" */}
+      <main >
         {/* <p>user: {user?.role}</p>
         <p>status: {status}</p> */}
         {

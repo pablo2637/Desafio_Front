@@ -1,56 +1,25 @@
-import { useEffect, useState } from 'react';
-import { masterFetch } from '../../Api/fetch';
 
 
-export const Allpuntos = ({user_id}) => {
+export const Allpuntos = ({ sums }) => {
 
-    const [reward, setReward] = useState(null);
-    const [liters, setliters] = useState(null);
+  return (
+    <div className="flex justify-around">
+      <div className="w-40 mb-0 rounded-lg bg-slate-50 gridPoints grid justify-center text-left items-center">
+        <div className='h-4/5 grid justify-end'>
+          <img className='w-auto h-full object-contain' src="../assets/coins.png" />
+        </div>
+        <p className="text-2xl font-bold">{sums.points}</p>
+        <p className='col-span-full text-base text-center pb-1 font-medium'>Puntos acumulados</p>
+      </div>
 
-
-    const fetchReward = async () => {
-        try {
-            console.log("este es el user_id" + user_id)
-          if (user_id) {
-            const response = await masterFetch(`api/recycle/${user_id}`, 'GET');
-            const { data } = response;
-            
-            setReward(data[0].total_rewards);
-            console.log(total_rewards)
-            console.log("esta es el responde" , response)
-          }
-        } catch (error) {
-          console.error('Error fetching reward:', error);
-        }
-  };
- 
-    useEffect(() => {
-       
-      fetchReward();
-
-    }, []);
-   
-    useEffect(() => {
-      // Calcula el valor proporcional
-      if (reward !== null) {
-        const puntos = 50; // Cada 50 puntos de reward
-        const litros = 100; // 100 litros
-        const calculatedPuntos = Math.floor(reward / puntos) * litros;
-        setliters(calculatedPuntos);
-      }
-    }, [reward]);
-
-  return  (
-    <div className="flex justify-between">
-    <div className="w-1/2 p-4 rounded-lg bg-slate-50 mx-4">
-      <p className="text-lg font-bold">Puntos Acumulados: {reward}</p>
+      <button className="w-40 mb-0 rounded-lg bg-slate-50 gridPoints grid justify-center text-left items-center">
+        <div className='h-4/5 grid justify-end'>
+          <img className='w-auto h-full object-contain' src="../assets/impact.png" />
+        </div>
+        <p className="text-2xl font-bold">{sums.liters} l.</p>
+        <p className='col-span-full text-base text-center pb-1 font-medium'>Impacto en el agura</p>
+      </button>
     </div>
-    <button className="w-1/2 p-4 rounded-lg bg-slate-50 mx-4">
-    <div >
-      <p className="text-lg font-bold">Impacto en el agua: {liters} L</p>
-    </div>
-    </button>
-  </div>
-  ) 
-  
+  )
+
 }

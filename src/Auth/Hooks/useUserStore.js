@@ -92,7 +92,7 @@ export const useUserStore = () => {
                 if (form?.password) {
 
                     if (!regexPass.test(form?.password) && form?.password != '')
-                        errs.password = { msg: 'La contraseña debe tener al menos 8 caracteres, minúsculas, mayúsculas y un caracter especial' };
+                        errs.password = { msg: 'La contraseña debe tener al menos 8 caracteres, números, minúsculas, mayúsculas y un caracter especial' };
 
                     if (form?.name && form?.password.toLowerCase().includes(form?.name.toLowerCase()))
                         errs.password = {
@@ -120,12 +120,12 @@ export const useUserStore = () => {
 
             else {
 
-                dispatch(onRegister(petition.data))
+                dispatch(onRegister(petition.data[0]))
 
                 const token = petition.token
 
 
-                setLocal({ token, role: petition.user.role })
+                setLocal({ token, role: petition.data[0].user.role })
 
                 navigate('/')
             }

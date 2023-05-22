@@ -17,3 +17,17 @@ export const deleteLocal = () => {
     localStorage.removeItem('challenge');
 
 }; //!FUNC-SETLOCAL
+
+
+export const setLocalCookies = (data) => {
+
+    localStorage.setItem('cookies', data);
+
+}; //!FUNC-SETLOCAL
+
+
+export const getLocalCookies = () => {
+
+    return localStorage.getItem('cookies') || false;
+
+}; //!FUNC-GETLOCAL

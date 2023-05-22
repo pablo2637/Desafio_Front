@@ -21,4 +21,24 @@ export const getReycles = async (id) => {
 
 
     return
-}
+};
+
+
+
+export const sumRecycles = (recycles) => {
+
+    let sum = 0;
+    recycles.map(re => sum += re.reward);
+
+    return sum;
+
+};
+
+export const sumLiters = (recycles) => {
+
+    let sum = 0;
+    recycles.forEach(re => sum += re.qty);
+
+    return sum;
+
+};

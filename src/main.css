@@ -340,13 +340,14 @@ body
     position:absolute;
   }
   
-  .gcard h3 {
+  .gCard h3 {
     font-size: 30px;
     font-weight: bold;
     margin-bottom: 8px;
   }
+
   
-  .gcard p {
+  .gCard p {
     font-size: 14px;
     color: rgb(82, 78, 78);
     margin-bottom: 16px;

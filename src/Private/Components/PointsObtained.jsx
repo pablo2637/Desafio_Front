@@ -1,13 +1,22 @@
 import { useState } from 'react'
 import {useNavigate} from 'react-router-dom'
+import { ThanksForVoting } from './ThanksForVoting'
 
 export const PointsObtained = () => {
 
     const [screenOne, setScreenOne] = useState(true)
 
+    const [thanksFor, setThanksFor] = useState(false)
+
     const navigate = useNavigate()
 
     const handleToggle = () => setScreenOne(!screenOne)
+
+    const handleVote = () => {
+
+        setScreenOne(screenOne)
+        setThanksFor(!thanksFor)
+    }
 
     const handleAnswer = () => {
 
@@ -60,7 +69,7 @@ export const PointsObtained = () => {
 
                 <button>
                     <img
-                    onClick={handleAnswer}
+                    onClick={handleVote}
                     className='mx-7 mt-3'
                     src="\assets\noRed.png" 
                     alt="noIcon" />
@@ -68,7 +77,7 @@ export const PointsObtained = () => {
 
                 <button>
                     <img 
-                    onClick={handleAnswer}
+                    onClick={handleVote}
                     className='mx-7 mt-3'
                     src="\assets\yesBlue.png" 
                     alt="yesIcon" />
@@ -76,7 +85,7 @@ export const PointsObtained = () => {
 
                 <button
                 onClick={handleAnswer}
-                className="group rounded h-8 w-11/12 bg-amber-600 text-base text-white hover:bg-amber-500 my-4">
+                className="group rounded h-8 w-11/12 text-base border-2 border-amber-500 text-black hover:bg-amber-500 hover:text-white my-4">
                     
                     Saltar
                     
@@ -84,6 +93,11 @@ export const PointsObtained = () => {
             </div>
 
         </article>
+    }
+
+    {
+        (thanksFor) &&
+        <ThanksForVoting />
     }
         
     </>

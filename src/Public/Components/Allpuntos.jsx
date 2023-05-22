@@ -1,6 +1,9 @@
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { masterFetch } from '../../Api/fetch';
+import { Carrousel } from './Carrousel';
+import { Link } from 'react-router-dom';
+import { CarrouselAgua } from '../../Private/Components/CarrouselAgua';
 
 
 export const Allpuntos = ({user_id}) => {
@@ -9,6 +12,12 @@ export const Allpuntos = ({user_id}) => {
     // const user_id = user ? user.user_id : '';
     const [reward, setReward] = useState(null);
     const [liters, setliters] = useState(null);
+    const [mostrarCarrousel, setmostrarCarrousel] = useState(false)
+
+    const handleClick = () => {
+      setmostrarCarrousel(!mostrarCarrousel)
+    }
+
 
 
     const fetchReward = async () => {
@@ -19,7 +28,7 @@ export const Allpuntos = ({user_id}) => {
             const { data } = response;
             
             setReward(data[0].total_rewards);
-            console.log(total_rewards)
+            
             console.log("esta es el responde" , response)
           }
         } catch (error) {
@@ -48,11 +57,16 @@ export const Allpuntos = ({user_id}) => {
     <div className="w-1/2 p-4 rounded-lg bg-slate-50 mx-4">
       <p className="text-lg font-bold">Puntos Acumulados: {reward}</p>
     </div>
-    <button className="w-1/2 p-4 rounded-lg bg-slate-50 mx-4">
+    
+    <button className="w-1/2 p-4 rounded-lg bg-slate-50 mx-4" onClick={handleClick}>
+    <Link to="/impacto">
     <div >
       <p className="text-lg font-bold">Impacto en el agua: {liters} L</p>
     </div>
+    </Link>
     </button>
+   
+     
   </div>
   ) 
   

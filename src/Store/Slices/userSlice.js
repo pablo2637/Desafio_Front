@@ -10,11 +10,8 @@ export const userSlice = createSlice({
         user: {},
         status: 'non-authenticated',
         errorMessage: undefined,
-        formData: {
-
-            name: '',
-            email: '',
-        },
+        recycles: [],
+        points: false,
         qrValue: '',
         coords: {},
         isLocating: false
@@ -34,6 +31,17 @@ export const userSlice = createSlice({
 
             state.isLocating = true;
         },
+
+        onLoadRecycles: (state, { payload }) => {
+
+            state.recycles = payload;
+        },
+
+        onLoadPoints: (state, { payload }) => {
+
+            state.points = payload;
+        },
+
 
         onLoadCoords: (state, { payload }) => {
 
@@ -61,16 +69,6 @@ export const userSlice = createSlice({
             state.errorMessage = action.payload;
         },
 
-        onsetFormData: (state, action) => {
-
-            state.formData = action.payload;
-        },
-
-
-        onsetQRValue: (state, action) => {
-
-            state.qrValue = action.payload;
-        },
     }
 })
 
@@ -81,9 +79,9 @@ export const {
     onLogout,
     onLoadCoords,
     onRegister,
+    onLoadPoints,
+    onLoadRecycles,
     onError,
-    onsetFormData,
-    onsetQRValue
 } = userSlice.actions;
 
 

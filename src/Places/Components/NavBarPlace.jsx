@@ -84,7 +84,7 @@ export const NavBarPlace = () => {
 
 
           <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2">
+            <div className="space-y-1 px-2 pb-3 pt-2 fixed z-[1200] bg-sky-100 w-full">
               {navigation.map((item) => (
                 <NavLink
                   key={item.name}

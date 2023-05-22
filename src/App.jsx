@@ -12,7 +12,7 @@ function App() {
 
     <>
 
-      <header>
+      <header className="bg-[#fafafa]">
         {
           (status === 'authenticated') ?
 
@@ -33,9 +33,9 @@ function App() {
 
       </header>
 
-      <main>
-        <p>user: {user?.role}</p>
-        <p>status: {status}</p>
+      <main className="bg-[#fafafa]">
+        {/* <p>user: {user?.role}</p>
+        <p>status: {status}</p> */}
         {
           (status === 'authenticated') ?
 
@@ -55,7 +55,7 @@ function App() {
 
       </main>
 
-      <footer>
+      <footer className="bg-[#fafafa]">
 
       </footer>
 

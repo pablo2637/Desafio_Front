@@ -19,7 +19,7 @@ export const NavBar = () => {
 
   return (
 
-    <Disclosure as="nav" className="bg-slate-200">
+    <Disclosure as="nav" className="bg-transparent">
       {({ open }) => (
 
         <>
@@ -78,7 +78,7 @@ export const NavBar = () => {
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2">
+            <div className="space-y-1 px-2 pb-3 pt-2 fixed z-[1200] bg-[#fafafa] w-full">
 
               {navigation.map((item) => (
 

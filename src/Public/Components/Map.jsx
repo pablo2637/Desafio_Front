@@ -95,7 +95,7 @@ export const Map = () => {
 
             <div className="map" id="map" >
 
-                <MapContainer ref={mapRef} center={position} zoom={16} scrollWheelZoom={false} zoomControl={false} attributionControl={false}>
+                <MapContainer ref={mapRef} center={position} zoom={16} scrollWheelZoom={true} zoomControl={false} attributionControl={false}>
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

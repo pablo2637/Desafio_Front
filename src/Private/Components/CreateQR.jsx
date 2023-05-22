@@ -6,10 +6,10 @@ import { useSelector } from 'react-redux';
 
 export const CreateQR = () => {
 
-    const { user } = useSelector(state => state.user);
+  const { user } = useSelector(state => state.user);
   const [qrValue, setQrValue] = useState(null);
 
-  
+
 
   useEffect(() => {
 
@@ -25,11 +25,18 @@ export const CreateQR = () => {
 
   return (
 
-    <div>
+    <div className='divPopup absolute'>
+
       {
         (qrValue) &&
-        <QRCode value={JSON.stringify(qrValue)} />
+        <div>
+          <h3>Este es tu QR</h3> 
+          <p>¡Gana puntos y protege el agua!
+            Muestra tu código QR cuando lleves tu aceite usado al establecimiento.</p>
+          <QRCode value={JSON.stringify(qrValue)} />
+        </div>
       }
+
     </div>
 
   );

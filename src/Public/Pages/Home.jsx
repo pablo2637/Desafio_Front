@@ -33,7 +33,7 @@ export const Home = () => {
 
                 {
                     (!cookies) &&
-                    <div className="divCookies z-[1010] fixed left-0" >
+                    <div className="divPopup z-[1010] fixed left-0" >
                         <div className="flex justify-start items-center flex-col">
                             <h3 className="w-full text-left">Políticas sobre cookies</h3>
                             <p className="text-[0.6rem]">

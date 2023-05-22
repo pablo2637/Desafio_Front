@@ -1,33 +1,27 @@
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { useState } from 'react'
-import { useSelector } from 'react-redux'
 import { CreateQR } from '../../Public/Components'
-import { NavLink } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 
 
 const navigation = [
 
-  { name: 'Home', href: '/', current: false },
-  { name: 'Perfil', href: '#', current: false },
-  { name: 'Mis Puntos', href: '/mispuntos', current: false },
-  { name: 'Sobre Nosotros', href: '#', current: false },
+  { name: 'Home', href: '/home', current: false },
+  { name: 'Reciclar', href: '/scanQR', current: false },
   { name: 'Cerrar sesión', href: '/logout', current: false },
-
 ]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export const NavBarUser = () => {
+export const NavBarPlace = () => {
 
-  const { user } = useSelector(state => state.user);
-
-  const [qr, setQr] = useState(false)
+  const navigate = useNavigate();
 
 
-  const handleQR = () => setQr(!qr);
+  const handleQR = () => navigate('/scanQR');
+
 
 
   return (
@@ -75,7 +69,7 @@ export const NavBarUser = () => {
                           item.current ? 'bg-slate-100 text-slate-950 hover:bg-gray-600' : 'text-slate-950 hover:bg-gray-600 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
-                        // aria-current={item.current ? 'page' : undefined}
+                      // aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
                       </NavLink>
@@ -88,23 +82,18 @@ export const NavBarUser = () => {
             </div>
           </div>
 
-          {
-            (qr) &&
-            <CreateQR />
-          }
-
 
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
               {navigation.map((item) => (
                 <NavLink
-                  key={item.name}                  
+                  key={item.name}
                   to={item.href}
                   className={classNames(
                     item.current ? 'bg-gray-600 text-slate-950' : 'text-slate-950 hover:bg-gray-600 hover:text-white',
                     'block rounded-md px-3 py-2 text-base font-medium'
                   )}
-                  // aria-current={item.current ? 'page' : undefined}
+                // aria-current={item.current ? 'page' : undefined}
                 >
                   {item.name}
                 </NavLink>

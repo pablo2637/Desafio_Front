@@ -9,7 +9,7 @@ import './main.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
 
       <BrowserRouter >
@@ -17,5 +17,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </BrowserRouter>
 
     </Provider>
-  </React.StrictMode>,
+  // </React.StrictMode>,
 )

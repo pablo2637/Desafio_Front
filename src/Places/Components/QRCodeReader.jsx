@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { QrReader } from 'react-qr-reader';
 
 export const QRCodeReader = ({ setQRCode, qrCode }) => {
+
+
+
+  const [delayScan, setDelayScan] = useState(500);
 
   const handleScan = (data) => {
     console.log('data', data)
@@ -18,11 +22,13 @@ export const QRCodeReader = ({ setQRCode, qrCode }) => {
     <div className='camara'>
       <p>result: {qrCode}</p>
       <QrReader
+        scanDelay={delayScan}
         onResult={(result, error) => {
           if (!!result) {
             console.info('data', result?.text);
-            setQRCode(result?.text);
-
+            setDelayScan(false)
+            setQRCode(JSON.parse(result?.text));
+            
           }
 
           if (!!error) {

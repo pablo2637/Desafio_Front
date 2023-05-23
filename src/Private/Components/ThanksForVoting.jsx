@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 
-
 export const ThanksForVoting = () => {
 
     const navigate = useNavigate();
@@ -11,7 +10,6 @@ export const ThanksForVoting = () => {
     }
 
     return (
-
 
         <>
 

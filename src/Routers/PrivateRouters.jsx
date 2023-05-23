@@ -3,6 +3,7 @@ import { Home } from '../Public/Pages';
 import { Logout, QrPage, Win1000Page } from '../Private/Pages';
 import { MisPuntos } from '../Private/Pages/MisPuntos';
 import { CarrouselAgua } from '../Private/Components/CarrouselAgua';
+import { AcumulatedPage } from '../Private/Pages/AcumulatedPage';
 
 
 export const PrivateRouters = () => {
@@ -40,6 +41,11 @@ export const PrivateRouters = () => {
                 <Route
                     path='/impacto'
                     element={<CarrouselAgua />}
+                />
+
+                <Route
+                    path='/acumulated'
+                    element={<AcumulatedPage />}
                 />
 
                 <Route path='/*' element={<Navigate to={'/'} />} />

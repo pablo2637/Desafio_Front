@@ -58,6 +58,8 @@ export const LoginForm = () => {
                       onChange={handleChange}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
                       type="text"
+                      autoFocus
+                      autoComplete="off"
                       id={"phone"}
                       name={"phone"}
                       placeholder={"xxx xxx xxx"} />
@@ -71,6 +73,8 @@ export const LoginForm = () => {
                       onChange={handleChange}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
                       type="email"
+                      autoFocus
+                      autoComplete="off"
                       id={"email"}
                       name={"email"}
                       placeholder={"juan@ejemplo.com"} />

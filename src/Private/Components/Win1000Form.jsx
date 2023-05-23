@@ -53,7 +53,7 @@ export const Win1000Form = () => {
             reward: 1000,
         };
 
-        // const response = await masterFetch('api/recycle', 'POST', recycleData);
+        const response = await masterFetch('api/recycle', 'POST', recycleData);
 
         if (true) {
 

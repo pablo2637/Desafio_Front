@@ -38,7 +38,8 @@ export const IdCarrousel = () => {
 
   return (
     <>
-    <p className="ml-4 mb-4">
+    <div className='mt-28'>
+    <p className="ml-4 mb-4 text-center">
       <strong>Restaurante donde podrás canjear los puntos</strong>
     </p>
     <div className="max-w-4xl mx-auto">
@@ -58,7 +59,7 @@ export const IdCarrousel = () => {
 
 {filtered.map(restaurant => (
                   <div key={restaurant.id} className="relative">
-                    <div className="h-48 w-auto ml-8">
+                    <div className="h-32 w-auto ml-10 mr-10">
                       <img src={restaurant.image_url} alt={restaurant.name} className="h-full w-auto max-w-full" />
                     </div>
                     <p className="text-center mt-2">{restaurant.name}</p>
@@ -81,6 +82,7 @@ export const IdCarrousel = () => {
             )}
           </div>
         )}
+      </div>
       </div>
     </>
   )

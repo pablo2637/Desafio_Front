@@ -318,6 +318,11 @@ body
 
 .gridPoints
 {
+    grid-template-columns: 0.35fr 0.65fr;
+}
+
+.gridCoins
+{
     grid-template-columns: 0.4fr 0.6fr;
 }
 

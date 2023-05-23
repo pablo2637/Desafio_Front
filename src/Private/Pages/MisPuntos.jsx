@@ -57,7 +57,7 @@ export const MisPuntos = () => {
     <>
 
       <div className='absolute top-0 left-0 z-[-1] w-full h-[300px]'>
-        <img className='w-full max-h-64 object-fill' src="../assets/rectangle.png" />
+        <img className='w-full max-h-68 object-fill' src="../assets/rectangle.png" />
       </div>
 
       <div className=" my-8  pb-4">

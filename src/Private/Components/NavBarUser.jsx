@@ -20,11 +20,9 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export const NavBarUser = () => {
+export const NavBarUser = ({ qr, setQr }) => {
 
   const { user } = useSelector(state => state.user);
-
-  const [qr, setQr] = useState(false)
 
   const handleQR = () => setQr(!qr);
 
@@ -96,7 +94,7 @@ export const NavBarUser = () => {
 
           {
             (qr) &&
-            <CreateQR />
+            <CreateQR setQr={setQr} />
           }
 
 

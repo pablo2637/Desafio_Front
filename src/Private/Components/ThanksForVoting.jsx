@@ -1,16 +1,13 @@
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom'
-import { onQuestion } from '../../Store/Slices/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 
 export const ThanksForVoting = () => {
 
-
-    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleClose = () => {
 
-        dispatch(onQuestion(false));
+        navigate('-1')
 
     }
 

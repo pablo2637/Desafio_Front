@@ -81,7 +81,7 @@ export const MisPuntos = () => {
 
 
       {
-        (!points) &&
+        (points) &&
         <div className="flex justify-center items-center">
           <NavLink to={'/win1000'} className="bg-[#ffb566] rounded-lg mt-5 mx-5 px-4 py-2 text-center w-full">
             <p className="text-center font-light text-base w-full w-11/12">¿Quieres ganar 1.000 puntos?</p>

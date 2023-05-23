@@ -27,7 +27,7 @@ export const Allpuntos = ({ sums }) => {
         <div className='h-4/5 grid justify-end'>
           <img className='w-auto h-full object-contain' src="../assets/impact.png" />
         </div>
-        <p className="text-2xl font-bold">{sums.liters * 1000} l.</p>
+        <p className="text-2xl font-bold">{parseInt(sums.liters * 1000)} l.</p>
         <p className='col-span-full text-base text-center pb-1 font-medium'>Impacto en el agua</p>
       </button>
 

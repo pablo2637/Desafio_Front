@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { onLoadPoints, onLoadPrevPoints, onLoadRecycles, onQuestion } from "../../Store/Slices/userSlice";
 import { getReycles, sumLiters, sumRecycles } from "../helpers/getReycles";
 import { PointsObtained } from "../../Private/Components/PointsObtained";
+import { IdCarrousel } from "../Components/IdCarrousel";
 
 
 export const Home = () => {
@@ -27,7 +28,7 @@ export const Home = () => {
 
     const getUserRecycles = async () => {
 
-        const response = await getReycles(user.user_id);
+        const response = await getReycles(user.user_id, user.role);
 
         if (response.ok) {
 
@@ -68,7 +69,7 @@ export const Home = () => {
     return (
         <>
             <header className=" bg-[#fafafa]">
-                <p className='text-[22px] font-bold px-6 pb-4 leading-[26px] mb-0'>
+                <p className='text-[22px] font-bold px-6 pb-4 leading-[26px] mb-0 mt-3'>
                     ¡Reciclar aceite nunca fue tan fácil! Ahora tienes puntos de reciclaje más cercanos.
                 </p>
             </header>
@@ -77,6 +78,13 @@ export const Home = () => {
                 <Map />
 
                 <Carrousel />
+
+                <IdCarrousel />
+
+
+                <div className="bg-black opacity-100 mt-12">
+                    <img src='../assets/Frame 34709.png' alt="Image 2" />
+                </div>
 
                 {
                     (!cookies) &&

@@ -56,8 +56,8 @@ export const MisPuntos = () => {
   return (
     <>
 
-      <div className='absolute top-0 left-0 z-[-1]'>
-        <img src="../assets/rectangle.png" />
+      <div className='absolute top-0 left-0 z-[-1] w-full h-[300px]'>
+        <img className='w-full max-h-64 object-fill' src="../assets/rectangle.png" />
       </div>
 
       <div className=" my-8  pb-4">
@@ -81,11 +81,11 @@ export const MisPuntos = () => {
 
 
       {
-        (!points) &&
-        <div className="flex justify-center items-center mb-4">
-          <NavLink to={'/win1000'} className="bg-orange-400 rounded-lg px-4 py-2 text-center">
-            <p className="text-center">¿Quieres ganar 1.000 puntos?</p>
-            <p className="text-center">¡Dime cuál es tu restaurante favorito!</p>
+        (points) &&
+        <div className="flex justify-center items-center">
+          <NavLink to={'/win1000'} className="bg-[#ffb566] rounded-lg mt-5 mx-5 px-4 py-2 text-center w-full">
+            <p className="text-center font-light text-base w-full ">¿Quieres ganar 1.000 puntos?</p>
+            <p className="text-center font-light text-base w-full ">¡Dime cuál es tu restaurante favorito!</p>
           </NavLink>
         </div>
       }

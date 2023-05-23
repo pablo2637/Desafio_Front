@@ -8,7 +8,7 @@ export const Carrousel = () => {
   return (
     <div className='Container-carr'>
 
-      <p className='texto mt-3 m-auto text-center'>Aprende a usar nuestra Web</p>
+      <p className='texto  mt-8 mb-4 m-auto text-center'>Aprende a usar nuestra Web</p>
 
       <Carousel
         autoPlay
@@ -19,15 +19,19 @@ export const Carrousel = () => {
         centerMode={false}
         className="">
 
+
         <div>
-          <img src='../assets/frame1.png' alt="Image 1" />
+          <img src='../assets/Frame 34656.jpg' alt="Image 3" />
+        </div>
+
+        
+        <div>
+          <img src='../assets/Frame 34683.png' alt="Image 2" />
         </div>
         <div>
-          <img src='../assets/frame2.png' alt="Image 2" />
+          <img src='../assets/Frame 34695.png' alt="Image 1" />
         </div>
-        <div>
-          <img src='../assets/frame3.png' alt="Image 3" />
-        </div>
+       
 
       </Carousel>
 

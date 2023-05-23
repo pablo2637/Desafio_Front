@@ -8,6 +8,7 @@ export const placesSlice = createSlice({
 
         places: [],
         restaurants: [],
+        recommended: [],
         isLoading: false,
         errorMessage: undefined
     },
@@ -17,6 +18,11 @@ export const placesSlice = createSlice({
         onIsLoading: (state, { payload }) => {
 
             state.isLoading = true;
+        },
+
+        onRecommended: (state, { payload }) => {
+
+            state.recommended = payload;
         },
 
         onLoad: (state, { payload }) => {
@@ -49,4 +55,4 @@ export const placesSlice = createSlice({
     }
 })
 
-export const { onLoad, onLoadRestaurants, onError, onIsLoading, onPlaceRegister } = placesSlice.actions;
+export const { onLoad, onRecommended, onLoadRestaurants, onError, onIsLoading, onPlaceRegister } = placesSlice.actions;

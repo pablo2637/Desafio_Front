@@ -315,7 +315,7 @@ body
 
 /* General Card type*/
 
-.gcardContainer 
+.gcardContainer
 {
     position: fixed;
     top: 50px;
@@ -327,56 +327,59 @@ body
     justify-content: center;
     z-index: 1100;
 }
-  
 
-.gCard {
+
+.gCard
+{
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.25);
     padding: 16px;
     text-align: center;
-    max-width: 300px;
+    width: 378px;
+    height: 553px;
     margin: 0 auto;
-    position:absolute;
-  }
-  
-  .gCard h3 {
-    font-size: 30px;
+    position: absolute;
+}
+
+.gCard h3
+{
+    font-size: 26px;
     font-weight: bold;
     margin-bottom: 8px;
-  }
+}
 
-  
-  .gCard p {
+.gCard p
+{
     font-size: 14px;
     color: rgb(82, 78, 78);
     margin-bottom: 16px;
-  }
-  
-  .qrContainer {
-    background-color:rgb(248, 154, 22);
+}
+
+.qrContainer
+{
+    background-color: rgb(248, 154, 22);
     padding: 16px;
     border-radius: 8px;
-  }
-  
-  .qr {
+}
+
+.qr
+{
     width: 90%;
     max-width: 200px;
     display: block;
     margin: 0 auto;
-  }
-  
-  .ganaPuntos {
-    
+}
+
+.ganaPuntos
+{
     margin-top: 16px;
     font-weight: bold;
-  }
+}
 
-  .centerContainer, NavLink {
-
+.centerContainer a
+{
     display: flex;
     align-items: center;
     justify-content: center;
-
-  }
-
+}

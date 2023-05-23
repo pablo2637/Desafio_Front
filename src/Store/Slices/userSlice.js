@@ -31,7 +31,7 @@ export const userSlice = createSlice({
 
         onLocating: (state, { payload }) => {
 
-            state.isLocating = true;
+            state.isLocating = payload;
         },
 
         onQuestion: (state, { payload }) => {

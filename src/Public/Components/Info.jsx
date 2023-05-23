@@ -71,7 +71,7 @@ export const Info = ({ name, rating, address, image_url, url, phone, price, coor
                         <p className='text-[0.6rem] py-1'>{(phone) ? parseInt(phone) : '--'}</p>
                     </div>
 
-                    <div className='grid contPopup border-b border-gray-200'>
+                    {/* <div className='grid contPopup border-b border-gray-200'>
                         <div className='w-3 h-3 self-center'>
                             <img src="../assets/star.png" />
                         </div>
@@ -83,7 +83,7 @@ export const Info = ({ name, rating, address, image_url, url, phone, price, coor
                             <img src="../assets/coins.png" />
                         </div>
                         <p className='text-[0.6rem] py-1'>{(price) ? `Precio: ${price}` : '--'}</p>
-                    </div>
+                    </div> */}
 
                 </div>
             }

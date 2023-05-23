@@ -69,7 +69,7 @@ export const Home = () => {
     return (
         <>
             <header className=" bg-[#fafafa]">
-                <p className='text-[22px] font-bold px-6 pb-4 leading-[26px] mb-0'>
+                <p className='text-[22px] font-bold px-6 pb-4 leading-[26px] mb-0 mt-3'>
                     ¡Reciclar aceite nunca fue tan fácil! Ahora tienes puntos de reciclaje más cercanos.
                 </p>
             </header>

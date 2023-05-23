@@ -26,7 +26,7 @@ export const LoginForm = () => {
   return (
 
     <>
-      <section className="bg-gray-100">
+      <section className="bg-[#fafafa]">
 
         <div className="container mx-auto py-8">
           <h3 className="text-2xl font-bold mb-6 text-center">Inicia sesión o regístrate para conseguir puntos</h3>
@@ -34,7 +34,7 @@ export const LoginForm = () => {
           <form
             onSubmit={onSubmit}
             noValidate
-            className="w-full max-w-sm mx-auto bg-white p-8 rounded-md shadow-md">
+            className="w-full max-w-sm mx-auto p-8 rounded-md shadow-md">
 
             <div className="mb-5">
               <input

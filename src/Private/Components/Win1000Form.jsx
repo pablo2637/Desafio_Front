@@ -3,9 +3,10 @@ import { useForm } from "../../Hooks/useForm";
 import { useMap } from "../../Public/Hooks/useMap";
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { masterFetch } from "../../Api/fetch";
+import { masterFetch, masterFetchData } from "../../Api/fetch";
 import { onLoadPoints } from "../../Store/Slices/userSlice";
 import { ThanksForVoting } from "./ThanksForVoting";
+import { onRecommended } from "../../Store/Slices/placesSlice";
 
 
 export const Win1000Form = () => {
@@ -18,6 +19,15 @@ export const Win1000Form = () => {
     const dispatch = useDispatch();
 
     const [filterRest, setFilterRest] = useState([]);
+
+
+    const getID = (place_id) => {
+
+        const id = places.find(pl => pl.place_id == place_id)?.id;
+
+        return id;
+    }
+
 
     const handleFilter = ({ target }) => {
 
@@ -44,13 +54,20 @@ export const Win1000Form = () => {
             reward: 1000,
         };
 
-        const response = await masterFetch('api/recycle', 'POST', recycleData);
+        // const response = await masterFetch('api/recycle', 'POST', recycleData);
 
-        if (response.ok) {
+        if (true) {
 
             dispatch(onLoadPoints(true));
 
             setScreenOne(true);
+
+            const rec = await masterFetchData(getID(ev.target.restaurant.value));
+            console.log('rec', rec);
+
+            if (rec)
+                dispatch(onRecommended);
+
         }
 
 

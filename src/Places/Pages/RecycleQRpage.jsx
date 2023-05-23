@@ -15,7 +15,7 @@ export const RecycleQRpage = () => {
     <>
 
       <div className="flex flex-col items-center" >
-        <div>Pagina como si fueras una empresa para leer qr del usuario</div>
+        <h3>Escanea el QR</h3>
 
         {/* {showQRCodeReader ? (
           <QRCodeReader className="camara" />
@@ -30,7 +30,7 @@ export const RecycleQRpage = () => {
 
 
 
-        <FormLitros user_id={qrCode.user_id} />
+        <FormLitros setQRCode={setQRCode} qrCode={qrCode} />
 
         {/* <button onClick={handleToggleComponent}
           className="bg-blue-500 text-white px-4 py-2 rounded-md mt-4">

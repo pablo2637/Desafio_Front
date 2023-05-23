@@ -1867,6 +1867,7 @@ __metadata:
     qrcode.react: ^3.1.0
     react: ^18.2.0
     react-dom: ^18.2.0
+    react-icons: ^4.8.0
     react-leaflet: ^4.2.1
     react-qr-code: ^2.0.11
     react-qr-reader: ^3.0.0-beta-1
@@ -3312,6 +3313,15 @@ __metadata:
   dependencies:
     prop-types: ^15.5.8
   checksum: 225f12a9dd410db1c790220867ab1eb58e2ef0a2bdae8541330805fc5b9905e242ab307b019f9aaed76473849a753f363baff03fa8a77e7a1860d7b41dc83ec0
+  languageName: node
+  linkType: hard
+
+"react-icons@npm:^4.8.0":
+  version: 4.8.0
+  resolution: "react-icons@npm:4.8.0"
+  peerDependencies:
+    react: "*"
+  checksum: 4dbba7ad989c295b410e19b2a702722dae44368cb04b6515f9471353552f31ac80bd350f121d5bff79f81504b84039ede44d09e9f035f48bb1032e6eace126c4
   languageName: node
   linkType: hard
 

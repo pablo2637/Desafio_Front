@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { onLoadPoints, onLoadPrevPoints, onLoadRecycles, onQuestion } from "../../Store/Slices/userSlice";
 import { getReycles, sumLiters, sumRecycles } from "../helpers/getReycles";
 import { PointsObtained } from "../../Private/Components/PointsObtained";
+import { IdCarrousel } from "../Components/IdCarrousel";
 
 
 export const Home = () => {
@@ -77,6 +78,8 @@ export const Home = () => {
                 <Map />
 
                 <Carrousel />
+
+                <IdCarrousel/>
 
                 {
                     (!cookies) &&

@@ -1,14 +1,28 @@
 import { useState } from 'react'
+import {useNavigate} from 'react-router-dom'
+import { ThanksForVoting } from './ThanksForVoting'
 import { useDispatch, useSelector } from 'react-redux'
 import { onQuestion } from '../../Store/Slices/userSlice'
+
 
 export const PointsObtained = ({ recycle }) => {
 
     const [screenOne, setScreenOne] = useState(true)
 
+    const [thanksFor, setThanksFor] = useState(false)
+
+    const navigate = useNavigate()
+
     const dispatch = useDispatch();
 
+
     const handleToggle = () => setScreenOne(!screenOne)
+
+    const handleVote = () => {
+
+        setScreenOne(screenOne)
+        setThanksFor(!thanksFor)
+    }
 
     const handleAnswer = () => {
 
@@ -86,8 +100,12 @@ export const PointsObtained = ({ recycle }) => {
 
                 </article>
         }
-
+ {
+        (thanksFor) &&
+        <ThanksForVoting />
+    }
 
         </>
     )
+
 }

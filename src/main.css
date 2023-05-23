@@ -373,16 +373,13 @@ body
 
 .ganaPuntos
 {
-
     margin-top: 16px;
     font-weight: bold;
 }
 
 .centerContainer a
 {
-
     display: flex;
     align-items: center;
     justify-content: center;
-
 }

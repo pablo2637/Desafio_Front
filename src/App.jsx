@@ -34,7 +34,7 @@ function App() {
       </header>
 
       {/* className="bg-[#fafafa]" */}
-      <main >
+      <main  className="max-w-screen-sm mx-auto">
         {/* <p>user: {user?.role}</p>
         <p>status: {status}</p> */}
         {

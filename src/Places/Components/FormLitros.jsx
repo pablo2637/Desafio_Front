@@ -36,7 +36,9 @@ export const FormLitros = ({ setQRCode, qrCode }) => {
 
     try {
       const response = await masterFetch('api/recycle', 'POST', recycleData);
-      console.log('Recycle data saved:', response);
+
+      if (response.ok)
+        navigate('/')
 
       // setReward(rewardValue); // Actualizar el estado del reward con el valor calculado
     } catch (error) {
@@ -44,7 +46,6 @@ export const FormLitros = ({ setQRCode, qrCode }) => {
 
     }
 
-    navigate('/')
   };
 
 
@@ -106,9 +107,9 @@ export const FormLitros = ({ setQRCode, qrCode }) => {
 
         <button
           type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded-md"
+          className="bg-[#f89a16] text-white px-4 py-2 w-full rounded-md"
         >
-          Submit
+          Canjear
         </button>
       </form>
 

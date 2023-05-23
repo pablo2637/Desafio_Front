@@ -28,7 +28,7 @@ export const Home = () => {
 
     const getUserRecycles = async () => {
 
-        const response = await getReycles(user.user_id);
+        const response = await getReycles(user.user_id, user.role);
 
         if (response.ok) {
 

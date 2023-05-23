@@ -19,8 +19,7 @@ export const QRCodeReader = ({ setQRCode, qrCode }) => {
   };
 
   return (
-    <div className='camara'>
-      <p>result: {qrCode}</p>
+    <div className='camara'>      
       <QrReader
         scanDelay={delayScan}
         onResult={(result, error) => {

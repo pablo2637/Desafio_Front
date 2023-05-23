@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useForm } from "../../Hooks/useForm"
 import { useUserStore } from "../Hooks/useUserStore";
 import { NavLink } from 'react-router-dom';
@@ -101,14 +100,14 @@ export const LoginForm = () => {
               <h2 className="text-center mt-6 text-lg">
                 O inicia sesión con
               </h2>
-              <div className="mt-6">
-                <img src="../assets/Apple.png" alt="Apple" />
+              <div className="mt-6 cursor-pointer">
+                <img src="\assets\Apple.png" alt="Apple" />
               </div>
-              <div className="mt-4">
-                <img src="..//assets/google.png" alt="Apple" />
+              <div className="mt-4 cursor-pointer">
+                <img src="\assets\google.png" alt="Apple" />
               </div>
-              <div className="mt-4">
-                <img src="../assets/facebook.png" alt="Apple" />
+              <div className="mt-4 cursor-pointer">
+                <img src="\assets\facebook.png" alt="Apple" />
               </div>
 
             <div className="text-sm mt-6 text-center ">

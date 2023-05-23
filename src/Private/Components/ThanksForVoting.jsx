@@ -13,7 +13,7 @@ export const ThanksForVoting = () => {
 
         <>
 
-            <div className="gcardContainer">
+            <div className="gcardContainer position2">
 
                 <div className="gCard">
                     <button onClick={handleClose}>

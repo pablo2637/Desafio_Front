@@ -1,5 +1,5 @@
 
-export const AcumulatedPoints = ({user, recycle}) => {
+export const AcumulatedPoints = ({recycle}) => {
 
 
   return (
@@ -28,7 +28,7 @@ export const AcumulatedPoints = ({user, recycle}) => {
         </tbody>
 
         </table>
-        
+
     </>
   )
 }

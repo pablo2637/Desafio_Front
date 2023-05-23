@@ -26,7 +26,7 @@ export const CreateQR = ({ setQr }) => {
 
   return (
 
-    <article className="gcardContainer mt-10">
+    <article className="gcardContainer mt-10 position2">
 
       <div className='gCard centerDiv flex-col text-center'>
 

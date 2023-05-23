@@ -1,9 +1,16 @@
 import { masterFetch } from "../../Api/fetch"
 
 
-export const getReycles = async (id) => {
+export const getReycles = async (id, role) => {
 
-    const response = await masterFetch(`api/recycle/user/${id}`, 'GET');
+    console.log('id', id, 'role', role);
+
+    let response;
+    if (role == 'place')
+        response = await masterFetch(`api/recycle/place/${id}`, 'GET');
+
+    else
+        response = await masterFetch(`api/recycle/user/${id}`, 'GET');
 
     if (response.ok) {
 
@@ -28,7 +35,9 @@ export const getReycles = async (id) => {
 export const sumRecycles = (recycles) => {
 
     let sum = 0;
-    recycles.map(re => sum += re.reward);
+
+    if (recycles)
+        recycles.map(re => sum += re.reward);
 
     return sum;
 
@@ -37,7 +46,8 @@ export const sumRecycles = (recycles) => {
 export const sumLiters = (recycles) => {
 
     let sum = 0;
-    recycles.forEach(re => sum += re.qty);
+    if (recycles)
+        recycles.forEach(re => sum += re.qty);
 
     return sum;
 

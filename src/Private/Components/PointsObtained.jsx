@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { ThanksForVoting } from './ThanksForVoting'
 import { useDispatch, useSelector } from 'react-redux'
 import { onQuestion } from '../../Store/Slices/userSlice'
@@ -7,7 +7,7 @@ import { onQuestion } from '../../Store/Slices/userSlice'
 
 export const PointsObtained = ({ recycle }) => {
 
-    const [screenOne, setScreenOne] = useState(true)
+    const [screenOne, setScreenOne] = useState(0)
 
     const [thanksFor, setThanksFor] = useState(false)
 
@@ -16,7 +16,14 @@ export const PointsObtained = ({ recycle }) => {
     const dispatch = useDispatch();
 
 
-    const handleToggle = () => setScreenOne(!screenOne)
+    const handleToggle = () => {
+
+        const nro = screenOne;
+
+        // if (nro == 2) nro == -1
+        setScreenOne(nro + 1);
+    }
+
 
     const handleVote = () => {
 
@@ -27,14 +34,14 @@ export const PointsObtained = ({ recycle }) => {
     const handleAnswer = () => {
 
         dispatch(onQuestion(false));
-        setScreenOne(!screenOne)
+        setScreenOne(-1)
     }
 
 
     return (
 
         <>  {
-            screenOne ?
+            (screenOne == 0) ?
                 <article className="gcardContainer">
 
                     <div className="gCard">
@@ -60,50 +67,59 @@ export const PointsObtained = ({ recycle }) => {
 
                 </article>
                 :
-                <article className="gcardContainer">
 
-                    <div className="gCard">
+                (screenOne == 1) ?
 
-                        <h3>Ahora que has reciclado</h3>
+                    <article className="gcardContainer">
 
-                        <p>¿Gastarías tus {recycle.points} puntos en {recycle.place_id}?</p>
+                        <div className="gCard">
 
-                        <img
-                            // src={}
-                            alt="Restaurant Picture"
-                            className='mt-4 rounded p-4' />
+                            <h3>Ahora que has reciclado</h3>
 
-                        <button>
+                            <p>¿Gastarías tus {recycle.points} puntos en {recycle.place_id}?</p>
+
                             <img
+                                // src={}
+                                alt="Restaurant Picture"
+                                className='mt-4 rounded p-4' />
+
+                            <button>
+                                <img
+                                    onClick={handleToggle}
+                                    className='mx-7 mt-3'
+                                    src="\assets\noRed.png"
+                                    alt="noIcon" />
+                            </button>
+
+                            <button>
+                                <img
+                                    onClick={handleToggle}
+                                    className='mx-7 mt-3'
+                                    src="\assets\yesBlue.png"
+                                    alt="yesIcon" />
+                            </button>
+
+                            <button
                                 onClick={handleAnswer}
-                                className='mx-7 mt-3'
-                                src="\assets\noRed.png"
-                                alt="noIcon" />
-                        </button>
+                                className="group rounded h-8 w-11/12 bg-amber-600 text-base text-white hover:bg-amber-500 my-4">
 
-                        <button>
-                            <img
-                                onClick={handleAnswer}
-                                className='mx-7 mt-3'
-                                src="\assets\yesBlue.png"
-                                alt="yesIcon" />
-                        </button>
+                                Saltar
 
-                        <button
-                            onClick={handleAnswer}
-                            className="group rounded h-8 w-11/12 bg-amber-600 text-base text-white hover:bg-amber-500 my-4">
+                            </button>
+                        </div>
 
-                            Saltar
+                    </article>
 
-                        </button>
-                    </div>
+                    :
 
-                </article>
+                    (screenOne == 2) &&
+
+                    <ThanksForVoting />
         }
- {
-        (thanksFor) &&
-        <ThanksForVoting />
-    }
+            {/* {
+                (thanksFor) &&
+                <ThanksForVoting />
+            } */}
 
         </>
     )

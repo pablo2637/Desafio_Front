@@ -55,12 +55,13 @@ export const Home = () => {
                 dispatch(onLoadPoints(false));
         }
 
-        checkToken();
+        // checkToken();
 
     };
 
     useEffect(() => {
         if (Object.entries(user).length > 0) getUserRecycles();
+        // checkToken();
 
     }, [user])
 

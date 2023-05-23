@@ -97,9 +97,24 @@ export const LoginForm = () => {
               className="w-full bg-[#f67f00] text-white text-base font-medium py-2 px-4 rounded-md hover:bg-[#C95C03] transition duration-300"
               type="submit">Inicia sesión</button>
 
-            <div className="text-sm mt-2">
-              <NavLink to={"/register"} className="text-[#f67f00] hover:text-cyan-800">
-                ¿No tienes cuenta? Regístrate aquí
+          
+              <h2 className="text-center mt-6 text-lg">
+                O inicia sesión con
+              </h2>
+              <div className="mt-6">
+                <img src="../assets/Apple.png" alt="Apple" />
+              </div>
+              <div className="mt-4">
+                <img src="..//assets/google.png" alt="Apple" />
+              </div>
+              <div className="mt-4">
+                <img src="../assets/facebook.png" alt="Apple" />
+              </div>
+
+            <div className="text-sm mt-6 text-center ">
+              <p>  ¿No tienes cuenta? </p>
+              <NavLink to={"/register"} className="text-[#f67f00] hover:text-cyan-800 ">
+              Regístrate aquí
               </NavLink>
             </div>
 

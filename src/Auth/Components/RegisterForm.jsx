@@ -88,7 +88,13 @@ export const RegisterForm = () => {
             <button
               className="w-full bg-[#f67f00] text-white text-base font-medium py-2 px-4 rounded-md hover:bg-[#C95C03] transition duration-300"
               type="submit">Registrarse</button>
+
+<div>
+            <img src="../assets/Privacidad.png" alt="Privacidad" />
+          </div>
           </form>
+
+        
 
         </div>
 

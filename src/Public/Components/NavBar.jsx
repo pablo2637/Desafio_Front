@@ -1,4 +1,3 @@
-
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { NavLink } from 'react-router-dom';
@@ -20,7 +19,7 @@ export const NavBar = () => {
   return (
 
     <Disclosure as="nav" className="bg-[#fafafa]">
-      {({ open }) => (
+      {({ open, close }) => (
 
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -90,12 +89,11 @@ export const NavBar = () => {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2 fixed z-[1200] bg-[#fafafa] w-full">
-
               {navigation.map((item) => (
-
                 <NavLink
                   key={item.name}
                   to={item.href}
+                  onClick={close} 
                   className={classNames(
                     item.current ? 'bg-gray-600 text-slate-950' : 'text-slate-950 hover:bg-[#f89a16] hover:text-white',
                     'block rounded-md px-3 py-2 text-base font-medium'
@@ -105,7 +103,6 @@ export const NavBar = () => {
                   {item.name}
                 </NavLink>
               ))}
-
             </div>
           </Disclosure.Panel>
         </>

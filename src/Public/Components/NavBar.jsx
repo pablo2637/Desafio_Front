@@ -46,7 +46,6 @@ export const NavBar = () => {
                       className="fill-current text-white h-6 m-auto w-6 hover:text-white hover:bg-gray-600"
                     />
                   </NavLink>
-
                 </div>
 
               </div>
@@ -69,7 +68,19 @@ export const NavBar = () => {
                       </NavLink>
 
                     ))}
+
+                    <div className="flex ml-auto ">
+                      <span className="mx-2 mr-2">Escanea aquí</span>
+                      <NavLink to={'login'}>
+                        <img
+                          src="\assets\qr.png"
+                          alt="scan-logo"
+                          className="fill-current text-white h-6 m-auto w-6 hover:text-white hover:bg-gray-600"
+                        />
+                      </NavLink>
+                    </div>
                   </div>
+
                 </div>
               </div>
 

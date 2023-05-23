@@ -23,20 +23,20 @@ export const CreateQR = () => {
 
     <article className="gcardContainer mt-10">
 
-    <div className='gCard centerDiv text-center'>
+      <div className='gCard centerDiv text-center'>
 
-      {
-        (qrValue) &&
-        <div>
-          <h3>Este es tu QR</h3> 
-          <p>¡Gana puntos y protege el agua!
-            Muestra tu código QR cuando lleves tu aceite usado al establecimiento.</p>
-          <QRCode value={JSON.stringify(qrValue)} className="qrContainer" />
-          <p className='ganaPuntos qrContainer whiteColor'>GANA PUNTOS</p>
-        </div>
-      }
+        {
+          (qrValue) &&
+          <div>
+            <h3>Este es tu QR</h3>
+            <p>¡Gana puntos y protege el agua!
+              Muestra tu código QR cuando lleves tu aceite usado al establecimiento.</p>
+            <QRCode value={JSON.stringify(qrValue)} className="qrContainer" />
+            <p className='ganaPuntos qrContainer whiteColor'>GANA PUNTOS</p>
+          </div>
+        }
 
-    </div>
+      </div>
     </article>
 
   );

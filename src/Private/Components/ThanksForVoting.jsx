@@ -2,9 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import { onQuestion } from '../../Store/Slices/userSlice';
 
-
 export const ThanksForVoting = () => {
-
 
     const dispatch = useDispatch();
 
@@ -15,7 +13,6 @@ export const ThanksForVoting = () => {
     }
 
     return (
-
 
         <>
 

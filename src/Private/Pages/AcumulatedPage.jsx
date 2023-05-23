@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export const AcumulatedPage = () => {
 
-  const { user, points, prevPoints, question, recycles } = useSelector(state => state.user);
+  const {prevPoints, recycles } = useSelector(state => state.user);
 
   const [rec, setRec] =useState([])
 
@@ -39,7 +39,7 @@ export const AcumulatedPage = () => {
 
   }, [])
 
-
+  
 
   return (
 
@@ -69,7 +69,7 @@ export const AcumulatedPage = () => {
           <AcumulatedPoints 
           key={recycle.rec_id}
           recycle={recycle}
-          user={user}/>
+          />
         ))
       }
     

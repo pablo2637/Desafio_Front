@@ -100,7 +100,7 @@ export const Home = () => {
 
                 {
                     (!cookies) &&
-                    <div className="divPopup z-[1010] fixed left-0" >
+                    <div className="divPopup fixed left-0 position1" >
                         <div >
                             <h3 className="w-full font-bold text-2xl text-left pb-2">Políticas sobre cookies</h3>
                             <p className="text-base font-light leading-[18px] pb-2">

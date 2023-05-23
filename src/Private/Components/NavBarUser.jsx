@@ -61,6 +61,7 @@ export const NavBarUser = ({ qr, setQr }) => {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start w-full">
 
+
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
@@ -71,7 +72,7 @@ export const NavBarUser = ({ qr, setQr }) => {
                           item.current ? 'bg-slate-100 text-slate-950 hover:bg-[#f89a16]' : 'text-slate-950 hover:bg-[#f89a16] hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
-                      // aria-current={item.current ? 'page' : undefined}
+                        aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
                       </NavLink>
@@ -111,7 +112,7 @@ export const NavBarUser = ({ qr, setQr }) => {
                     item.current ? 'bg-gray-600 text-slate-950' : 'text-slate-950 hover:bg-[#f89a16] hover:text-white',
                     'block rounded-md px-3 py-2 text-base font-medium'
                   )}
-                // aria-current={item.current ? 'page' : undefined}
+                  aria-current={item.current ? 'page' : undefined}
                 >
                   {item.name}
                 </NavLink>

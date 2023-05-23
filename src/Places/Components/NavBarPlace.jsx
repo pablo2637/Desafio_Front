@@ -27,7 +27,7 @@ export const NavBarPlace = () => {
   return (
 
     <Disclosure as="nav" className="bg-transparent">
-      {({ open }) => (
+      {({ open, close }) => (
 
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -35,7 +35,7 @@ export const NavBarPlace = () => {
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden w-full">
 
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-slate-950 hover:bg-gray-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-slate-950 hover:bg-[#f89a16] hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -50,7 +50,7 @@ export const NavBarPlace = () => {
                     <img
                       src="\assets\qr.png"
                       alt="scan-logo"
-                      className="fill-current text-white h-6 m-auto w-6 hover:text-white hover:bg-gray-600"
+                      className="fill-current text-white h-6 m-auto w-6 hover:text-white hover:bg-[#f89a16]"
                     />
                   </button>
 
@@ -64,9 +64,10 @@ export const NavBarPlace = () => {
                     {navigation.map((item) => (
                       <NavLink
                         key={item.name}
+                        onClick={close}
                         to={item.href}
                         className={classNames(
-                          item.current ? 'bg-slate-100 text-slate-950 hover:bg-gray-600' : 'text-slate-950 hover:bg-gray-600 hover:text-white',
+                          item.current ? 'bg-slate-100 text-slate-950 hover:bg-[#f89a16]' : 'text-slate-950 hover:bg-[#f89a16]6 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
                       // aria-current={item.current ? 'page' : undefined}
@@ -89,6 +90,7 @@ export const NavBarPlace = () => {
                 <NavLink
                   key={item.name}
                   to={item.href}
+                  onClick={close}
                   className={classNames(
                     item.current ? 'bg-[#c95c03] text-slate-950' : 'text-slate-950 hover:bg-[#f89a16] hover:text-white',
                     'block rounded-md px-3 py-2 text-base font-medium'

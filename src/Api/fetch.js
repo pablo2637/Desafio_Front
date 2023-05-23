@@ -71,12 +71,6 @@ export const masterFetchData = async (place_id) => {
 
     const urlBase = import.meta.env.VITE_BACKURLDATA;
 
-
-    /**
-     * @typedef {Object} options - Es el desglose de lo que requerimos en el fetch y que es necesario para traer la información.(method,body)
-     */
-
-
     const form = new FormData();
     form.append('a', place_id);
     console.log('form', form);

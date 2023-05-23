@@ -1,16 +1,15 @@
 import { useState } from 'react';
 import { masterFetch } from '../../Api/fetch';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Thanks } from './Thanks';
 
 
 export const FormLitros = ({ setQRCode, qrCode }) => {
 
   const [quantity, setQuantity] = useState('');
+  const [thanks, setThanks] = useState(false);
 
   const { user } = useSelector(state => state.user);
-
-  const navigate = useNavigate();
 
 
   const handleQuantityChange = (e) => {
@@ -38,7 +37,7 @@ export const FormLitros = ({ setQRCode, qrCode }) => {
       const response = await masterFetch('api/recycle', 'POST', recycleData);
 
       if (response.ok)
-        navigate('/')
+        setThanks(true);
 
       // setReward(rewardValue); // Actualizar el estado del reward con el valor calculado
     } catch (error) {
@@ -56,64 +55,79 @@ export const FormLitros = ({ setQRCode, qrCode }) => {
   }
 
   return (
-    <div className="flex flex-col items-center">
-      <form onSubmit={handleSubmit} noValidate className="w-80 bg-gray-100 p-4 rounded-md">
 
-        <div className="mb-4">
-          <label htmlFor="userId" className="block mb-1">
-            Usuario:
-          </label>
-          <input
-            readOnly
-            type="text"
-            id="userId"
-            name="userId"
-            value={qrCode?.name}
-            required
-            className="w-full border border-gray-300 rounded-md p-2"
-          />
-          <button onClick={handleCamara}><i class="fa-solid fa-camera"></i></button>
-        </div>
+    <section>
 
-        <div className="mb-4">
-          <label htmlFor="quantity" className="block mb-1">
-            Litros de aceite:
-          </label>
-          <input
-            type="number"
-            id="quantity"
-            name="quantity"
-            value={quantity}
-            onChange={handleQuantityChange}
-            required
-            className="w-full border border-gray-300 rounded-md p-2"
-          />
-        </div>
 
-        <div className="mb-4">
-          <label htmlFor="placeId" className="block mb-1">
-            Restaurant:
-          </label>
-          <input
-            readOnly
-            type="text"
-            id="place_id"
-            name="place_id"
-            value={user?.name}
-            required
-            className="w-full border border-gray-300 rounded-md p-2"
-          />
-        </div>
+      <div className="flex flex-col items-center">
+        <form onSubmit={handleSubmit} noValidate className="w-80 bg-gray-100 p-4 rounded-md">
 
-        <button
-          type="submit"
-          className="bg-[#f89a16] text-white px-4 py-2 w-full rounded-md"
-        >
-          Canjear
-        </button>
-      </form>
+          <div className="mb-4">
+            <label htmlFor="userId" className="block mb-1">
+              Usuario:
+            </label>
+            <input
+              readOnly
+              type="text"
+              id="userId"
+              name="userId"
+              value={qrCode?.name}
+              required
+              className="w-full border border-gray-300 rounded-md p-2"
+            />
+            <button onClick={handleCamara}><i class="fa-solid fa-camera"></i></button>
+          </div>
 
-    </div>
+          <div className="mb-4">
+            <label htmlFor="quantity" className="block mb-1">
+              Litros de aceite:
+            </label>
+            <input
+              type="number"
+              id="quantity"
+              name="quantity"
+              value={quantity}
+              onChange={handleQuantityChange}
+              required
+              className="w-full border border-gray-300 rounded-md p-2"
+            />
+          </div>
+
+          <div className="mb-4">
+            <label htmlFor="placeId" className="block mb-1">
+              Restaurant:
+            </label>
+            <input
+              readOnly
+              type="text"
+              id="place_id"
+              name="place_id"
+              value={user?.name}
+              required
+              className="w-full border border-gray-300 rounded-md p-2"
+            />
+          </div>
+
+
+          {
+            (!thanks) &&
+            <button
+              type="submit"
+              className="bg-[#f89a16] text-white px-4 py-2 w-full rounded-md"
+            >
+              Canjear
+            </button>
+          }
+
+        </form>
+
+      </div>
+
+      {
+        (thanks) &&
+        <Thanks name={qrCode.name} points={quantity * 100}  />
+      }
+    </section>
 
   );
 };

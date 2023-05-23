@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 
-export const ThanksForVoting = () => {
+export const Thanks = ({ name, points }) => {
 
     const navigate = useNavigate();
 
@@ -25,10 +25,10 @@ export const ThanksForVoting = () => {
                             className="absolute top-2 right-2 cursor-pointer" />
                     </button>
 
-                    <h3>¡Gracias por participar!</h3>
+                    <h3>¡Gracias por reciclar!</h3>
 
                     <p className='text-base'>
-                        Has ganado <span className='text-[#f67f00]  font-medium'>1,000 puntos</span> para gastar en los restaurantes afiliados a las web.
+                        {name} ha ganado <span className='text-[#f67f00] font-medium'>{points} puntos</span>.
                     </p>
                 </div>
 

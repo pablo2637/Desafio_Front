@@ -3,10 +3,15 @@ import QRCode from 'react-qr-code';
 import { useSelector } from 'react-redux';
 
 
-export const CreateQR = () => {
+export const CreateQR = ({ setQr }) => {
 
   const { user } = useSelector(state => state.user);
   const [qrValue, setQrValue] = useState(null);
+
+  const handleClose = () => {
+    setQr(false);
+  }
+
 
   useEffect(() => {
 
@@ -17,7 +22,7 @@ export const CreateQR = () => {
         email: user.email
       })
 
-  }, [user])
+  }, [user]);
 
   return (
 
@@ -28,6 +33,14 @@ export const CreateQR = () => {
         {
           (qrValue) &&
           <>
+            <div className="text-right w-full">
+              <button onClick={handleClose} className="">
+                <img
+                  src="\assets\close.png"
+                  alt="botón salir"
+                  className=" cursor-pointer" />
+              </button>
+            </div>
             <h3>Este es tu QR</h3>
             <p>¡Gana puntos y protege el agua!</p>
             <p>Muestra tu código QR cuando lleves tu aceite usado al establecimiento.</p>

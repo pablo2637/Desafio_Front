@@ -3,10 +3,13 @@ import { AdminRouters, PlaceRouters, PrivateRouters, PublicRouters } from "./Rou
 import { NavBar } from "./Public/Components/";
 import { NavBarUser } from "./Private/Components/NavBarUser";
 import { NavBarPlace } from "./Places/Components";
+import { useState } from "react";
 
 function App() {
 
-  const { user, status, errorMessage } = useSelector(state => state.user)
+  const { user, status, errorMessage } = useSelector(state => state.user);
+
+  const [qr, setQr] = useState(false);
 
   return (
 
@@ -17,7 +20,7 @@ function App() {
           (status === 'authenticated') ?
 
             (user.role == 'user') ?
-              <NavBarUser />
+              <NavBarUser qr={qr} setQr={setQr} />
 
               :
               (user.role == 'place') ?
@@ -34,7 +37,7 @@ function App() {
       </header>
 
       {/* className="bg-[#fafafa]" */}
-      <main  className="max-w-screen-sm mx-auto">
+      <main className="max-w-screen-sm mx-auto">
         {/* <p>user: {user?.role}</p>
         <p>status: {status}</p> */}
         {

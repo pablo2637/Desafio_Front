@@ -33,7 +33,7 @@ export const NavBarUser = () => {
   return (
 
     <Disclosure as="nav" className="bg-transparent">
-      {({ open }) => (
+      {({ open, close }) => (
 
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -109,6 +109,7 @@ export const NavBarUser = () => {
                 <NavLink
                   key={item.name}
                   to={item.href}
+                  onClick={close}
                   className={classNames(
                     item.current ? 'bg-gray-600 text-slate-950' : 'text-slate-950 hover:bg-[#f89a16] hover:text-white',
                     'block rounded-md px-3 py-2 text-base font-medium'

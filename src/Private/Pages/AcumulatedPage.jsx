@@ -62,16 +62,16 @@ export const AcumulatedPage = () => {
 
       {
         <table className="mx-auto mt-12 w-11/12">
-        <tbody>
-          {rec.length > 0 ? (
-            <AcumulatedPoints recycle={rec} />
-          ) : (
-            <tr>
-              <td>No hay datos</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+          <tbody>
+            {rec.length > 0 ? (
+              <AcumulatedPoints recycle={rec} />
+            ) : (
+              <tr>
+                <td>No hay datos</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
       }
 
     </>

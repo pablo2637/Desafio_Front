@@ -43,7 +43,7 @@ export const useValidateToken = () => {
                 dispatch(onLogout());
                 dispatch(onLogoutPlaces());
             }
-        }, 3000)
+        }, 2000)
 
     };
 

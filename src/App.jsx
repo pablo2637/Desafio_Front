@@ -4,10 +4,11 @@ import { NavBar } from "./Public/Components/";
 import { NavBarUser } from "./Private/Components/NavBarUser";
 import { NavBarPlace } from "./Places/Components";
 import { useState } from "react";
+import { NavBarAdmin } from "./Admin/Components/NavBarAdmin";
 
 function App() {
 
-  const { user, status, errorMessage, prevPoints } = useSelector(state => state.user);
+  const { user, status, prevPoints } = useSelector(state => state.user);
 
   const [qr, setQr] = useState(false);
 
@@ -18,32 +19,30 @@ function App() {
       <header>
 
 
-        
+
         {
           (status === 'authenticated') ?
 
             (user.role == 'user') ?
-              <NavBarUser qr={qr} setQr={setQr} user={user} prevPoints={prevPoints}/>
+              <NavBarUser qr={qr} setQr={setQr} user={user} prevPoints={prevPoints} />
 
               :
               (user.role == 'place') ?
                 <NavBarPlace />
 
                 :
-                <NavBarUser />
+                <NavBarAdmin />
 
             :
             <NavBar />
-            
+
         }
 
 
       </header>
 
-      {/* className="bg-[#fafafa]" */}
       <main className="max-w-screen-sm mx-auto">
-        {/* <p>user: {user?.role}</p>
-        <p>status: {status}</p> */}
+
         {
           (status === 'authenticated') ?
 

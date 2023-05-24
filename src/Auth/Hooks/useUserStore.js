@@ -37,7 +37,25 @@ export const useUserStore = () => {
         try {
 
             setIsLoading(true);
+            
             let petition;
+            const regexEmail = new RegExp(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/);
+
+
+            if (form) {
+                if (form?.email) {
+                    if (!regexEmail.test(form?.email) && form?.email != '') {
+
+                        const err = 'El formato del email no es válido';
+
+                        dispatchError(err);
+                        setIsLoading(false);
+                        return;
+
+                    }
+                }
+            }
+
 
             if (place == 'place')
                 petition = await masterFetch('api/places/login', 'POST', form);
@@ -47,10 +65,12 @@ export const useUserStore = () => {
 
 
 
-            if (petition.ok == false)
+            if (petition.ok == false) {
+
+                setIsLoading(false);
                 dispatchError(petition.msg);
 
-            else {
+            } else {
 
                 const user = petition.data[0]
 

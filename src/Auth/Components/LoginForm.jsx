@@ -93,7 +93,7 @@ export const LoginForm = () => {
                 name="password"
                 placeholder="********" />
               {
-                errorMessage && <span className="text-red-600">{errorMessage}</span>
+                errorMessage && <span className="text-red-600 text-sm">{errorMessage}</span>
               }
             </div>
 

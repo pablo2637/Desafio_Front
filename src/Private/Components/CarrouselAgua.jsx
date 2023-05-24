@@ -12,8 +12,8 @@ export const CarrouselAgua = () => {
       <h2 className=' mt-3 mb-4 ml-5 text-gray-500'>Tu balance - Tu impacto en el agua:</h2>
 
       <Carousel
-        autoPlay
-        infiniteLoop
+        autoPlay={true}
+        infiniteLoop={true}
         showStatus={false}
         showThumbs={false}
         showIndicators

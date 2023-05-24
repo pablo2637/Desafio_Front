@@ -62,7 +62,7 @@ export const IdCarrousel = () => {
                     <div key={restaurant.id} className="relative w-44">
 
                       <div className="h-32 w-full">
-                        <img src={restaurant.image_url} alt={restaurant.name} className="h-full w-auto max-w-full rounded-sm" />
+                        <img src={restaurant.image_url} alt={restaurant.name} className="h-full w-full max-w-full rounded-sm" />
                       </div>
                       <p className="text-left font-medium text-base mt-1 mb-3">{restaurant.name}</p>
 

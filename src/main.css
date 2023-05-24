@@ -414,13 +414,15 @@ body
 
 /**/
 
+.carousel .slide .imgCoin {
+    object-fit: contain !important;
+}
+
 .carousel .slide img
 {
-    object-fit: cover;
+    object-fit: cover !important;
     border-radius: 10px;
 }
 
-.carousel .slide .imgCoin {
-    object-fit: contain;
-}
+
 

@@ -10,7 +10,7 @@ export const Carrousel = () => {
       <p className='texto  mt-8 mb-4 m-auto text-center'>Aprende a usar nuestra Web</p>
 
       <Carousel
-        autoPlay
+        autoPlay={true}
         infiniteLoop={true}
         showStatus={false}
         showThumbs={false}

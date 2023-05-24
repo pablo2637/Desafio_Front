@@ -1,20 +1,38 @@
+import { useState } from "react";
 import { useForm } from "../../Hooks/useForm"
 import { useUserStore } from "../Hooks/useUserStore";
+
+
 
 export const RegisterForm = () => {
 
   const { handleChange, form } = useForm();
 
+  const [terms, setTerms] = useState(false)
 
-  const { errorMessage, registerStart } = useUserStore();
+  const { errorMessage, registerStart, isLoading } = useUserStore();
 
 
   const onSubmit = (ev) => {
 
     ev.preventDefault();
 
+    if (!ev.target.terms.checked) {
+
+      setTerms(true);
+
+      setTimeout(() => {
+        setTerms(false);
+
+      }, 4000);
+
+      return;
+    }
+
     registerStart(form);
   };
+
+
 
   return (
 
@@ -41,7 +59,7 @@ export const RegisterForm = () => {
                 name="name"
                 placeholder="Nombre" />
               {
-                errorMessage?.name && <span className="text-red-600">{errorMessage.name.msg}</span>
+                errorMessage?.name && <span className="text-red-600 text-sm">{errorMessage.name.msg}</span>
               }
             </div>
 
@@ -56,7 +74,7 @@ export const RegisterForm = () => {
                 name="last_name"
                 placeholder="Apellidos" />
               {
-                errorMessage?.last_name && <span className="text-red-600">{errorMessage.last_name.msg}</span>
+                errorMessage?.last_name && <span className="text-red-600 text-sm">{errorMessage.last_name.msg}</span>
               }
             </div>
 
@@ -71,7 +89,7 @@ export const RegisterForm = () => {
                 name="email"
                 placeholder="juan@ejemplo.com" />
               {
-                errorMessage?.email && <span className="text-red-600">{errorMessage.email.msg}</span>
+                errorMessage?.email && <span className="text-red-600 text-sm">{errorMessage.email.msg}</span>
               }
             </div>
 
@@ -86,29 +104,41 @@ export const RegisterForm = () => {
                 name="password"
                 placeholder="********" />
               {
-                errorMessage?.password && <span className="text-red-600">{errorMessage.password.msg}</span>
+                errorMessage?.password && <span className="text-red-600 text-sm">{errorMessage.password.msg}</span>
               }
             </div>
 
-            <div className="flex mb-4 mt-8">
-              <div className="w-2/3">
+
+            <div className=" mb-4 mt-16">
+              {
+                (terms) && <span className="text-red-600 text-sm">Debes aceptar las condiciones para continuar</span>
+              }
+              <div className=" flex items-start flex-row w-4/5 mt-2">
                 <input
                   type="checkbox"
                   id="terms"
                   name="terms"
-                  className="mt-1 mr-2"
+                  className="mt-1 mr-2 w-6 h-6"
                 />
                 <label
-                className="text-xs font-bold">
-                  <span>Acepto las</span> <span className="text-amber-500">Políticas de Privacidad</span> <span>y las</span> <span className="text-amber-500">condiciones de uso.</span>
+                  className="text-xs font-bold ">
+                  <span>Acepto la</span> <span className="text-amber-500">Política de Privacidad</span> <span>y las</span> <span className="text-amber-500">condiciones de uso.</span>
                 </label>
               </div>
             </div>
 
             <button
-              className="w-full bg-[#f67f00] text-white text-base font-medium py-2 px-4 rounded-md hover:bg-[#C95C03] transition duration-300"
-              type="submit">Registrarse</button>
+              className="w-full bg-[#f67f00] text-white text-base font-medium py-2 px-4 rounded-[4px] hover:bg-[#C95C03] transition duration-300"
+              type="submit">Registrarse
+            </button>
 
+
+            {
+              (isLoading) &&
+              <div className="grid mt-3 w-full">
+                <span className="loader"></span>
+              </div>
+            }
 
           </form>
 

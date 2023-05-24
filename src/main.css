@@ -163,7 +163,7 @@ body
 
 .divPopup
 {
-    top: 33vh;
+    top: 10vh;
     width: 100%;
     animation: cookies 1s cubic-bezier(0.05, 1.04, 0.72, 0.98) 0s;
 }
@@ -336,7 +336,7 @@ body
 
     animation: cookies 1s cubic-bezier(0.05, 1.04, 0.72, 0.98) 0s;
     position: fixed;
-    top: 33vh;
+    top: 15vh;
     left: 0;
     width: 100%;
     height: 50vh;

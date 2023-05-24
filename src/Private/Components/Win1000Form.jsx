@@ -93,10 +93,6 @@ export const Win1000Form = () => {
         <section className="w-full mt-10">
 
 
-            {
-                (isLoading) &&
-                <span className="loader"></span>
-            }
 
             <form
                 onSubmit={onSubmit}>
@@ -169,10 +165,15 @@ export const Win1000Form = () => {
                                 src="\assets\share_white.png"
                                 alt="gana1000" />
                         </div>
-
-
                     </button>
                 </div>
+
+                {
+                    (isLoading) &&
+                    <div className="grid mt-3 w-full">
+                        <span className="loader"></span>
+                    </div>
+                }
 
             </form>
 

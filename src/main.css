@@ -30,19 +30,23 @@ body
     color: rgb(248, 154, 22);
 }
 
-.position1 {
+.position1
+{
     z-index: 1300;
 }
 
-.position2 {
+.position2
+{
     z-index: 1250;
 }
 
-.position3 {
+.position3
+{
     z-index: 1100;
 }
 
-.position4 {
+.position4
+{
     z-index: 1050;
 }
 
@@ -334,7 +338,7 @@ body
 
 .gcardContainer
 {
-    
+
     animation: cookies 1s cubic-bezier(0.05, 1.04, 0.72, 0.98) 0s;
     position: fixed;
     top: 33vh;
@@ -391,7 +395,7 @@ body
 
 .ganaPuntos
 {
-    margin-top: 12px;    
+    margin-top: 12px;
     color: #fafafa !important;
     font-size: 1.7rem !important;
 }
@@ -414,3 +418,14 @@ body
 }
 
 /**/
+
+.carousel .slide img
+{
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.carousel .slide .imgCoin {
+    object-fit: contain;
+}
+

@@ -10,13 +10,12 @@ import { getReycles, sumLiters, sumRecycles } from "../helpers/getReycles";
 import { PointsObtained } from "../../Private/Components/PointsObtained";
 import { IdCarrousel } from "../Components/IdCarrousel";
 
-
 export const Home = () => {
 
     const [cookies, setCookies] = useState(getLocalCookies());
     const { checkToken } = useValidateToken();
 
-    const { user, prevPoints, recycles, question, points } = useSelector(state => state.user);
+    const { user, prevPoints, recycles, question } = useSelector(state => state.user);
     // const [sums, setSums] = useState({});
     // const [question, setQuestion] = useState(false);
     const dispatch = useDispatch();
@@ -120,17 +119,7 @@ export const Home = () => {
                     (question) &&
 
                     <PointsObtained recycle={recycles[recycles.length - 1]} />
-                }
-
-                {
-                    (!points) &&
-                    <div className="flex justify-center items-center">
-                        <NavLink to={'/win1000'} className="bg-[#ffb566] rounded-lg mt-5 mx-5 px-4 py-2 text-center w-full">
-                            <p className="text-center font-light text-base w-full ">¿Quieres ganar 1.000 puntos?</p>
-                            <p className="text-center font-light text-base w-full ">¡Dime cuál es tu restaurante favorito!</p>
-                        </NavLink>
-                    </div>
-                }
+                }            
 
             </main>
         </>

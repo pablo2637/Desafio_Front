@@ -1,4 +1,3 @@
-import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import '../css/Carousel.css';
@@ -12,7 +11,7 @@ export const Carrousel = () => {
 
       <Carousel
         autoPlay
-        infiniteLoop
+        infiniteLoop={true}
         showStatus={false}
         showThumbs={false}
         showIndicators

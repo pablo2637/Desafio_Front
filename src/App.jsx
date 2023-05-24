@@ -7,7 +7,7 @@ import { useState } from "react";
 
 function App() {
 
-  const { user, status, errorMessage } = useSelector(state => state.user);
+  const { user, status, errorMessage, prevPoints } = useSelector(state => state.user);
 
   const [qr, setQr] = useState(false);
 
@@ -23,7 +23,7 @@ function App() {
           (status === 'authenticated') ?
 
             (user.role == 'user') ?
-              <NavBarUser qr={qr} setQr={setQr} />
+              <NavBarUser qr={qr} setQr={setQr} user={user} prevPoints={prevPoints}/>
 
               :
               (user.role == 'place') ?

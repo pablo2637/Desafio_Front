@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 
 export const AcumulatedPage = () => {
 
-  const {prevPoints, recycles } = useSelector(state => state.user);
+  const { prevPoints, recycles } = useSelector(state => state.user);
 
-  const [rec, setRec] =useState([])
+  const [rec, setRec] = useState([])
 
   const getDiff = () => {
 
@@ -16,7 +16,7 @@ export const AcumulatedPage = () => {
 
     const array = []
 
-    for(let i = 0; i<diff.length; i++) {
+    for (let i = 0; i < diff.length; i++) {
 
       sum += diff[i].reward
       const cosa = {
@@ -26,52 +26,51 @@ export const AcumulatedPage = () => {
       }
       array.push(cosa)
     }
-    setRec(array)
 
-    console.log(array)
+    setRec(array)
   }
 
 
   useEffect(() => {
 
-    getDiff();
+    if (recycles) getDiff();
 
   }, [])
 
-  
+
 
   return (
 
     <>
-    
+
       <h2 className='ml-5 mt-3 text-gray-500'>Tu balance - Tus puntos acumulados:</h2>
 
       <div className="flex justify-around mt-12">
-    
-            <div className="w-40 mb-0 rounded-lg bg-slate-50 gridPoints grid justify-center text-left items-center">
 
-                <div className='h-4/5 grid justify-end'>
-                    <img className='w-auto h-full object-contain' src="../assets/coins.png" />
-                </div>
+        <div className="w-40 mb-0 rounded-lg bg-slate-50 gridPoints grid justify-center text-left items-center">
 
-                <p className="text-2xl font-bold">{prevPoints}</p>
-                <p className='col-span-full text-base text-center pb-1 font-medium'>Puntos acumulados</p>
+          <div className='h-4/5 grid justify-end'>
+            <img className='w-auto h-full object-contain' src="../assets/coins.png" />
+          </div>
 
-            </div>
+          <p className="text-2xl font-bold">{prevPoints}</p>
+          <p className='col-span-full text-base text-center pb-1 font-medium'>Puntos acumulados</p>
 
         </div>
+
+      </div>
 
       {
         (rec) &&
         rec.map(recycle => (
 
-          <AcumulatedPoints 
-          key={recycle.rec_id}
-          recycle={recycle}
+          <AcumulatedPoints
+            key={recycle.rec_id}
+            recycle={recycle}
           />
         ))
       }
-    
+
     </>
   )
 }

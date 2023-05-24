@@ -49,14 +49,16 @@ export const useUserStore = () => {
 
                 dispatch(onLogin(user));
 
-                const tmp = petition.data[0].recommended
-                    .replaceAll("'", '').replaceAll('"', '')
-                    .replaceAll('[', '').replaceAll(']', '')
-                    .trim().split(',');
+                if (petition.data[0]?.recommended) {
+                    const tmp = petition.data[0].recommended
+                        .replaceAll("'", '').replaceAll('"', '')
+                        .replaceAll('[', '').replaceAll(']', '')
+                        .trim().split(',');
 
-                const array = [...tmp];
+                    const array = [...tmp];
 
-                dispatch(onRecommended(array));
+                    dispatch(onRecommended(array));
+                }
 
                 const token = petition.token
 

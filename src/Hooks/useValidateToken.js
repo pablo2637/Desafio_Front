@@ -19,15 +19,19 @@ export const useValidateToken = () => {
             if (petition.ok) {
 
                 if (!user?.role) {
+
+
+                    if (petition.user[0]?.recommended) {
+                        const tmp = petition.user[0].recommended
+                            .replaceAll("'", '').replaceAll('"', '')
+                            .replaceAll('[', '').replaceAll(']', '')
+                            .trim().split(',');
+
+                        const array = [...tmp];
+
+                        dispatch(onRecommended(array));
+                    }
                     
-                    const tmp = petition.user[0].recommended
-                        .replaceAll("'", '').replaceAll('"', '')
-                        .replaceAll('[', '').replaceAll(']', '')
-                        .trim().split(',');
-
-                    const array = [...tmp];
-
-                    dispatch(onRecommended(array));
                     dispatch(onLogin(petition.user[0]));
                 }
 

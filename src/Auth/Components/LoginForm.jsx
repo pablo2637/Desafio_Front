@@ -26,9 +26,10 @@ export const LoginForm = () => {
     <>
       <section className="bg-[#fafafa]">
 
+   
         <div className="container mx-auto py-8">
           <h3 className="text-2xl font-bold mb-6 text-center">Inicia sesión o regístrate para conseguir puntos</h3>
-
+ 
           <form
             onSubmit={onSubmit}
             noValidate

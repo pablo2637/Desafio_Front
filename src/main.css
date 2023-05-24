@@ -412,6 +412,31 @@ body
     margin-left: 50px;
 }
 
+ /* para tablet y pantallas más pequeñas */
+@media ( min-width: 628px) {
+
+    .Logo {
+        height: 20px;
+        margin-top: 20px;
+        margin-bottom: -40px;
+        margin-left: 30px;
+        margin-right: 40px;
+    }
+}
+
+/* pantallas de ordenador */
+@media (min-width: 769px) {
+    
+    .Logo {
+        height: 20px;
+        margin-top: 20px;
+        margin-bottom: -40px;
+        margin-left: 30px;
+        margin-right: 40px;
+    }
+}
+
+
 /**/
 
 .carousel .slide .imgCoin {

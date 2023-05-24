@@ -93,9 +93,12 @@ export const Home = () => {
 
                 <IdCarrousel />
 
+                <section>
+
                 <div className="bg-black opacity-100 mt-12">
                     <img src='../assets/Frame 34709.png' alt="Image 2" />
                 </div>
+                </section>
 
                 {
                     (!cookies) &&

@@ -55,14 +55,19 @@ export const Ofertas = () => {
           key={offer.id}
           className="rounded-lg overflow-hidden shadow-lg bg-gradient-to-b from-orange-400 to-white mt-8 mb-8"
         >
+        
           <div
-            className="w-full h-20 bg-cover bg-center max-w-100 max-h-100"
-            style={{ backgroundImage: `url(${offer.image})` }}
-          />
-          <div className="p-4">
-            <p className="font-bold text-lg mb-1">{offer.restaurant}</p>
-            <p className="text-sm text-gray-500 mb-1">{offer.discount}% de descuento</p>
-            <p className="text-sm text-gray-500">Puntos: {offer.points}</p>
+            className="w-full h-20 bg-cover bg-center max-w-32 max-h-32"
+            style={{ backgroundImage: `url(${offer.image})`,
+            maskImage: 'linear-gradient(to buttom, white)',
+            WebkitMaskImage: 'linear-gradient(to buttom, white)',
+            opacity: 0.9, 
+            }}/>
+            
+          <div className="p-4 text-center">
+            <p className="text-lg mb-1">{offer.restaurant}</p>
+            <p className="text-sm text-gray-500 mb-1">{offer.discount}%</p>
+            <p className="text-sm text-gray-500"> {offer.points} Puntos</p>
           </div>
         </div>
       ))}

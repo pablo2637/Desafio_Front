@@ -85,8 +85,19 @@ export const RegisterForm = () => {
               }
             </div>
 
-            <div>
-              <img src="../assets/Privacidad.png" alt="Privacidad" />
+            <div className="flex mb-4 mt-8">
+              <div className="w-2/3">
+                <input
+                  type="checkbox"
+                  id="terms"
+                  name="terms"
+                  className="mt-1 mr-2"
+                />
+                <label
+                className="text-xs font-bold">
+                  <span>Acepto las</span> <span className="text-amber-500">Políticas de Privacidad</span> <span>y las</span> <span className="text-amber-500">condiciones de uso.</span>
+                </label>
+              </div>
             </div>
 
             <button

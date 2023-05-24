@@ -7,11 +7,74 @@ export const CarrouselAgua = () => {
 
   return (
 
-    <>
+    <article className='Container-carr'>
+
+      <h2 className=' mt-3 mb-4 ml-5 text-gray-500'>Tu balance - Tu impacto en el agua:</h2>
+
+      <Carousel
+        autoPlay
+        infiniteLoop
+        showStatus={false}
+        showThumbs={false}
+        showIndicators
+        centerMode={false}
+        className="">
+
+
+        <div>
+              <h2 className="absolute top-2/3 mt-12 left-1/2 transform -translate-x-1/2 -translate-y-3/2 text-center font-semibold text-orange-500">
+                Gracias por reciclar Aceite
+              </h2>
+          <img 
+          src={'../assets/Aceite2.png'} 
+          alt="rectángulo" 
+          />
+        </div>
+        
+        <div>
+              <h2 className="absolute top-2/3 mt-16 pt-4 left-1/2 transform -translate-x-1/2 font-semibold text-orange-500 leading-tight w-64">
+                Has logrado que no se contamine el agua de 10 bañeras
+              </h2>
+          <img 
+          src='../assets/bañeras3.png' 
+          alt="Image 2" 
+          />
+        </div>
+
+        <div>
+          <img 
+          src='../assets/Piscina.png' 
+          alt="Image 1" 
+          />
+        </div>
+      
+      </Carousel>
+
+        <div className="flex items-center justify-center">
+            <button
+                type="submit"
+                className="flex items-center justify-center rounded h-12 w-10/12 border-amber-500 border-2 p-2 text-base my-4 ">
+                <p
+                    className="font-bold text-amber-500 text-center">
+                    Compartir
+                </p>
+                <div>
+                    <img
+                        className="mx-2"
+                        src="\assets\share_orange.png"
+                        alt="gana1000" />
+                </div>
+
+            </button>
+        </div>
+  </article>
+  )
+}
+
+{/* <>
       <article className=''>
 
-      
-          <h2 className=' mt-8 mb-4 ml-5'>Tu balance - Tu impacto en el agua:</h2>
+          <h2 className=' mt-3 mb-4 ml-5 text-gray-500'>Tu balance - Tu impacto en el agua:</h2>
 
           <div>
 
@@ -51,7 +114,7 @@ export const CarrouselAgua = () => {
 
                     <p
                         className="font-bold text-amber-500 text-center">
-                        Enviar
+                        Compartir
                     </p>
                     <div>
                         <img
@@ -62,10 +125,8 @@ export const CarrouselAgua = () => {
 
                 </button>
             </div>
-
           </div>
 
         </article>
-    </>
-  )
-}
+    </> */}
+

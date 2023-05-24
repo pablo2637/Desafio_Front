@@ -21,7 +21,6 @@ export const LoginForm = () => {
   };
 
 
-
   return (
 
     <>
@@ -95,9 +94,15 @@ export const LoginForm = () => {
                 errorMessage && <span className="text-red-600">{errorMessage}</span>
               }
             </div>
+              
+            <div className="block text-gray-400 text-sm absolute right-8 mt-0">
+              <button>
+            <p>¿Has olvidado tu contraseña?</p>
+            </button>
+            </div>
 
             <button
-              className="w-full bg-[#f67f00] text-white text-base font-medium py-2 px-4 rounded-md hover:bg-[#C95C03] transition duration-300"
+              className="w-full bg-[#f67f00] text-white text-base font-medium py-2 px-4 mt-10  rounded-md hover:bg-[#C95C03] transition duration-300"
               type="submit">Inicia sesión</button>
 
           

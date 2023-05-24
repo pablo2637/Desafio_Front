@@ -28,10 +28,18 @@ export const NavBarUser = ({ qr, setQr, user, prevPoints }) => {
 
   return (
 
+
+
     <Disclosure as="nav" className="bg-transparent position3">
       {({ open, close }) => (
 
-        <>
+      <>
+
+          <div >
+            <img src="../assets/Logo.png" alt="logo" className='Logo' />
+            </div>
+       
+
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between ">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden w-full">
@@ -136,6 +144,8 @@ export const NavBarUser = ({ qr, setQr, user, prevPoints }) => {
             </div>
 
           </Disclosure.Panel>
+
+         
         </>
       )}
     </Disclosure>

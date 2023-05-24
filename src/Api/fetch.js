@@ -11,9 +11,6 @@ export const masterFetch = async (url, method, body = {}) => {
 
     const urlBase = import.meta.env.VITE_BACKURL;
 
-    // urlBase = import.meta.env.VITE_BACKURLDATA;
-
-
     /**
      * @typedef {Object} options - Es el desglose de lo que requerimos en el fetch y que es necesario para traer la información.(method,body)
      */

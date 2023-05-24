@@ -115,6 +115,7 @@ export const NavBarUser = ({ qr, setQr, user, prevPoints }) => {
             {user && (
               <div className="ml-3 px-2 py-1 border-t border-gray-200">
                 <p className="text-gray-700">
+
                   Hola <span className='capitalize'>{user.name}</span>, tienes <span className='text-amber-600 font-bold'>{prevPoints}pts.</span>
 
                 </p>

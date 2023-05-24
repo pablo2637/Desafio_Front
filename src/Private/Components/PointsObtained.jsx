@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { ThanksForVoting } from './ThanksForVoting'
 import { useDispatch, useSelector } from 'react-redux'
 import { onQuestion } from '../../Store/Slices/userSlice'
 
@@ -66,7 +65,7 @@ export const PointsObtained = ({ recycle }) => {
 
                 (screenOne == 1) &&
 
-                <article className="gcardContainer">
+                <article className="gcardContainer position2">
 
                     <div className="gCard">
 
@@ -78,7 +77,7 @@ export const PointsObtained = ({ recycle }) => {
                             <img
                                 src={getPic(recycle.place_id)}
                                 alt="Restaurant Picture"
-                                className='rounded-2xl' />
+                                className='rounded-2xl object-cover w-full max-h-64' />
                         </div>
 
                         <button>

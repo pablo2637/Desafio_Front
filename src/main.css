@@ -30,6 +30,22 @@ body
     color: rgb(248, 154, 22);
 }
 
+.position1 {
+    z-index: 1300;
+}
+
+.position2 {
+    z-index: 1250;
+}
+
+.position3 {
+    z-index: 1100;
+}
+
+.position4 {
+    z-index: 1050;
+}
+
 
 /*! ===================================
                             LOADERS
@@ -146,7 +162,6 @@ body
     top: 33vh;
     width: 100%;
     animation: cookies 1s cubic-bezier(0.05, 1.04, 0.72, 0.98) 0s;
-    z-index: 1010;
 }
 
 
@@ -303,6 +318,11 @@ body
 
 .gridPoints
 {
+    grid-template-columns: 0.35fr 0.65fr;
+}
+
+.gridCoins
+{
     grid-template-columns: 0.4fr 0.6fr;
 }
 
@@ -324,7 +344,6 @@ body
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1100;
 }
 
 

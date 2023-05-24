@@ -16,7 +16,7 @@ export const Home = () => {
     const [cookies, setCookies] = useState(getLocalCookies());
     const { checkToken } = useValidateToken();
 
-    const { user, prevPoints, recycles, question } = useSelector(state => state.user);
+    const { user, prevPoints, recycles, question, points } = useSelector(state => state.user);
     // const [sums, setSums] = useState({});
     // const [question, setQuestion] = useState(false);
     const dispatch = useDispatch();
@@ -41,18 +41,30 @@ export const Home = () => {
             newSum.liters = sumLiters(response.recycles);
             newSum.points = sumRecycles(response.recycles);
 
-            if (prevPoints != newSum.points && prevPoints != 0)
-                dispatch(onQuestion(true));
+
+            if (prevPoints != newSum.points && prevPoints != 0) {
+                if (recycles.length == 1)
+                    dispatch(onQuestion(true));
+
+                else if (newSum.points - prevPoints != 1000)
+                    dispatch(onQuestion(true));
+            }
 
 
             dispatch(onLoadPrevPoints(newSum.points));
 
             // setSums(newSum);
 
-            if (response.recycles[0].points)
-                dispatch(onLoadPoints(true));
 
-            else
+            if (response.recycles) {
+
+                if (response.recycles[0]?.points)
+                    dispatch(onLoadPoints(true));
+
+                else
+                    dispatch(onLoadPoints(false));
+
+            } else
                 dispatch(onLoadPoints(false));
         }
 
@@ -69,7 +81,7 @@ export const Home = () => {
     return (
         <>
             <header className=" bg-[#fafafa]">
-                <p className='text-[22px] font-bold px-6 pb-4 leading-[26px] mb-0'>
+                <p className='text-[22px] font-bold px-6 pb-4 leading-[26px] mb-0 mt-3'>
                     ¡Reciclar aceite nunca fue tan fácil! Ahora tienes puntos de reciclaje más cercanos.
                 </p>
             </header>
@@ -88,7 +100,7 @@ export const Home = () => {
 
                 {
                     (!cookies) &&
-                    <div className="divPopup z-[1010] fixed left-0" >
+                    <div className="divPopup fixed left-0 position1" >
                         <div >
                             <h3 className="w-full font-bold text-2xl text-left pb-2">Políticas sobre cookies</h3>
                             <p className="text-base font-light leading-[18px] pb-2">
@@ -108,6 +120,16 @@ export const Home = () => {
                     (question) &&
 
                     <PointsObtained recycle={recycles[recycles.length - 1]} />
+                }
+
+                {
+                    (!points) &&
+                    <div className="flex justify-center items-center">
+                        <NavLink to={'/win1000'} className="bg-[#ffb566] rounded-lg mt-5 mx-5 px-4 py-2 text-center w-full">
+                            <p className="text-center font-light text-base w-full ">¿Quieres ganar 1.000 puntos?</p>
+                            <p className="text-center font-light text-base w-full ">¡Dime cuál es tu restaurante favorito!</p>
+                        </NavLink>
+                    </div>
                 }
 
             </main>

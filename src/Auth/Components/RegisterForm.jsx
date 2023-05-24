@@ -19,7 +19,7 @@ export const RegisterForm = () => {
   return (
 
     <>
-      <section className="bg-gray-100">
+      <section className="bg-[#fafafa]">
 
         <div className="container mx-auto py-8">
           <h1 className="text-2xl font-bold mb-6 text-center">Regístrate aquí</h1>
@@ -27,7 +27,7 @@ export const RegisterForm = () => {
           <form
             onSubmit={onSubmit}
             noValidate
-            className="w-full max-w-sm mx-auto bg-white p-8 rounded-md shadow-md">
+            className="w-full max-w-sm mx-auto p-8 rounded-md shadow-md">
 
             <div className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2">Nombre</label>
@@ -85,16 +85,29 @@ export const RegisterForm = () => {
               }
             </div>
 
+            <div className="flex mb-4 mt-8">
+              <div className="w-2/3">
+                <input
+                  type="checkbox"
+                  id="terms"
+                  name="terms"
+                  className="mt-1 mr-2"
+                />
+                <label
+                className="text-xs font-bold">
+                  <span>Acepto las</span> <span className="text-amber-500">Políticas de Privacidad</span> <span>y las</span> <span className="text-amber-500">condiciones de uso.</span>
+                </label>
+              </div>
+            </div>
+
             <button
               className="w-full bg-[#f67f00] text-white text-base font-medium py-2 px-4 rounded-md hover:bg-[#C95C03] transition duration-300"
               type="submit">Registrarse</button>
 
-<div>
-            <img src="../assets/Privacidad.png" alt="Privacidad" />
-          </div>
+
           </form>
 
-        
+
 
         </div>
 

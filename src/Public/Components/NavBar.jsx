@@ -18,7 +18,7 @@ export const NavBar = () => {
 
   return (
 
-    <Disclosure as="nav" className="bg-[#fafafa]">
+    <Disclosure as="nav" className="bg-[#fafafa] position3">
       {({ open, close }) => (
 
         <>
@@ -88,7 +88,7 @@ export const NavBar = () => {
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2 fixed z-[1200] bg-[#fafafa] w-full">
+            <div className="space-y-1 px-2 pb-3 pt-2 absolute z-[1200] bg-[#fafafa] w-full">
               {navigation.map((item) => (
                 <NavLink
                   key={item.name}

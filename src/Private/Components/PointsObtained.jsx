@@ -28,19 +28,17 @@ export const PointsObtained = ({ recycle }) => {
         setScreenOne(nro + 1);
     };
 
-
     const handleAnswer = () => {
 
         dispatch(onQuestion(false));
         setScreenOne(-1)
     };
 
-
     return (
 
         <>  {
             (screenOne == 0) ?
-                <article className="gcardContainer">
+                <article className="gcardContainer position2">
 
                     <div className="gCard">
 
@@ -108,8 +106,6 @@ export const PointsObtained = ({ recycle }) => {
 
                 </article>
         }
-
         </>
     )
-
 }

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useForm } from "../../Hooks/useForm"
 import { useUserStore } from "../Hooks/useUserStore";
 import { NavLink } from 'react-router-dom';
@@ -22,11 +21,10 @@ export const LoginForm = () => {
   };
 
 
-
   return (
 
     <>
-      <section className="bg-gray-100">
+      <section className="bg-[#fafafa]">
 
         <div className="container mx-auto py-8">
           <h3 className="text-2xl font-bold mb-6 text-center">Inicia sesión o regístrate para conseguir puntos</h3>
@@ -34,7 +32,7 @@ export const LoginForm = () => {
           <form
             onSubmit={onSubmit}
             noValidate
-            className="w-full max-w-sm mx-auto bg-white p-8 rounded-md shadow-md">
+            className="w-full max-w-sm mx-auto p-8 rounded-md shadow-md">
 
             <div className="mb-5">
               <input
@@ -59,6 +57,8 @@ export const LoginForm = () => {
                       onChange={handleChange}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
                       type="text"
+                      autoFocus
+                      autoComplete="off"
                       id={"phone"}
                       name={"phone"}
                       placeholder={"xxx xxx xxx"} />
@@ -72,6 +72,8 @@ export const LoginForm = () => {
                       onChange={handleChange}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
                       type="email"
+                      autoFocus
+                      autoComplete="off"
                       id={"email"}
                       name={"email"}
                       placeholder={"juan@ejemplo.com"} />
@@ -101,14 +103,14 @@ export const LoginForm = () => {
               <h2 className="text-center mt-6 text-lg">
                 O inicia sesión con
               </h2>
-              <div className="mt-6">
-                <img src="../assets/Apple.png" alt="Apple" />
+              <div className="mt-6 cursor-pointer">
+                <img src="\assets\Apple.png" alt="Apple" />
               </div>
-              <div className="mt-4">
-                <img src="..//assets/google.png" alt="Apple" />
+              <div className="mt-4 cursor-pointer">
+                <img src="\assets\google.png" alt="Apple" />
               </div>
-              <div className="mt-4">
-                <img src="../assets/facebook.png" alt="Apple" />
+              <div className="mt-4 cursor-pointer">
+                <img src="\assets\facebook.png" alt="Apple" />
               </div>
 
             <div className="text-sm mt-6 text-center ">

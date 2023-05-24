@@ -1,0 +1,428 @@
+/** STYLES 4 ALL */
+
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    font-family: 'Roboto', sans-serif;
+    background-color: #fafafa;
+}
+
+.centerDiv
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.whiteColor
+{
+    color: rgb(238, 241, 243)
+}
+
+.orangeColor
+{
+    color: rgb(248, 154, 22);
+}
+
+.position1
+{
+    z-index: 1300;
+}
+
+.position2
+{
+    z-index: 1250;
+}
+
+.position3
+{
+    z-index: 1100;
+}
+
+.position4
+{
+    z-index: 1050;
+}
+
+
+/*! ===================================
+                            LOADERS
+======================================*/
+
+.isLocating
+{
+    position: absolute;
+    width: 80%;
+    margin: 0 auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    display: grid;
+    gap: 10px;
+    justify-content: center;
+}
+
+
+.isLocating .me
+{
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+}
+
+.loader,
+.loaderMe
+{
+    justify-self: center;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: block;
+    color: rgba(0, 0, 0, 0.6);
+    animation: animloader 800ms linear infinite;
+}
+
+.loaderMe
+{
+    color: rgb(247, 128, 1);
+}
+
+
+
+/* ===================================
+                            KEYFRAMES
+======================================*/
+
+@keyframes animloader
+{
+    0%
+    {
+        box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 -2px;
+    }
+
+    25%
+    {
+        box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 2px;
+    }
+
+    50%
+    {
+        box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 2px, -38px 0 0 -2px;
+    }
+
+    75%
+    {
+        box-shadow: 14px 0 0 2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 -2px;
+    }
+
+    100%
+    {
+        box-shadow: 14px 0 0 -2px, 38px 0 0 2px, -14px 0 0 -2px, -38px 0 0 -2px;
+    }
+}
+
+
+@keyframes cookies
+{
+    0%
+    {
+        transform: translate3d(0, -200%, 0)
+    }
+
+    100%
+    {
+        transform: translate3d(0, 0, 0)
+    }
+
+}
+
+/*! ===================================
+                        MEDIA QUERIES
+======================================*/
+
+
+/*! ===================================
+                    TAILWIND IMPORTS
+======================================*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/*! +++++++++++++++ */
+
+.divPopup
+{
+    top: 33vh;
+    width: 100%;
+    animation: cookies 1s cubic-bezier(0.05, 1.04, 0.72, 0.98) 0s;
+}
+
+
+.divPopup div
+{
+    margin: 0 auto;
+    width: 342px;
+    height: 342px;
+    background-color: rgba(250, 250, 250, 0.9);
+    padding: 32px;
+    gap: 24px;
+    box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 36.3447px;
+}
+
+.divQR
+{
+    background-color: rgb(247, 128, 1);
+}
+
+.divPopup button
+{
+    color: rgb(250, 250, 250);
+    background: #F67F00;
+    border-radius: 3.63447px;
+    width: 283.49px;
+    height: 50px;
+    font-size: 16px;
+    padding: 9px;
+}
+
+
+.leaflet-container
+{
+
+    position: relative;
+    width: 100wv;
+    height: 450px;
+}
+
+
+.leaflet-popup-content-wrapper
+{
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    width: 250px;
+}
+
+.leaflet-popup-content
+{
+    margin: 0 5px 5px 5px;
+}
+
+.leaflet-popup-content p
+{
+    margin: 0;
+}
+
+.artInfoPlace
+{
+    color: rgb(0, 0, 0);
+}
+
+
+.artInfoPlace .container
+{
+    display: grid;
+    grid-template-columns: 0.25fr 0.75fr;
+    gap: 3px;
+    justify-items: left;
+    align-content: start;
+}
+
+.divImg img
+{
+    width: 50px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+
+.artInfoPlace button:hover
+{
+    background-color: rgb(249, 244, 237);
+}
+
+.contPopup
+{
+    grid-template-columns: 0.1fr 0.9fr;
+}
+
+.contClock
+{
+    grid-template-columns: 0.9fr 0.1fr;
+}
+
+
+.divBtnsMap
+{
+    color: Black;
+}
+
+.divMapSearch form
+{
+    margin: 0 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.divMapSearch input
+{
+    padding: 8px 16px;
+    text-indent: 16px;
+    width: 100%;
+    margin: 8px;
+    border: 1px solid #999999;
+    border-radius: 4px;
+}
+
+.divBtnsMap
+{
+    z-index: 1005;
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    border-radius: 2px;
+    background-color: rgb(244, 244, 244);
+    box-shadow: 0 0 2px black;
+}
+
+.glass
+{
+    z-index: 1005;
+    position: absolute;
+    padding: 16px;
+}
+
+
+.isNearest
+{
+    color: rgb(247, 128, 1);
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+
+.gridPoints
+{
+    grid-template-columns: 0.35fr 0.65fr;
+}
+
+.gridCoins
+{
+    grid-template-columns: 0.4fr 0.6fr;
+}
+
+/*! +++++++++++++++ */
+
+/*! +++++++++++++++ */
+
+/* General Card type*/
+
+.gcardContainer
+{
+
+    animation: cookies 1s cubic-bezier(0.05, 1.04, 0.72, 0.98) 0s;
+    position: fixed;
+    top: 33vh;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.gCard
+{
+    background-color: #fafafa;
+    border-radius: 8px;
+    box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.25);
+    padding: 24px;
+    text-align: center;
+    width: 342px;
+    margin: 0 auto;
+    position: absolute;
+}
+
+.gCard h3
+{
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.gCard p
+{
+    padding: 0 10px;
+    font-size: 14px;
+    color: rgb(82, 78, 78);
+}
+
+.qrContainer
+{
+    margin-top: 16px;
+    background-color: #f89a16;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.qr
+{
+    width: 90%;
+    max-width: 200px;
+    display: block;
+    margin: 0 auto;
+}
+
+.ganaPuntos
+{
+    margin-top: 12px;
+    color: #fafafa !important;
+    font-size: 1.7rem !important;
+}
+
+.centerContainer a
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/***/
+.Logo {
+
+    height: 30px;
+    margin-top: 20px;
+    margin-bottom: -45px;
+    margin-left: 50px;
+}
+
+/**/
+
+.carousel .slide .imgCoin {
+    object-fit: contain !important;
+}
+
+.carousel .slide img
+{
+    object-fit: cover !important;
+    border-radius: 10px;
+}
+
+
+

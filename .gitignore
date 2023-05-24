@@ -11,6 +11,15 @@ node_modules
 dist
 dist-ssr
 *.local
+.env
+
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 
 # Editor directories and files
 .vscode/*
@@ -22,3 +31,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+.yarn/install-state.gz
+

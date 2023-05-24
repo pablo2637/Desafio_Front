@@ -12,7 +12,7 @@ export const Carrousel = () => {
 
       <Carousel
         autoPlay
-        infiniteLoop
+        infiniteLoop={true}
         showStatus={false}
         showThumbs={false}
         showIndicators

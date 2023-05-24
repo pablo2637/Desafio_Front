@@ -33,7 +33,7 @@ export const LoginForm = () => {
           <form
             onSubmit={onSubmit}
             noValidate
-            className="w-full max-w-sm mx-auto p-8 rounded-md shadow-md">
+            className="w-full max-w-sm mx-auto p-8 rounded-md ">
 
             <div className="mb-5">
               <input

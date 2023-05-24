@@ -27,12 +27,14 @@ export const RegisterForm = () => {
           <form
             onSubmit={onSubmit}
             noValidate
-            className="w-full max-w-sm mx-auto p-8 rounded-md shadow-md">
+            className="w-full max-w-sm mx-auto p-8 rounded-md">
 
             <div className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2">Nombre</label>
               <input
                 onChange={handleChange}
+                autoComplete="off"
+                autoFocus
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
                 type="text"
                 id="name"
@@ -47,6 +49,7 @@ export const RegisterForm = () => {
               <label className="block text-gray-700 text-sm font-bold mb-2">Apellidos</label>
               <input
                 onChange={handleChange}
+                autoComplete="off"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
                 type="text"
                 id="last_name"
@@ -61,6 +64,7 @@ export const RegisterForm = () => {
               <label className="block text-gray-700 text-sm font-bold mb-2">Email</label>
               <input
                 onChange={handleChange}
+                autoComplete="off"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
                 type="email"
                 id="email"
@@ -75,6 +79,7 @@ export const RegisterForm = () => {
               <label className="block text-gray-700 text-sm font-bold mb-2">Password</label>
               <input
                 onChange={handleChange}
+                autoComplete="off"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
                 type="password"
                 id="password"

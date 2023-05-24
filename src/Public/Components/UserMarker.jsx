@@ -23,7 +23,7 @@ export const UserMarker = ({ findMe }) => {
         locationfound(e) {
 
             setPosition(e.latlng);
-            map.flyTo(e.latlng, map.getZoom());
+            map.flyTo(e.latlng, 16);
 
             dispatch(onLoadCoords({ lat: e.latitude, long: e.longitude }));
         },
@@ -37,7 +37,7 @@ export const UserMarker = ({ findMe }) => {
             map.locate();
 
         } else {
-            
+
             setPosition([coords.lat, coords.long]);
             dispatch(onLocating(false));
         }

@@ -66,7 +66,7 @@ export const PointsObtained = ({ recycle }) => {
 
                 (screenOne == 1) &&
 
-                <article className="gcardContainer">
+                <article className="gcardContainer ">
 
                     <div className="gCard">
 

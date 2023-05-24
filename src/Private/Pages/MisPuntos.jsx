@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Ofertas } from '../Components/Ofertas';
@@ -73,14 +72,21 @@ export const MisPuntos = () => {
   return (
     <>
 
+      <section>
       <div className='absolute top-0 left-0 z-[-1] w-full h-[300px]'>
         <img className='w-full max-h-68 object-fill' src="../assets/rectangle.png" />
       </div>
+      </section>
 
+
+    <section>
       <div className=" my-8  pb-4">
         <h3 className='mb-8 text-center text-2xl font-bold'>Tu balance</h3>
         <Allpuntos sums={sums} />
       </div>
+      </section>
+
+      <section>
 
       <div>
         <h3 className='mb-4 text-center text-2xl font-bold'>Ofertas Destacadas</h3>
@@ -95,6 +101,7 @@ export const MisPuntos = () => {
           <img className='glass' src="../assets/glass.png" />
         </form>
       </div>
+      </section>
 
 
       {
@@ -107,7 +114,9 @@ export const MisPuntos = () => {
         </div>
       }
 
+      <section>
       <Ofertas />
+      </section>
 
 
       {

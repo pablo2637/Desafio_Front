@@ -1,4 +1,4 @@
-import { Disclosure} from '@headlessui/react'
+import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useSelector } from 'react-redux'
 import { CreateQR } from '../../Public/Components'
@@ -33,12 +33,12 @@ export const NavBarUser = ({ qr, setQr, user, prevPoints }) => {
     <Disclosure as="nav" className="bg-transparent position3">
       {({ open, close }) => (
 
-      <>
+        <>
 
           <div >
             <img src="../assets/Logo.png" alt="logo" className='Logo' />
-            </div>
-       
+          </div>
+
 
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between ">
@@ -67,15 +67,11 @@ export const NavBarUser = ({ qr, setQr, user, prevPoints }) => {
 
               </div>
 
-              
+
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start w-full">
 
-                {/* <div>
-                  <p>Hola, {user.name} {user.last_name}</p>
-                </div> */}
-
                 <div className="hidden sm:ml-6 sm:block">
-                  
+
                   <div className="flex space-x-4">
 
                     {navigation.map((item) => (
@@ -90,7 +86,7 @@ export const NavBarUser = ({ qr, setQr, user, prevPoints }) => {
                       >
                         {item.name}
                       </NavLink>
-                    ))}                    
+                    ))}
                   </div>
                 </div>
               </div>
@@ -116,11 +112,12 @@ export const NavBarUser = ({ qr, setQr, user, prevPoints }) => {
 
 
           <Disclosure.Panel className="sm:hidden">
-          {user && (
+            {user && (
               <div className="ml-3 px-2 py-1 border-t border-gray-200">
                 <p className="text-gray-700">
-                  Hola {user.name}, tienes <span className='text-amber-600 font-bold'>{prevPoints}pts.</span>
-                    
+
+                  Hola <span className='capitalize'>{user.name}</span>, tienes <span className='text-amber-600 font-bold'>{prevPoints}pts.</span>
+
                 </p>
               </div>
             )}
@@ -145,7 +142,7 @@ export const NavBarUser = ({ qr, setQr, user, prevPoints }) => {
 
           </Disclosure.Panel>
 
-         
+
         </>
       )}
     </Disclosure>

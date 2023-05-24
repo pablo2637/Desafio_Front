@@ -48,6 +48,11 @@ export const Ofertas = () => {
   ];
 
   return (
+
+
+    <>
+
+    <section>
     <div className="flex justify-center">
     <div className="grid grid-cols-2 gap-4">
       {offers.map((offer) => (
@@ -73,6 +78,8 @@ export const Ofertas = () => {
       ))}
     </div>
   </div>
+  </section>
+  </>
   );
 };
 

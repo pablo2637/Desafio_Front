@@ -12,7 +12,8 @@ export const LoginForm = () => {
   } = useForm();
 
 
-  const { errorMessage, loginStart } = useUserStore();
+
+  const { errorMessage, loginStart, isLoading } = useUserStore();
 
   const onSubmit = (ev) => {
 
@@ -25,6 +26,7 @@ export const LoginForm = () => {
 
     <>
       <section className="bg-[#fafafa]">
+
 
         <div className="container mx-auto py-8">
           <h3 className="text-2xl font-bold mb-6 text-center">Inicia sesión o regístrate para conseguir puntos</h3>
@@ -91,38 +93,44 @@ export const LoginForm = () => {
                 name="password"
                 placeholder="********" />
               {
-                errorMessage && <span className="text-red-600">{errorMessage}</span>
+                errorMessage && <span className="text-red-600 text-sm">{errorMessage}</span>
               }
             </div>
-              
+
             <div className="block text-gray-400 text-sm absolute right-8 mt-0">
               <button>
-            <p>¿Has olvidado tu contraseña?</p>
-            </button>
+                <p>¿Has olvidado tu contraseña?</p>
+              </button>
             </div>
 
             <button
               className="w-full bg-[#f67f00] text-white text-base font-medium py-2 px-4 mt-10  rounded-md hover:bg-[#C95C03] transition duration-300"
               type="submit">Inicia sesión</button>
 
-          
-              <h2 className="text-center mt-6 text-lg">
-                O inicia sesión con
-              </h2>
-              <div className="mt-6 cursor-pointer">
-                <img src="\assets\Apple.png" alt="Apple" />
+            {
+              (isLoading) &&
+              <div className="grid mt-3 w-full">
+                <span className="loader"></span>
               </div>
-              <div className="mt-4 cursor-pointer">
-                <img src="\assets\google.png" alt="Apple" />
-              </div>
-              <div className="mt-4 cursor-pointer">
-                <img src="\assets\facebook.png" alt="Apple" />
-              </div>
+            }
+
+            <h2 className="text-center mt-6 text-lg">
+              O inicia sesión con
+            </h2>
+            <div className="mt-6 cursor-pointer">
+              <img src="\assets\Apple.png" alt="Apple" />
+            </div>
+            <div className="mt-4 cursor-pointer">
+              <img src="\assets\google.png" alt="Apple" />
+            </div>
+            <div className="mt-4 cursor-pointer">
+              <img src="\assets\facebook.png" alt="Apple" />
+            </div>
 
             <div className="text-sm mt-6 text-center ">
               <p>  ¿No tienes cuenta? </p>
               <NavLink to={"/register"} className="text-[#f67f00] hover:text-cyan-800 ">
-              Regístrate aquí
+                Regístrate aquí
               </NavLink>
             </div>
 

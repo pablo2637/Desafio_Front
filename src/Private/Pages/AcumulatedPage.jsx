@@ -32,7 +32,6 @@ export const AcumulatedPage = () => {
   }
 
 
-
   useEffect(() => {
 
     getDiff();
@@ -45,7 +44,7 @@ export const AcumulatedPage = () => {
 
     <>
     
-      <h2 className='ml-4 text-gray-500'>Tu balance - Tus puntos acumulados:</h2>
+      <h2 className='ml-5 mt-3 text-gray-500'>Tu balance - Tus puntos acumulados:</h2>
 
       <div className="flex justify-around mt-12">
     

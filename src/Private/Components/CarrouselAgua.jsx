@@ -11,7 +11,7 @@ export const CarrouselAgua = () => {
       <article className=''>
 
       
-          <h2 className=' mt-8 mb-4 ml-5'>Tu balance - Tu impacto en el agua:</h2>
+          <h2 className=' mt-3 mb-4 ml-5 text-gray-500'>Tu balance - Tu impacto en el agua:</h2>
 
           <div>
 

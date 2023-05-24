@@ -2,7 +2,7 @@ import { deleteLocal, setLocal } from '../Helpers/localStorage';
 import { validateToken } from '../Helpers/validateToken';
 import { useDispatch, useSelector } from 'react-redux';
 import { onLogin, onLogout } from '../Store/Slices/userSlice';
-import { onRecommended } from '../Store/Slices/placesSlice';
+import { onLogoutPlaces, onRecommended } from '../Store/Slices/placesSlice';
 
 
 export const useValidateToken = () => {
@@ -31,7 +31,7 @@ export const useValidateToken = () => {
 
                         dispatch(onRecommended(array));
                     }
-                    
+
                     dispatch(onLogin(petition.user[0]));
                 }
 
@@ -41,6 +41,7 @@ export const useValidateToken = () => {
 
                 deleteLocal();
                 dispatch(onLogout());
+                dispatch(onLogoutPlaces());
             }
         }, 3000)
 

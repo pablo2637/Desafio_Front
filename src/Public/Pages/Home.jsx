@@ -10,7 +10,6 @@ import { getReycles, sumLiters, sumRecycles } from "../helpers/getReycles";
 import { PointsObtained } from "../../Private/Components/PointsObtained";
 import { IdCarrousel } from "../Components/IdCarrousel";
 
-
 export const Home = () => {
 
     const [cookies, setCookies] = useState(getLocalCookies());

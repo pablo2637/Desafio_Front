@@ -1,6 +1,8 @@
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { NavLink } from 'react-router-dom';
+import '../../main.css'
+
 
 const navigation = [
   { name: 'Home', href: '/', current: false },
@@ -22,6 +24,12 @@ export const NavBar = () => {
       {({ open, close }) => (
 
         <>
+
+            <div >
+            <img src="../assets/Logo.png" alt="logo" className='Logo' />
+            </div>
+
+   
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden  w-full">
@@ -77,6 +85,7 @@ export const NavBar = () => {
                           className="fill-current text-white h-6 m-auto w-6 hover:text-white hover:bg-gray-600"
                         />
                       </NavLink>
+                      
                     </div>
                   </div>
 
@@ -86,6 +95,8 @@ export const NavBar = () => {
 
             </div>
           </div>
+
+
 
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2 absolute z-[1200] bg-[#fafafa] w-full">

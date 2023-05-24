@@ -402,6 +402,18 @@ body
     justify-content: center;
 }
 
+
+/***/
+.Logo {
+
+    height: 30px;
+    margin-top: 20px;
+    margin-bottom: -45px;
+    margin-left: 50px;
+}
+
+/**/
+
 .carousel .slide img
 {
     object-fit: cover;
@@ -411,3 +423,4 @@ body
 .carousel .slide .imgCoin {
     object-fit: contain;
 }
+

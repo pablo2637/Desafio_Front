@@ -61,14 +61,17 @@ export const AcumulatedPage = () => {
       </div>
 
       {
-        (rec) &&
-        rec.map(recycle => (
-
-          <AcumulatedPoints
-            key={recycle.rec_id}
-            recycle={recycle}
-          />
-        ))
+        <table className="mx-auto mt-12 w-11/12">
+          <tbody>
+            {rec.length > 0 ? (
+              <AcumulatedPoints recycle={rec} />
+            ) : (
+              <tr>
+                <td>No hay datos</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
       }
 
     </>

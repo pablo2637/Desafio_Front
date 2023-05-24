@@ -13,6 +13,7 @@ export const Win1000Form = () => {
     const { user } = useSelector(state => state.user);
 
     const [screenOne, setScreenOne] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -46,6 +47,8 @@ export const Win1000Form = () => {
 
         ev.preventDefault();
 
+        setIsLoading(true);
+
         const recycleData = {
             user_id: user.user_id,
             place_id: ev.target.restaurant.value,
@@ -55,7 +58,6 @@ export const Win1000Form = () => {
         };
 
         const response = await masterFetch('api/recycle', 'POST', recycleData);
-        console.log('response', response);
 
         if (response.ok) {
 
@@ -75,6 +77,8 @@ export const Win1000Form = () => {
             }
         }
 
+        setIsLoading(false);
+
     };
 
 
@@ -87,6 +91,8 @@ export const Win1000Form = () => {
     return (
 
         <section className="w-full mt-10">
+
+
 
             <form
                 onSubmit={onSubmit}>
@@ -137,8 +143,6 @@ export const Win1000Form = () => {
 
                                         :
                                         <option defaultValue="">No hay coincidencias...</option>
-
-
                                 }
                             </select>
                         </div>
@@ -161,10 +165,15 @@ export const Win1000Form = () => {
                                 src="\assets\share_white.png"
                                 alt="gana1000" />
                         </div>
-
-
                     </button>
                 </div>
+
+                {
+                    (isLoading) &&
+                    <div className="grid mt-3 w-full">
+                        <span className="loader"></span>
+                    </div>
+                }
 
             </form>
 

@@ -36,8 +36,9 @@ export const IdCarrousel = () => {
 
   return (
     <>
+    <section>
       <div className='mt-28'>
-        <p className="ml-4 mb-4 text-left text-2xl">
+        <p className="ml-4 mb-4 mt-4 text-left text-2xl">
           <strong>Restaurantes donde podrás canjear los puntos</strong>
         </p>
         <div className="max-w-4xl mx-auto">
@@ -62,7 +63,7 @@ export const IdCarrousel = () => {
                     <div key={restaurant.id} className="relative w-44">
 
                       <div className="h-32 w-full">
-                        <img src={restaurant.image_url} alt={restaurant.name} className="h-full w-full max-w-full rounded-sm" />
+                        <img src={restaurant.image_url || '../assets/NoPic.png'} alt={restaurant.name} className="h-full w-full max-w-full rounded-sm" />
                       </div>
                       <p className="text-left font-medium text-base mt-1 mb-3">{restaurant.name}</p>
 
@@ -87,6 +88,7 @@ export const IdCarrousel = () => {
           )}
         </div>
       </div>
+      </section>
     </>
   )
 };

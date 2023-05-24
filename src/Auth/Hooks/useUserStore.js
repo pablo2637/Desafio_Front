@@ -4,14 +4,20 @@ import { masterFetch } from "../../Api/fetch";
 import { onError, onLogin, onRegister } from "../../Store/Slices/userSlice";
 import { onRecommended } from "../../Store/Slices/placesSlice";
 import { setLocal } from "../../Helpers/localStorage";
+import { useState } from "react";
+
 
 export const useUserStore = () => {
 
-    const { errorMessage, user } = useSelector(state => state.user)
+
+    const { errorMessage, user } = useSelector(state => state.user);
+
+    const [isLoading, setIsLoading] = useState(false);
 
     const dispatch = useDispatch();
 
     const navigate = useNavigate();
+
 
 
     const dispatchError = (error) => {
@@ -30,20 +36,41 @@ export const useUserStore = () => {
 
         try {
 
+            setIsLoading(true);
+            
             let petition;
+            const regexEmail = new RegExp(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/);
+
+
+            if (form) {
+                if (form?.email) {
+                    if (!regexEmail.test(form?.email) && form?.email != '') {
+
+                        const err = 'El formato del email no es válido';
+
+                        dispatchError(err);
+                        setIsLoading(false);
+                        return;
+
+                    }
+                }
+            }
+
 
             if (place == 'place')
-                petition = await masterFetch('api/places/login', 'POST', form)
+                petition = await masterFetch('api/places/login', 'POST', form);
 
             else
-                petition = await masterFetch('api/users/login', 'POST', form)
+                petition = await masterFetch('api/users/login', 'POST', form);
 
 
 
-            if (petition.ok == false)
+            if (petition.ok == false) {
+
+                setIsLoading(false);
                 dispatchError(petition.msg);
 
-            else {
+            } else {
 
                 const user = petition.data[0]
 
@@ -60,9 +87,11 @@ export const useUserStore = () => {
                     dispatch(onRecommended(array));
                 }
 
-                const token = petition.token
+                const token = petition.token;
 
                 setLocal({ token, role: user.role })
+
+                setIsLoading(false);
 
                 navigate("/");
             }
@@ -72,13 +101,16 @@ export const useUserStore = () => {
 
             console.log('FAILED loginStart:', error)
         }
-    }
+    };
+
+
 
     const registerStart = async (form) => {
 
         try {
 
             const errs = {};
+            setIsLoading(true);
 
             const regexName = new RegExp(/^[A-Za-z\-\s]+$/);
             const regexEmail = new RegExp(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/);
@@ -118,8 +150,9 @@ export const useUserStore = () => {
                 }
 
                 if (Object.entries(errs).length > 0) {
-                    console.log('form', form);
+
                     dispatchError(errs);
+                    setIsLoading(false);
                     return;
                 }
             }
@@ -127,17 +160,19 @@ export const useUserStore = () => {
 
             const petition = await masterFetch('api/users', 'POST', form)
 
-            if (petition.ok == false)
+            if (petition.ok == false) {
+                setIsLoading(false);
                 dispatchError(petition.errors);
 
-            else {
+            } else {
 
                 dispatch(onRegister(petition.data[0]))
 
                 const token = petition.token
 
 
-                setLocal({ token, role: petition.data[0].user.role })
+                setLocal({ token, role: petition.data[0].user.role });
+                setIsLoading(true);
 
                 navigate('/')
             }
@@ -148,8 +183,9 @@ export const useUserStore = () => {
         }
     }
 
-    return {
 
+    return {
+        isLoading,
         errorMessage,
         loginStart,
         registerStart

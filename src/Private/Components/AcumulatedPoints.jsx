@@ -1,34 +1,39 @@
 
-export const AcumulatedPoints = ({recycle}) => {
 
+export const AcumulatedPoints = ({ recycle }) => {
 
-  return (
+    return (
 
-    <>
+        <>
+            {
+                recycle.map(re =>
 
-        <table key={recycle.rec_id} className="mx-auto mt-12 w-11/12">
+                    <tr key={re.rec_id} >
 
-        <tbody className='text-left'>
-            <tr>
-                <td className="text-base font-bold ">
-                    {recycle.place_name}
-                </td>
-                <td className="text-2xl text-green-700 text-right">
-                    +{recycle.reward}
-                </td>
-            </tr>
-            <tr>
-                <td className="text-sm text-gray-500 ">
-                    {new Date(recycle.register_date).toLocaleDateString('es-ES', {year: "numeric", month: "long", day: "numeric"})}
-                </td>
-                <td className="text-right">
-                    {recycle.sum}
-                </td>
-            </tr>
-        </tbody>
+                        <td className="text-base font-bold grid grid-cols-2 gap-2 mt-12">
+                            <p>
+                                {re.place_name}
+                            </p>
+                            <p className="text-green-700 text-right">
+                                +{re.reward}</p>
+                        </td>
 
-        </table>
+                        <td className="text-sm text-gray-500 grid grid-cols-2 gap-2">
 
-    </>
-  )
-}
+                            <p >
+                                {new Date(re.register_date).toLocaleDateString('es-ES', {
+                                    year: 'numeric',
+                                    month: 'long',
+                                    day: 'numeric'
+                                })}
+                            </p>
+
+                            <p className="text-right">
+                                {re.sum}</p>
+                        </td>
+                    </tr>
+                )
+            }
+        </>
+    )
+};

@@ -46,6 +46,11 @@ export const placesSlice = createSlice({
             state.isLoading = false;
         },
 
+        onLogoutPlaces: (state, action) => {
+
+            state.recommended = [];
+        },
+
         onPlaceRegister: (state, { payload }) => {
 
             state.places.push(payload);
@@ -55,4 +60,12 @@ export const placesSlice = createSlice({
     }
 })
 
-export const { onLoad, onRecommended, onLoadRestaurants, onError, onIsLoading, onPlaceRegister } = placesSlice.actions;
+export const {
+    onLoad,
+    onLogoutPlaces,
+    onRecommended,
+    onLoadRestaurants,
+    onError,
+    onIsLoading,
+    onPlaceRegister
+} = placesSlice.actions;

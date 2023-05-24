@@ -19,15 +19,16 @@ export const QRCodeReader = ({ setQRCode, qrCode }) => {
   };
 
   return (
-    <div className='camara'>      
+    <div className='mx-auto my-5 rounded-xl border-gray-800 bg-slate-100 border-2  p-1 w-4/5 h-3/4 max-h-[480px] max-w-[480px]'>
       <QrReader
+        className='w-full h-full'
         scanDelay={delayScan}
         onResult={(result, error) => {
           if (!!result) {
             console.info('data', result?.text);
             setDelayScan(false)
             setQRCode(JSON.parse(result?.text));
-            
+
           }
 
           if (!!error) {
@@ -38,9 +39,8 @@ export const QRCodeReader = ({ setQRCode, qrCode }) => {
         // onError={handleError}
         // onScan={handleScan}
         // facingMode="environment"
-        style={{ width: '50%' }}
-      />
-      <p>QR Code: {qrCode}</p>
+        // style={{ width: '50%' }}
+      />      
     </div>
   );
 };

@@ -17,6 +17,7 @@ export const Home = () => {
     const { checkToken } = useValidateToken();
 
     const { user, prevPoints, recycles, question } = useSelector(state => state.user);
+    const { recommended } = useSelector(state => state.places);
     // const [sums, setSums] = useState({});
     // const [question, setQuestion] = useState(false);
     const dispatch = useDispatch();
@@ -74,7 +75,7 @@ export const Home = () => {
 
     useEffect(() => {
         if (Object.entries(user).length > 0) getUserRecycles();
-        // checkToken();
+        checkToken();
 
     }, [user])
 
@@ -92,7 +93,6 @@ export const Home = () => {
                 <Carrousel />
 
                 <IdCarrousel />
-
 
                 <div className="bg-black opacity-100 mt-12">
                     <img src='../assets/Frame 34709.png' alt="Image 2" />
@@ -120,7 +120,7 @@ export const Home = () => {
                     (question) &&
 
                     <PointsObtained recycle={recycles[recycles.length - 1]} />
-                }            
+                }
 
             </main>
         </>

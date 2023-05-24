@@ -81,7 +81,7 @@ export const IdCarrousel = () => {
                   ))}
                 </Carousel>
               ) : (
-                <p>Aún no tienes recomendaciones.</p>
+                <p className='text-center text-slate-500'>Aún no tienes recomendaciones.</p>
               )}
             </div>
           )}

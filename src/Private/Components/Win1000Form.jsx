@@ -71,7 +71,6 @@ export const Win1000Form = () => {
 
                 const array = [...tmp];
 
-                console.log(('array', array));
                 dispatch(onRecommended(array));
             }
         }

@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from 'react-router-dom'
 import { masterFetch } from "../../Api/fetch";
 import { onError, onLogin, onRegister } from "../../Store/Slices/userSlice";
+import { onRecommended } from "../../Store/Slices/placesSlice";
 import { setLocal } from "../../Helpers/localStorage";
 
 export const useUserStore = () => {
@@ -46,10 +47,19 @@ export const useUserStore = () => {
 
                 const user = petition.data[0]
 
-                dispatch(onLogin(user))
+                dispatch(onLogin(user));
+
+                const tmp = petition.data[0].recommended
+                    .replaceAll("'", '').replaceAll('"', '')
+                    .replaceAll('[', '').replaceAll(']', '')
+                    .trim().split(',');
+
+                const array = [...tmp];
+
+                dispatch(onRecommended(array));
 
                 const token = petition.token
-                
+
                 setLocal({ token, role: user.role })
 
                 navigate("/");

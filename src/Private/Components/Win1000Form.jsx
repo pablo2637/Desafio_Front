@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { masterFetch, masterFetchData } from "../../Api/fetch";
+import { masterFetch } from "../../Api/fetch";
 import { onLoadPoints } from "../../Store/Slices/userSlice";
 import { ThanksForVoting } from "./ThanksForVoting";
 import { onRecommended } from "../../Store/Slices/placesSlice";
@@ -51,24 +51,30 @@ export const Win1000Form = () => {
             place_id: ev.target.restaurant.value,
             qty: 0,
             reward: 1000,
+            rest_id: getID(ev.target.restaurant.value)
         };
 
         const response = await masterFetch('api/recycle', 'POST', recycleData);
+        console.log('response', response);
 
-        if (true) {
+        if (response.ok) {
 
             dispatch(onLoadPoints(true));
 
             setScreenOne(true);
 
-            const rec = await masterFetchData(getID(ev.target.restaurant.value));
-            console.log('rec', rec);
+            if (response.recommended != '' && response.recommended) {
+                const tmp = response.recommended
+                    .replaceAll("'", '').replaceAll('"', '')
+                    .replaceAll('[', '').replaceAll(']', '')
+                    .trim().split(',');
 
-            if (rec)
-                dispatch(onRecommended);
+                const array = [...tmp];
 
+                console.log(('array', array));
+                dispatch(onRecommended(array));
+            }
         }
-
 
     };
 

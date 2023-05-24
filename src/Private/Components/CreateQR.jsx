@@ -33,7 +33,7 @@ export const CreateQR = ({ setQr }) => {
         {
           (qrValue) &&
           <>
-            <div className="text-right w-full">
+            <div className="absolute text-right w-full top-1 right-1">
               <button onClick={handleClose} className="">
                 <img
                   src="\assets\close.png"
@@ -41,6 +41,7 @@ export const CreateQR = ({ setQr }) => {
                   className=" cursor-pointer" />
               </button>
             </div>
+
             <h3>Este es tu QR</h3>
             <p>¡Gana puntos y protege el agua!</p>
             <p>Muestra tu código QR cuando lleves tu aceite usado al establecimiento.</p>

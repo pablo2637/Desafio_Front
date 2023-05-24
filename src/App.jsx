@@ -16,6 +16,9 @@ function App() {
     <>
 
       <header>
+
+
+        
         {
           (status === 'authenticated') ?
 
@@ -31,6 +34,7 @@ function App() {
 
             :
             <NavBar />
+            
         }
 
 

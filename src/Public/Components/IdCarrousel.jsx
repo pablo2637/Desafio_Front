@@ -36,8 +36,9 @@ export const IdCarrousel = () => {
 
   return (
     <>
+    <section>
       <div className='mt-28'>
-        <p className="ml-4 mb-4 text-left text-2xl">
+        <p className="ml-4 mb-4 mt-4 text-left text-2xl">
           <strong>Restaurantes donde podrás canjear los puntos</strong>
         </p>
         <div className="max-w-4xl mx-auto">
@@ -87,6 +88,7 @@ export const IdCarrousel = () => {
           )}
         </div>
       </div>
+      </section>
     </>
   )
 };

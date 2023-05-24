@@ -28,7 +28,7 @@ export const Thanks = ({ name, points }) => {
                     <h3>¡Gracias por reciclar!</h3>
 
                     <p className='text-base'>
-                        {name} ha ganado <span className='text-[#f67f00] font-medium'>{points} puntos</span>.
+                        <span className='capitalize font-medium'>{name}</span> ha ganado <span className='text-[#f67f00] font-medium'>{points} puntos</span>.
                     </p>
                 </div>
 

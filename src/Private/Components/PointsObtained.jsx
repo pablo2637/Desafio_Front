@@ -99,7 +99,7 @@ export const PointsObtained = ({ recycle }) => {
 
                         <button
                             onClick={handleAnswer}
-                            className="group rounded h-12 w-11/12 border-[#F67F00] border-2 p-2 text-base text-[#F67F00] hover:bg-amber-500 my-4">
+                            className="group rounded h-12 w-11/12 border-[#F67F00] border-2 p-2 text-base text-[#F67F00] hover:bg-orange-50 my-4">
                             Saltar
                         </button>
                     </div>

@@ -7,12 +7,16 @@ import { getReycles, sumLiters, sumRecycles } from '../../Public/helpers/getReyc
 import { onLoadPoints, onLoadPrevPoints, onLoadRecycles, onQuestion } from '../../Store/Slices/userSlice'
 import { Allpuntos } from '../Components/Allpuntos';
 import { PointsObtained } from '../Components/PointsObtained';
+import { useValidateToken } from '../../Hooks/useValidateToken';
 
 
 export const MisPuntos = () => {
 
   const { user, points, prevPoints, question, recycles } = useSelector(state => state.user);
   const [sums, setSums] = useState({});
+
+  const { checkToken } = useValidateToken();
+
   const dispatch = useDispatch();
 
 
@@ -62,6 +66,7 @@ export const MisPuntos = () => {
 
   useEffect(() => {
     getUserRecycles();
+    checkToken();
 
   }, [points]);
 

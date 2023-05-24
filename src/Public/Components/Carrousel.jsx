@@ -5,7 +5,7 @@ import '../css/Carousel.css';
 export const Carrousel = () => {
 
   return (
-    <div className='Container-carr'>
+    <div className='Container-carr mb-8'>
 
       <p className='texto  mt-8 mb-4 m-auto text-center'>Aprende a usar nuestra Web</p>
 

@@ -6,12 +6,12 @@ export const AcumulatedPoints = ({recycle}) => {
 
     <>
 
-        <table className="mx-auto mt-12 w-11/12">
+        <table key={recycle.rec_id} className="mx-auto mt-12 w-11/12">
 
         <tbody className='text-left'>
             <tr>
                 <td className="text-base font-bold ">
-                    {recycle.name}
+                    {recycle.place_name}
                 </td>
                 <td className="text-2xl text-green-700 text-right">
                     +{recycle.reward}

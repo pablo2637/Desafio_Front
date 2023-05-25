@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { QrReader } from 'react-qr-reader';
 
-export const QRCodeReader = ({ setQRCode, qrCode }) => {
+export const QRCodeReader = ({ setQRCode, cam, setCam }) => {
 
-  const [cam, setCam] = useState('user');
 
   const handleCam = () => {
 
@@ -31,7 +30,9 @@ export const QRCodeReader = ({ setQRCode, qrCode }) => {
       <QrReader
         className='w-full h-full'
         scanDelay={500}
-        facingMode={cam}
+        constraints={{
+          facingMode: cam
+        }}
         onResult={(result, error) => {
           if (!!result) {
             console.info('data', result?.text);

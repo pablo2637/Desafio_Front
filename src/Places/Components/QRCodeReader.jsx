@@ -25,7 +25,7 @@ export const QRCodeReader = ({ setQRCode, cam, setCam }) => {
   };
 
   return (
-    <div className='mx-auto my-5 rounded-xl border-gray-800 bg-slate-100 border-2  p-1 w-4/5 h-3/4 max-h-[480px] max-w-[480px]'>
+    <div className='mx-auto my-5 rounded-xl border-gray-800 bg-slate-100 border-2  p-1 w-4/5 h-4/5 max-h-[480px] max-w-[480px]'>
 
       <QrReader
         className='w-full h-full'

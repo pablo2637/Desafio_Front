@@ -54,4 +54,3 @@ export const QRCodeReader = ({ setQRCode, qrCode }) => {
     </div>
   );
 };
-

@@ -3,9 +3,16 @@ import { QrReader } from 'react-qr-reader';
 
 export const QRCodeReader = ({ setQRCode, qrCode }) => {
 
+  const [cam, setCam] = useState('user');
 
+  const handleCam = () => {
 
-  const [delayScan, setDelayScan] = useState(500);
+    if (cam === 'user')
+      setCam('environment');
+
+    else
+      setCam('user');
+  }
 
   const handleScan = (data) => {
     console.log('data', data)
@@ -20,13 +27,14 @@ export const QRCodeReader = ({ setQRCode, qrCode }) => {
 
   return (
     <div className='mx-auto my-5 rounded-xl border-gray-800 bg-slate-100 border-2  p-1 w-4/5 h-3/4 max-h-[480px] max-w-[480px]'>
+
       <QrReader
         className='w-full h-full'
-        scanDelay={delayScan}
+        scanDelay={500}
+        facingMode={cam}
         onResult={(result, error) => {
           if (!!result) {
             console.info('data', result?.text);
-            setDelayScan(false)
             setQRCode(JSON.parse(result?.text));
 
           }
@@ -35,13 +43,14 @@ export const QRCodeReader = ({ setQRCode, qrCode }) => {
             console.info('error');
           }
         }}
-        // delay={300}
-        // onError={handleError}
-        // onScan={handleScan}
-        // facingMode="environment"
-        // style={{ width: '50%' }}
-      />      
+      // delay={300}
+      // onError={handleError}
+      // onScan={handleScan}
+      // facingMode="environment"
+      // style={{ width: '50%' }}
+      />
+      <button className='hover:text-[#f89a16] hover:bg-gray-100 h-2 text-lg w-full text-center' onClick={handleCam}><i className="fa-solid fa-camera-rotate"></i></button>
+
     </div>
   );
 };
-

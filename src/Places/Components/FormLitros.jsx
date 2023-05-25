@@ -62,7 +62,6 @@ export const FormLitros = ({ setQRCode, qrCode }) => {
   return (
     <>
       <section>
-        <p>thanks:{thanks.toString()}</p>
 
         <div className=" w-4/5 mx-auto mt-4 ">
           <form onSubmit={handleSubmit} noValidate className=" shadow-lg p-4 rounded-md">

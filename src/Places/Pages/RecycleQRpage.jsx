@@ -5,6 +5,9 @@ import { useValidateToken } from '../../Hooks/useValidateToken';
 export const RecycleQRpage = () => {
 
   const [qrCode, setQRCode] = useState('');
+
+  const [cam, setCam] = useState('user');
+
   const { checkToken } = useValidateToken();
 
   useEffect(() => {
@@ -21,7 +24,8 @@ export const RecycleQRpage = () => {
 
         {
           (qrCode === '') &&
-          <QRCodeReader qrCode={qrCode} setQRCode={setQRCode} className="" />
+
+          <QRCodeReader key={Date.now()} setQRCode={setQRCode} cam={cam} setCam={setCam} />
         }
 
         <FormLitros setQRCode={setQRCode} qrCode={qrCode} />

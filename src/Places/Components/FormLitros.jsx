@@ -7,6 +7,7 @@ import { Thanks } from './Thanks';
 export const FormLitros = ({ setQRCode, qrCode }) => {
 
   const [quantity, setQuantity] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const [thanks, setThanks] = useState(false);
 
   const { user } = useSelector(state => state.user);
@@ -27,6 +28,8 @@ export const FormLitros = ({ setQRCode, qrCode }) => {
     if (quantity == '') return;
     if (e.target.userId.value = '') return;
 
+    setIsLoading(true);
+
     // Calculating reward segun la cantidad
     const rewardValue = parseFloat(quantity) * 100;
 
@@ -43,6 +46,8 @@ export const FormLitros = ({ setQRCode, qrCode }) => {
 
       if (response.ok)
         setThanks(true);
+
+      setIsLoading(false);
 
       // setReward(rewardValue); // Actualizar el estado del reward con el valor calculado
     } catch (error) {
@@ -128,6 +133,13 @@ export const FormLitros = ({ setQRCode, qrCode }) => {
               >
                 Canjear
               </button>
+            }
+
+            {
+              (isLoading) &&
+              <div className="grid mt-3 w-full">
+                <span className="loader"></span>
+              </div>
             }
 
           </form>

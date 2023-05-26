@@ -37,21 +37,38 @@ export const useUserStore = () => {
         try {
 
             setIsLoading(true);
-            
+
             let petition;
             const regexEmail = new RegExp(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/);
+            const regexPhone = new RegExp(/^[0-9]{2,}$/);
 
 
             if (form) {
-                if (form?.email) {
-                    if (!regexEmail.test(form?.email) && form?.email != '') {
+                if (place == 'place') {
+                    if (form?.phone) {
+                        if (!regexPhone.test(form?.phone) && form?.phone != '') {
 
-                        const err = 'El formato del email no es válido';
+                            const err = 'El formato del teléfono no es válido';
 
-                        dispatchError(err);
-                        setIsLoading(false);
-                        return;
+                            dispatchError(err);
+                            setIsLoading(false);
+                            return;
 
+                        }
+                    }
+
+                } else {
+
+                    if (form?.email) {
+                        if (!regexEmail.test(form?.email) && form?.email != '') {
+
+                            const err = 'El formato del email no es válido';
+
+                            dispatchError(err);
+                            setIsLoading(false);
+                            return;
+
+                        }
                     }
                 }
             }

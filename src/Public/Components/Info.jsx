@@ -27,7 +27,7 @@ export const Info = ({ name, rating, address, image_url, url, phone, price, coor
             <div className='container'>
                 <div className='divImg'>
                     {/* <img src="../assets/placeIMG.jpg" alt={`Imagen de ${place_name}`} /> */}
-                    <img src={image_url} alt={`Imagen de ${name}`} />
+                    <img src={(image_url) ? image_url : "../assets/noPic.png"} alt={`Imagen de ${name}`} />
                 </div>
                 <div>
                     <h3 className='text-ms'>{name}</h3>
@@ -70,20 +70,6 @@ export const Info = ({ name, rating, address, image_url, url, phone, price, coor
                         </div>
                         <p className='text-[0.6rem] py-1'>{(phone) ? parseInt(phone) : '--'}</p>
                     </div>
-
-                    {/* <div className='grid contPopup border-b border-gray-200'>
-                        <div className='w-3 h-3 self-center'>
-                            <img src="../assets/star.png" />
-                        </div>
-                        <p className='text-[0.6rem] py-1'>Rating: {parseFloat(rating)}</p>
-                    </div>
-
-                    <div className='grid contPopup'>
-                        <div className='w-3 h-3 self-center'>
-                            <img src="../assets/coins.png" />
-                        </div>
-                        <p className='text-[0.6rem] py-1'>{(price) ? `Precio: ${price}` : '--'}</p>
-                    </div> */}
 
                 </div>
             }
